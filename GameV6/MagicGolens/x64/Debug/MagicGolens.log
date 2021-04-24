@@ -1,21 +1,17 @@
-﻿  stdafx.cpp
-  Entidade.cpp
+﻿  Entidade.cpp
   Fase.cpp
   FasePedra.cpp
   GerenciadorAtualizacoes.cpp
   GerenciadorEstado.cpp
   GerenciadorGrafico.cpp
-  GerenciadorMapa.cpp
   Jogador.cpp
   Jogo.cpp
   ListaEntidades.cpp
   MagicGolens.cpp
-  Mapa.cpp
   Menu.cpp
   MenuFases.cpp
   MenuInicial.cpp
   MenuPause.cpp
   Personagem.cpp
-  Tile.cpp
   Gerando Código...
   MagicGolens.vcxproj -> D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe
