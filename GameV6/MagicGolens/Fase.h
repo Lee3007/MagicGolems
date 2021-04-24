@@ -22,7 +22,7 @@ protected:
 public:
 
 	//Construtora e Destrutora
-	Fase(int i = -1, const char* caminhoTile = "", const char* caminhoMapa = "");
+	Fase(const char* caminhoTile = "", const char* caminhoMapa = "");
 	~Fase();
 
 	//Funcoes

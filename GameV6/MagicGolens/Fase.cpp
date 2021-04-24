@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Fase.h"
 
-Fase::Fase(int i, const char* caminhoTile, const char* caminhoMapa) :
+Fase::Fase(const char* caminhoTile, const char* caminhoMapa) :
 	LEntidades(),
 	statusConcluida(false),
 	pontoFinal(sf::Vector2f(0.f, 0.f))

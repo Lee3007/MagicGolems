@@ -8,7 +8,7 @@ GerenciadorEstado(),
 GerenciadorGrafico(),
 GerenciadorAtualizacoes(),
 menu(&GerenciadorEstado, &GerenciadorGrafico),
-fasePedra(1, "mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt")
+fasePedra("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt")
 {
 	string caminhoTextura = "text/fallenAngel.png";
 	cout << caminhoTextura << endl;
