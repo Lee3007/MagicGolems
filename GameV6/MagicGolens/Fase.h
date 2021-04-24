@@ -19,6 +19,8 @@ protected:
 	Mapa* pMapa;
 	GerenciadorMapa* pGm;
 
+
+
 public:
 
 	//Construtora e Destrutora

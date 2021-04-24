@@ -14,3 +14,9 @@
 *.Build.CppClean.log
 *.vcxproj.FileListAbsolute.txt
 *.idb
+*.db
+*.db-shm
+GameV6/MagicGolens/.vs/MagicGolens/v16/.suo
+*.db-wal
+*.obj
+*.obj
