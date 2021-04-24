@@ -2,6 +2,8 @@
 #include "stdafx.h"
 #include "ListaEntidades.h"
 #include "Menu.h"
+#include "GerenciadorMapa.h"
+#include "Jogador.h"
 
 class Menu;
 class GerenciadorEstado;
@@ -12,10 +14,13 @@ private:
 
 	//Atributos
 	GerenciadorEstado* GEstado;
+	GerenciadorMapa* GMapa;
 	sf::RenderWindow janela;
 	sf::Event evento;
 	Menu *menu;
 	ListaEntidades *LEntidades;
+	sf::View view;
+	Jogador* jogador;
 
 public:
 
@@ -29,10 +34,13 @@ public:
 	void renderizar();
 	void setGerenciador(GerenciadorEstado* Ge);
 	void setListaEntidades(ListaEntidades* L);
+	void setGerenciadorMapa(GerenciadorMapa* Gm);
 	void setMenu(Menu* m);
 	void fecharJanela();
 	void setEvento();
 	bool janelaExecutando();
 	bool clickX();
+	void setJogador(Jogador* jog);
+	void atualizaView();
 };
 

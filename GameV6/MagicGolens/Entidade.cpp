@@ -9,6 +9,7 @@ corpo(tam)
 {
 	textura.loadFromFile(caminhoTextura);
 	corpo.setTexture(&textura);
+	corpo.setOrigin(corpo.getSize() / 2.f);
 }
 
 Entidade::~Entidade()

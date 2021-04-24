@@ -7,11 +7,14 @@
 
 GerenciadorGrafico::GerenciadorGrafico():
 janela(sf::VideoMode(1280,720), "MagicGolens"),
-evento()
+evento(),
+view(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(1920.0f, 1080.0f))
 {
 	GEstado = NULL;
 	menu = NULL;
 	LEntidades = NULL;
+	GMapa = NULL;
+	jogador = NULL;
 }
 
 GerenciadorGrafico::~GerenciadorGrafico()
@@ -30,6 +33,8 @@ void GerenciadorGrafico::desenhar()
 	else
 	{
 		Entidade* pEntidade = NULL;
+		GMapa->desenhar(&janela);
+		atualizaView();
 
 		for (int i = 0; i < LEntidades->getTamanho(); i++)
 		{
@@ -137,4 +142,25 @@ bool GerenciadorGrafico::clickX()
 	}
 	else
 		return false;
+}
+
+void GerenciadorGrafico::setGerenciadorMapa(GerenciadorMapa* Gm) {
+	GMapa = Gm;
+}
+
+void GerenciadorGrafico::setJogador(Jogador* jog) {
+	jogador = jog;
+}
+
+void GerenciadorGrafico::atualizaView()
+{
+	sf::Vector2f posicao_view = jogador->getPosicao();
+
+	if (posicao_view.x >= 960.f)
+	{
+		view.setCenter(jogador->getPosicao());
+		janela.setView(view);
+	}
+
+
 }

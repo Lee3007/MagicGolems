@@ -1,17 +1,28 @@
 #include "stdafx.h"
 #include "Fase.h"
 
-Fase::Fase(int i):
-LEntidades(),
-statusConcluida(false),
-pontoFinal(sf::Vector2f(0.f, 0.f))
+Fase::Fase(int i, const char* caminhoTile, const char* caminhoMapa) :
+	LEntidades(),
+	statusConcluida(false),
+	pontoFinal(sf::Vector2f(0.f, 0.f))
 {
 	jogador1 = NULL;
 	jogador2 = NULL;
+	pTile = new Tile(caminhoTile);
+	pMapa = new Mapa(caminhoMapa);
+	pGm = new GerenciadorMapa(pMapa, pTile);				//.......................
+
 }
 
 Fase::~Fase()
 {
+	delete (pTile);
+	pTile = NULL;
+	delete (pMapa);
+	pMapa = NULL;
+	delete (pGm);
+	pGm = NULL;
+
 }
 
 void Fase::setJogadores(Jogador* j1, Jogador* j2)
@@ -65,4 +76,8 @@ sf::Vector2f Fase::getPosicaoJogador() const
 const sf::Vector2f Fase::getPontoFinal() const
 {
 	return pontoFinal;
+}
+
+GerenciadorMapa* Fase::getGerenciadorMapa() {
+	return pGm;
 }

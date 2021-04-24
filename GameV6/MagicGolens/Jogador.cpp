@@ -18,19 +18,19 @@ void Jogador::atualizar(float t)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		velocidade.x = 200.f;
+		velocidade.x = 400.f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		velocidade.x = -200.f;
+		velocidade.x = -400.f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 	{
-		velocidade.y = -200.f;
+		velocidade.y = -400.f;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 	{
-		velocidade.y = 200.f;
+		velocidade.y = 400.f;
 	}
 
 	posicao += velocidade * t;
