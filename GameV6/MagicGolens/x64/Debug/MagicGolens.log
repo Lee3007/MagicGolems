@@ -1,1 +1,16 @@
-﻿  MagicGolens.vcxproj -> C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe
+﻿  Entidade.cpp
+  Fase.cpp
+  FasePedra.cpp
+  GerenciadorAtualizacoes.cpp
+  GerenciadorEstado.cpp
+  GerenciadorGrafico.cpp
+  GerenciadorMapa.cpp
+  Jogador.cpp
+  Jogo.cpp
+  ListaEntidades.cpp
+  MagicGolens.cpp
+  Mapa.cpp
+  Tile.cpp
+  Generating Code...
+  LINK : C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe not found or not built by the last incremental link; performing full link
+  MagicGolens.vcxproj -> C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe
