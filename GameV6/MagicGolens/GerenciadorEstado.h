@@ -4,6 +4,7 @@
 
 class GerenciadorAtualizacoes;
 class GerenciadorGrafico;
+class Menu;
 
 class GerenciadorEstado
 {
@@ -11,6 +12,7 @@ private:
 	Fase* fase1;
 	Fase* fase2;
 	Fase* fase3;
+	Menu* menu;
 	GerenciadorGrafico* GGrafico;
 	GerenciadorAtualizacoes* GAtualizacoes;
 	bool bFase1;
@@ -28,6 +30,7 @@ public:
 	void setFases(Fase* f1, Fase* f2, Fase* f3);
 	void setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga);
 	void verificaEstado();
+	void setMenu(Menu* m);
 	bool menuAtivo() const;
 	void setMenuStatus(bool b);
 };

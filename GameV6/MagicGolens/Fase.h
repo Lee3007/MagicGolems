@@ -5,6 +5,9 @@
 #include "GerenciadorMapa.h"
 #include "Fase.h"
 #include "Mapa.h"
+#include "GolemPedra.h"
+#include "GolemFogo.h"
+#include "GolemGelo.h"
 
 class Fase
 {
@@ -22,18 +25,17 @@ protected:
 public:
 
 	//Construtora e Destrutora
-	Fase(int i = -1, const char* caminhoTile = "", const char* caminhoMapa = "");
+	Fase(const char* caminhoTile = "", const char* caminhoMapa = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f));
 	~Fase();
 
 	//Funcoes
 	void setJogadores(Jogador* j1, Jogador* j2);
-	void setConcluida();
+	void setConcluida(bool b);
 	const bool getStatus() const;
 	ListaEntidades* getListaEntidades();
 	sf::Vector2f getPosicaoJogador() const;
 	virtual void setPosicaoJogadores() = 0;
 	virtual const sf::Vector2f getPontoFinal() const = 0;
 	GerenciadorMapa* getGerenciadorMapa();
-
 };
 

@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "FasePedra.h"
 
-FasePedra::FasePedra(int i, const char* caminhoTile, const char* caminhoMapa) :
-	Fase(i, caminhoTile, caminhoMapa)
+FasePedra::FasePedra(const char* caminhoTile, const char* caminhoMapa, sf::Vector2f ponto) :
+Fase(caminhoTile, caminhoMapa, ponto)
 {
-
+	criarInimigos();
 }
 
 FasePedra::~FasePedra()
@@ -13,15 +13,31 @@ FasePedra::~FasePedra()
 
 void FasePedra::setPosicaoJogadores()
 {
-	jogador1->setPosicao(sf::Vector2f(4 * 96.f, 6 * 96.f));
+	jogador1->setPosicao(sf::Vector2f(3.5 * 96.f, 28 * 96.f));
 
 	if (jogador2 != NULL)
 	{
-		jogador2->setPosicao(sf::Vector2f(500.f, 300.f));
+		jogador2->setPosicao(sf::Vector2f(4.5 * 96.f, 28 * 96.f));
 	}
 }
 
 const sf::Vector2f FasePedra::getPontoFinal() const
 {
 	return pontoFinal;
+}
+
+void FasePedra::criarInimigos()
+{
+	srand(time(NULL));
+
+	int qntd = rand() % 7 + 5;
+
+	for (int i = 0; i < qntd; i++)
+	{
+		float px = rand() % 1000;
+		float py = rand() % 500;
+
+		GolemPedra* pGolemPedra = new GolemPedra(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png");
+		LEntidades.incluirEntidade(pGolemPedra);
+	}
 }

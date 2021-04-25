@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Fase.h"
 
-Fase::Fase(int i, const char* caminhoTile, const char* caminhoMapa) :
+Fase::Fase(const char* caminhoTile, const char* caminhoMapa, sf::Vector2f ponto) :
 	LEntidades(),
 	statusConcluida(false),
-	pontoFinal(sf::Vector2f(0.f, 0.f))
+	pontoFinal(ponto)
 {
 	jogador1 = NULL;
 	jogador2 = NULL;
@@ -53,9 +53,9 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 		
 }
 
-void Fase::setConcluida()
+void Fase::setConcluida(bool b)
 {
-	statusConcluida = true;
+	statusConcluida = b;
 }
 
 const bool Fase::getStatus() const

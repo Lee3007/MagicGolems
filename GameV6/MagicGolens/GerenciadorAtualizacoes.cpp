@@ -48,7 +48,6 @@ void GerenciadorAtualizacoes::atualizar()
 	if (!GEstado->menuAtivo())
 	{
 		Entidade* pEntidade = NULL;
-		sf::Vector2f p;
 
 		for (int i = 0; i < LEntidades->getTamanho(); i++)
 		{
@@ -56,11 +55,12 @@ void GerenciadorAtualizacoes::atualizar()
 			pEntidade->atualizar(dt);
 		}
 
-		p = fase->getPosicaoJogador();
+		fase->getPosicaoJogador();
+		fase->getPontoFinal();
 
-		if (p.x >= 0 && p.x <= 60 && p.y >= 0 && p.y <= 60)
+		if (calcularDistancia(fase->getPosicaoJogador(), fase->getPontoFinal()) <= 15)
 		{
-			fase->setConcluida();
+			fase->setConcluida(true);
 		}
 	}
 }
@@ -74,4 +74,16 @@ void GerenciadorAtualizacoes::setFase(Fase* f)
 		cout << "ERRO: Gerenciador de atualizacoes nao conseguiu receber a fase devidamente" << endl;
 		exit(244);
 	}
+}
+
+float GerenciadorAtualizacoes::calcularDistancia(sf::Vector2f pj, sf::Vector2f pf)
+{
+	float d, dx, dy;
+
+	dx = (pj.x - pf.x);
+	dy = (pj.y - pf.y);
+	
+	d = sqrt(dx * dx + dy * dy);
+
+	return d;
 }

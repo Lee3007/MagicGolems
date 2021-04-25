@@ -1,0 +1,16 @@
+#pragma once
+#include "Fase.h"
+
+class FaseGelo :
+    public Fase
+{
+private:
+
+public:
+    FaseGelo(const char* caminhoTile = "", const char* caminhoMapa = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f));
+    ~FaseGelo();
+    void setPosicaoJogadores();
+    const sf::Vector2f getPontoFinal() const;
+    void criarInimigos();
+};
+
