@@ -53,9 +53,9 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 		
 }
 
-void Fase::setConcluida()
+void Fase::setConcluida(bool b)
 {
-	statusConcluida = true;
+	statusConcluida = b;
 }
 
 const bool Fase::getStatus() const

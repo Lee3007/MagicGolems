@@ -1,25 +1,5 @@
-﻿  Fase.cpp
-  FaseFogo.cpp
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FaseFogo.cpp(31,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FaseFogo.cpp(37,12): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FaseFogo.cpp(38,12): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
-  FaseGelo.cpp
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FaseGelo.cpp(31,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FaseGelo.cpp(37,12): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FaseGelo.cpp(38,12): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
-  FasePedra.cpp
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FasePedra.cpp(31,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FasePedra.cpp(37,12): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\FasePedra.cpp(38,12): warning C4244: 'inicializando': conversão de 'int' para 'float', possível perda de dados
-  GerenciadorAtualizacoes.cpp
+﻿  GerenciadorAtualizacoes.cpp
   GerenciadorEstado.cpp
-  GerenciadorGrafico.cpp
-  Jogador.cpp
-  Jogo.cpp
-  MagicGolens.cpp
-  Menu.cpp
-  MenuFases.cpp
-  MenuInicial.cpp
   MenuPause.cpp
   Gerando Código...
   MagicGolens.vcxproj -> D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe

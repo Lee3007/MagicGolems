@@ -35,8 +35,10 @@ void GerenciadorEstado::inicializarFase1()
 	GAtualizacoes->setFase(fase1);
 	GAtualizacoes->setListaEntidades(fase1->getListaEntidades());
 	fase1->setPosicaoJogadores();
-	bFase1 = true;
 	bMenu = false;
+	bFase1 = true;
+	bFase2 = false;
+	bFase3 = false;
 }
 
 void GerenciadorEstado::inicializarFase2()
@@ -46,9 +48,10 @@ void GerenciadorEstado::inicializarFase2()
 	GAtualizacoes->setFase(fase2);
 	GAtualizacoes->setListaEntidades(fase2->getListaEntidades());
 	fase2->setPosicaoJogadores();
-	bFase2 = true;
 	bMenu = false;
 	bFase1 = false;
+	bFase2 = true;
+	bFase3 = false;
 }
 
 void GerenciadorEstado::inicializarFase3()
@@ -59,6 +62,8 @@ void GerenciadorEstado::inicializarFase3()
 	GAtualizacoes->setFase(fase3);
 	fase3->setPosicaoJogadores();
 	bMenu = false;
+	bFase1 = false;
+	bFase2 = false;
 	bFase3 = true;
 }
 
@@ -95,6 +100,8 @@ void GerenciadorEstado::verificaEstado()
 		if (fase1->getStatus())
 		{
 			bFase1 = false;
+			bFase2 = false;
+			bFase3 = false;
 			inicializarFase2();
 			cout << "Inicializando fase 2!" << endl;
 		}
@@ -105,6 +112,8 @@ void GerenciadorEstado::verificaEstado()
 		if (fase2->getStatus())
 		{
 			bFase2 = false;
+			bFase1 = false;
+			bMenu = false;
 			inicializarFase3();
 			cout << "Inicializando fase 3!" << endl;
 		}
@@ -114,8 +123,13 @@ void GerenciadorEstado::verificaEstado()
 		cout << "Fase3 sendo executada" << endl;
 		if (fase3->getStatus())
 		{
+			bFase1 = false;
+			bFase2 = false;
 			bFase3 = false;
 			bMenu = true;
+			fase1->setConcluida(false);
+			fase2->setConcluida(false);
+			fase3->setConcluida(false);
 			GGrafico->setMenu(menu);
 			//*inicializarLeaderBoard();
 		}

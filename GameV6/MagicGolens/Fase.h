@@ -30,7 +30,7 @@ public:
 
 	//Funcoes
 	void setJogadores(Jogador* j1, Jogador* j2);
-	void setConcluida();
+	void setConcluida(bool b);
 	const bool getStatus() const;
 	ListaEntidades* getListaEntidades();
 	sf::Vector2f getPosicaoJogador() const;
