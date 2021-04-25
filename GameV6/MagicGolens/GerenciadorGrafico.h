@@ -32,7 +32,7 @@ public:
 	void desenhar();
 	void limpar();
 	void renderizar();
-	void setGerenciador(GerenciadorEstado* Ge);
+	void setGerenciadorEstado(GerenciadorEstado* Ge);
 	void setListaEntidades(ListaEntidades* L);
 	void setGerenciadorMapa(GerenciadorMapa* Gm);
 	void setMenu(Menu* m);

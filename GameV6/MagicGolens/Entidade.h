@@ -4,7 +4,6 @@
 class Entidade
 {
 protected:
-
 	sf::Texture textura;
 	sf::Vector2f posicao;
 	sf::Vector2f velocidade;
@@ -13,7 +12,7 @@ protected:
 public:
 
 	//Construtora e Destrutora
-	Entidade(sf::Vector2f tam = sf::Vector2f(60.f, 90.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f),string caminhoTextura = "");
+	Entidade(sf::Vector2f tam = sf::Vector2f(96.f, 144.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f),string caminhoTextura = "");
 	~Entidade();
 
 	//Funcoes

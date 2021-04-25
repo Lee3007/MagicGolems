@@ -157,11 +157,16 @@
   <ItemGroup>
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
+    <ClCompile Include="FaseFogo.cpp" />
+    <ClCompile Include="FaseGelo.cpp" />
     <ClCompile Include="FasePedra.cpp" />
     <ClCompile Include="GerenciadorAtualizacoes.cpp" />
     <ClCompile Include="GerenciadorEstado.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="GerenciadorMapa.cpp" />
+    <ClCompile Include="GolemGelo.cpp" />
+    <ClCompile Include="GolemFogo.cpp" />
+    <ClCompile Include="GolemPedra.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
@@ -183,11 +188,16 @@
   <ItemGroup>
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
+    <ClInclude Include="FaseFogo.h" />
+    <ClInclude Include="FaseGelo.h" />
     <ClInclude Include="FasePedra.h" />
     <ClInclude Include="GerenciadorAtualizacoes.h" />
     <ClInclude Include="GerenciadorEstado.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="GerenciadorMapa.h" />
+    <ClInclude Include="GolemGelo.h" />
+    <ClInclude Include="GolemFogo.h" />
+    <ClInclude Include="GolemPedra.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />

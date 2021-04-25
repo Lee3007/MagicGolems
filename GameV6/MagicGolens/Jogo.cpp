@@ -8,7 +8,9 @@ GerenciadorEstado(),
 GerenciadorGrafico(),
 GerenciadorAtualizacoes(),
 menu(&GerenciadorEstado, &GerenciadorGrafico),
-fasePedra("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt")
+fasePedra("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt", sf::Vector2f(2720.f, 2710.f)),
+faseFogo("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt", sf::Vector2f(2720.f, 2710.f)),
+faseGelo("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt", sf::Vector2f(2720.f, 2710.f))
 {
 	string caminhoTextura = "text/fallenAngel.png";
 	cout << caminhoTextura << endl;
@@ -16,10 +18,13 @@ fasePedra("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt")
 
 	inicializarGerenciadores();
 	fasePedra.setJogadores(jogador1, NULL);
+	faseFogo.setJogadores(jogador1, NULL);
+	faseGelo.setJogadores(jogador1, NULL);
 }
 
 Jogo::~Jogo()
 {
+
 }
 
 //Funcoes
@@ -51,11 +56,11 @@ void Jogo::inicializarGerenciadores()
 
 	//GerenciadorGrafico
 	GerenciadorGrafico.setMenu(&menu);
-	GerenciadorGrafico.setGerenciador(&GerenciadorEstado);
-	GerenciadorGrafico.setGerenciadorMapa(fasePedra.getGerenciadorMapa());		//arrumar!!!!!
+	GerenciadorGrafico.setGerenciadorEstado(&GerenciadorEstado);
 	GerenciadorGrafico.setJogador(jogador1);
 
 	//GerenciadorEstado
+	GerenciadorEstado.setMenu(&menu);
 	GerenciadorEstado.setGerenciadores(&GerenciadorGrafico, &GerenciadorAtualizacoes);
-	GerenciadorEstado.setFases(&fasePedra, NULL, NULL);
+	GerenciadorEstado.setFases(&fasePedra, &faseFogo, &faseGelo);
 }

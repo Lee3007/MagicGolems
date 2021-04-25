@@ -159,11 +159,10 @@ void Lista<TL>::excluirInfo(TL* info)
 	{
 		pAux = pAux->getpProx();
 	}
-	
+
 	pAux->getpAnt()->setpProx(pAux->getpProx());
 	pAux->getpProx()->setpAnt(pAux->getpAnt());
 	delete pAux;
-
 }
 
 template<class TL>

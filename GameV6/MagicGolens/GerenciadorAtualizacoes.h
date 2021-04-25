@@ -26,5 +26,6 @@ public:
 	void atualizar();
 	void setFase(Fase* f);
 	sf::Vector2f* getPosicaoJogador();
+	float calcularDistancia(sf::Vector2f pj, sf::Vector2f pf);
 };
 

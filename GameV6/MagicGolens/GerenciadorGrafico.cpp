@@ -28,6 +28,7 @@ void GerenciadorGrafico::desenhar()
 {
 	if (GEstado->menuAtivo())
 	{
+		janela.setView(janela.getDefaultView());
 		menu->desenhar(&janela);
 	}
 	else
@@ -75,7 +76,7 @@ void GerenciadorGrafico::renderizar()
 	janela.display();
 }
 
-void GerenciadorGrafico::setGerenciador(GerenciadorEstado* Ge)
+void GerenciadorGrafico::setGerenciadorEstado(GerenciadorEstado* Ge)
 {
 	if (Ge != NULL)
 		GEstado = Ge;
@@ -156,11 +157,6 @@ void GerenciadorGrafico::atualizaView()
 {
 	sf::Vector2f posicao_view = jogador->getPosicao();
 
-	if (posicao_view.x >= 960.f)
-	{
-		view.setCenter(jogador->getPosicao());
-		janela.setView(view);
-	}
-
-
+	view.setCenter(jogador->getPosicao());
+	janela.setView(view);
 }

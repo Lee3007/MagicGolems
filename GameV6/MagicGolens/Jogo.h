@@ -5,6 +5,8 @@
 #include "GerenciadorEstado.h"
 #include "Jogador.h"
 #include "FasePedra.h"
+#include "FaseFogo.h"
+#include "FaseGelo.h"
 #include "MenuInicial.h"
 
 class Jogo
@@ -23,6 +25,8 @@ private:
 
 	//Fases
 	FasePedra fasePedra;
+	FaseFogo faseFogo;
+	FaseGelo faseGelo;
 
 public:
 

@@ -90,6 +90,8 @@ void MenuFases::executarEnter()
 		break;
 
 	case 2:
+		GGrafico->setMenu(MenuIni->getMenuPause());
+		GEstado->inicializarFase3();
 		break;
 
 	case 3:
