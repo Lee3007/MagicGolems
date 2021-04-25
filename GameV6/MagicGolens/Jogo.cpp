@@ -8,9 +8,9 @@ GerenciadorEstado(),
 GerenciadorGrafico(),
 GerenciadorAtualizacoes(),
 menu(&GerenciadorEstado, &GerenciadorGrafico),
-fasePedra("mapas/fase1/pedratiles.png", "mapas/fase1/mapa1Copy.txt", sf::Vector2f(2720.f, 2710.f)),
-faseFogo("mapas/fase2/firetiles.png", "mapas/fase2/mapa2Copy.txt", sf::Vector2f(2720.f, 2710.f)),
-faseGelo("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt", sf::Vector2f(2720.f, 2710.f))
+fasePedra("mapas/fase1/pedratiles.png", "mapas/fase1/mapa1Copy.txt", sf::Vector2f(1.5 * 96.f, 3 * 96.f)),
+faseFogo("mapas/fase2/firetiles.png", "mapas/fase2/mapa2Copy.txt", sf::Vector2f(27.5 * 96.f, 2.0 * 96.f)),
+faseGelo("mapas/fase3/icetiles.png", "mapas/fase3/mapa3Copy.txt", sf::Vector2f(28.5 * 96.f, 28.0 * 96.f))
 {
 	string caminhoTextura = "text/fallenAngel.png";
 	cout << caminhoTextura << endl;
