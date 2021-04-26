@@ -1,16 +1,27 @@
 #include "stdafx.h"
 #include "Fase.h"
 
-Fase::Fase(const char* caminhoTile, const char* caminhoMapa, sf::Vector2f ponto) :
-	LEntidades(),
-	statusConcluida(false),
-	pontoFinal(ponto)
+Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto) :
+LEntidades(),
+statusConcluida(false),
+pontoFinal(ponto)
 {
 	jogador1 = NULL;
 	jogador2 = NULL;
 	pTile = new Tile(caminhoTile);
 	pMapa = new Mapa(caminhoMapa);
-	pGm = new GerenciadorMapa(pMapa, pTile);				//.......................
+	pGm = new GerenciadorMapa(pMapa, pTile);			
+
+	if (!backgroundText.loadFromFile(caminhoBackground)) {
+		cout << "Erro, nao pode abrir a Textura" << endl;
+		exit(404);
+	}
+
+	backgroundSpr.setTexture(backgroundText);
+	backgroundSpr.setPosition( sf::Vector2f( 0.f, 0.f ) );
+	backgroundSpr.setScale(sf::Vector2f( 6.f, 6.f ) );
+
+	pGm->setBackground(&backgroundSpr);
 
 }
 

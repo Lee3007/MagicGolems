@@ -8,6 +8,7 @@ class GerenciadorMapa
 private:
 	Mapa* pmapa;
 	Tile* ptile;
+	sf::Sprite* background;
 
 
 public:
@@ -19,6 +20,8 @@ public:
 	Mapa* getMapa() const;
 	void setTile(Tile* pt);
 	Tile* getTile() const;
+	void setBackground(sf::Sprite* sp );
+	sf::Sprite* getBackground();
 
 	void desenhar(sf::RenderWindow* jan);
 

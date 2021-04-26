@@ -21,11 +21,13 @@ protected:
 	Tile* pTile;
 	Mapa* pMapa;
 	GerenciadorMapa* pGm;
+	sf::Texture backgroundText;
+	sf::Sprite backgroundSpr;
 
 public:
 
 	//Construtora e Destrutora
-	Fase(const char* caminhoTile = "", const char* caminhoMapa = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f));
+	Fase(const char* caminhoTile = "", const char* caminhoMapa = "", const char* caminhoBackground = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f));
 	~Fase();
 
 	//Funcoes

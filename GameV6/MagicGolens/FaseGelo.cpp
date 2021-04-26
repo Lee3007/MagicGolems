@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FaseGelo.h"
 
-FaseGelo::FaseGelo(const char* caminhoTile, const char* caminhoMapa, sf::Vector2f ponto):
-Fase(caminhoTile, caminhoMapa, ponto)
+FaseGelo::FaseGelo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto):
+Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
 {
 	criarInimigos();
 }

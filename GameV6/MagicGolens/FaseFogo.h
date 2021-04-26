@@ -6,7 +6,7 @@ class FaseFogo :
 private:
 
 public:
-    FaseFogo(const char* caminhoTile = "", const char* caminhoMapa = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f));
+    FaseFogo(const char* caminhoTile = "", const char* caminhoMapa = "", const char* caminhoBackground = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f));
     ~FaseFogo();
 
     void setPosicaoJogadores();

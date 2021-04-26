@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FasePedra.h"
 
-FasePedra::FasePedra(const char* caminhoTile, const char* caminhoMapa, sf::Vector2f ponto) :
-Fase(caminhoTile, caminhoMapa, ponto)
+FasePedra::FasePedra(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto) :
+Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
 {
 	criarInimigos();
 }

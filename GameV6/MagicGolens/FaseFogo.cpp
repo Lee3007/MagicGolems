@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FaseFogo.h"
 
-FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, sf::Vector2f ponto):
-Fase(caminhoTile, caminhoMapa, ponto)
+FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto):
+Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
 {
 	criarInimigos();
 }

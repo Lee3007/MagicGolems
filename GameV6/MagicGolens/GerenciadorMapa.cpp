@@ -7,6 +7,8 @@ ptile(pt)
 {
 	if ( pm == NULL || pt == NULL)
 		system("pause");
+
+	background = NULL;
 }
 
 GerenciadorMapa::~GerenciadorMapa()
@@ -18,6 +20,7 @@ GerenciadorMapa::~GerenciadorMapa()
 
 void GerenciadorMapa::desenhar(sf::RenderWindow* jan)
 {
+	jan->draw(*background);
 	for (int i = 0; i < 30; i++) 
 	{
 		for (int j = 0; j < 30; j++)
@@ -50,4 +53,12 @@ void GerenciadorMapa::setTile(Tile* pt)
 Tile* GerenciadorMapa::getTile() const
 {
 	return ptile;
+}
+
+void GerenciadorMapa::setBackground(sf::Sprite* sp) {
+	background = sp;
+}
+
+sf::Sprite* GerenciadorMapa::getBackground() {
+	return background;
 }
