@@ -4,11 +4,22 @@
 FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto):
 Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
 {
-	criarInimigos();
 }
 
 FaseFogo::~FaseFogo()
 {
+	if (jogador1 != NULL)
+	{
+		LEntidades->removerEntidade(jogador1);
+		cout << "Jogador removido da fase fogo" << endl;
+	}
+
+	if (!LEntidades->getVaziaStatus())
+	{
+		LEntidades->destruirEntidades();
+	}
+
+	delete LEntidades;
 }
 
 void FaseFogo::setPosicaoJogadores()
@@ -38,6 +49,6 @@ void FaseFogo::criarInimigos()
 		float py = rand() % 500;
 
 		GolemFogo* pGolemFogo = new GolemFogo(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemFogo.png");
-		LEntidades.incluirEntidade(pGolemFogo);
+		LEntidades->incluirEntidade(pGolemFogo);
 	}
 }

@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "MenuInicial.h"
 
-MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg):
-Menu(Ge, Gg),
+MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground):
+Menu(Ge, Gg, caminhoBackground),
 opcoes(),
-MFases(Ge, Gg),
-MPause(Ge, Gg)
+MFases(Ge, Gg, caminhoBackground),
+MPause(Ge, Gg, caminhoBackground)
 {
 	inicializarMenu();
 	MFases.setMenuInicial(this);
@@ -25,26 +25,28 @@ void MenuInicial::inicializarMenu()
 	}
 
 	opcoes[0].setFont(fonte);
-	opcoes[0].setFillColor(sf::Color::Cyan);
+	opcoes[0].setFillColor(sf::Color(0, 144, 150));
 	opcoes[0].setString("Jogar");
 	opcoes[0].setOrigin(opcoes[0].getLocalBounds().width / 2, opcoes[0].getLocalBounds().height / 2);
-	opcoes[0].setPosition(sf::Vector2f(1280 / 2.f, 720 / 4 * 1));
+	opcoes[0].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 3));
 
 	opcoes[1].setFont(fonte);
 	opcoes[1].setFillColor(sf::Color::White);
 	opcoes[1].setString("Leaderboard");
 	opcoes[1].setOrigin(opcoes[1].getLocalBounds().width / 2, opcoes[1].getLocalBounds().height / 2);
-	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 4 * 2));
+	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 4));
 
 	opcoes[2].setFont(fonte);
 	opcoes[2].setFillColor(sf::Color::White);
 	opcoes[2].setString("Sair");
 	opcoes[2].setOrigin(opcoes[2].getLocalBounds().width / 2, opcoes[2].getLocalBounds().height / 2);
-	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 4 * 3));
+	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 5));
 }
 
 void MenuInicial::desenhar(sf::RenderWindow* j)
 {
+	j->draw(background);
+
 	for (int i = 0; i < 3; i++)
 	{
 		j->draw(opcoes[i]);
@@ -57,7 +59,7 @@ void MenuInicial::moverCima()
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado--;
-		opcoes[itemSelecionado].setFillColor(sf::Color::Cyan);
+		opcoes[itemSelecionado].setFillColor(sf::Color(0, 144, 150));
 	}
 }
 
@@ -67,7 +69,7 @@ void MenuInicial::moverBaixo()
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado++;
-		opcoes[itemSelecionado].setFillColor(sf::Color::Cyan);
+		opcoes[itemSelecionado].setFillColor(sf::Color(0, 144, 150));
 	}
 }
 

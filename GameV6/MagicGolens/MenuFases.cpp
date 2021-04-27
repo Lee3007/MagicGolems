@@ -2,8 +2,8 @@
 #include "MenuFases.h"
 #include "MenuInicial.h"
 
-MenuFases::MenuFases(GerenciadorEstado* Ge, GerenciadorGrafico* Gg):
-Menu(Ge, Gg),
+MenuFases::MenuFases(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground):
+Menu(Ge, Gg, caminhoBackground),
 opcoes()
 {
 	MenuIni = NULL;
@@ -23,32 +23,34 @@ void MenuFases::inicializarMenu()
 	}
 
 	opcoes[0].setFont(fonte);
-	opcoes[0].setFillColor(sf::Color::Cyan);
+	opcoes[0].setFillColor(sf::Color(0, 144, 150));
 	opcoes[0].setString("Fase 1");
 	opcoes[0].setOrigin(opcoes[0].getLocalBounds().width / 2, opcoes[0].getLocalBounds().height / 2);
-	opcoes[0].setPosition(sf::Vector2f(1280 / 2.f, 720 / 5 * 1));
+	opcoes[0].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 3));
 
 	opcoes[1].setFont(fonte);
 	opcoes[1].setFillColor(sf::Color::White);
 	opcoes[1].setString("Fase 2");
 	opcoes[1].setOrigin(opcoes[1].getLocalBounds().width / 2, opcoes[1].getLocalBounds().height / 2);
-	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 5 * 2));
+	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 4));
 
 	opcoes[2].setFont(fonte);
 	opcoes[2].setFillColor(sf::Color::White);
 	opcoes[2].setString("Fase 3");
 	opcoes[2].setOrigin(opcoes[2].getLocalBounds().width / 2, opcoes[2].getLocalBounds().height / 2);
-	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 5 * 3));
+	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 5));
 
 	opcoes[3].setFont(fonte);
 	opcoes[3].setFillColor(sf::Color::White);
 	opcoes[3].setString("Voltar");
 	opcoes[3].setOrigin(opcoes[3].getLocalBounds().width / 2, opcoes[3].getLocalBounds().height / 2);
-	opcoes[3].setPosition(sf::Vector2f(1280 / 2.f, 720 / 5 * 4));
+	opcoes[3].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 6));
 }
 
 void MenuFases::desenhar(sf::RenderWindow* j)
 {
+	j->draw(background);
+
 	for (int i = 0; i < 4; i++)
 	{
 		j->draw(opcoes[i]);
@@ -61,7 +63,7 @@ void MenuFases::moverCima()
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado--;
-		opcoes[itemSelecionado].setFillColor(sf::Color::Cyan);
+		opcoes[itemSelecionado].setFillColor(sf::Color(0, 144, 150));
 	}
 }
 
@@ -71,7 +73,7 @@ void MenuFases::moverBaixo()
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado++;
-		opcoes[itemSelecionado].setFillColor(sf::Color::Cyan);
+		opcoes[itemSelecionado].setFillColor(sf::Color(0, 144, 150));
 	}
 }
 

@@ -14,7 +14,7 @@ private:
 	MenuPause MPause;
 
 public:
-	MenuInicial(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL);
+	MenuInicial(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "");
 	~MenuInicial();
 	void inicializarMenu();
 	void desenhar(sf::RenderWindow* j);

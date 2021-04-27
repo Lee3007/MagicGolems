@@ -12,7 +12,7 @@
 class Fase
 {
 protected:
-	ListaEntidades LEntidades;
+	ListaEntidades* LEntidades;
 	Jogador* jogador1;
 	Jogador* jogador2;
 	bool statusConcluida;
@@ -32,6 +32,8 @@ public:
 
 	//Funcoes
 	void setJogadores(Jogador* j1, Jogador* j2);
+	void reiniciarFase();
+	virtual void criarInimigos() = 0;
 	void setConcluida(bool b);
 	const bool getStatus() const;
 	ListaEntidades* getListaEntidades();
@@ -40,4 +42,3 @@ public:
 	virtual const sf::Vector2f getPontoFinal() const = 0;
 	GerenciadorMapa* getGerenciadorMapa();
 };
-

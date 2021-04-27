@@ -20,6 +20,10 @@ view(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(1920.0f, 1080.0f))
 GerenciadorGrafico::~GerenciadorGrafico()
 {
 	GEstado = NULL;
+	menu = NULL;
+	LEntidades = NULL;
+	GMapa = NULL;
+	jogador = NULL;
 }
 
 //Funcoes
@@ -33,15 +37,9 @@ void GerenciadorGrafico::desenhar()
 	}
 	else
 	{
-		Entidade* pEntidade = NULL;
 		GMapa->desenhar(&janela);
 		atualizaView();
-
-		for (int i = 0; i < LEntidades->getTamanho(); i++)
-		{
-			pEntidade = LEntidades->operator[](i);
-			pEntidade->desenhar(&janela);
-		}
+		LEntidades->desenhar(&janela);
 	}
 }
 
@@ -155,8 +153,8 @@ void GerenciadorGrafico::setJogador(Jogador* jog) {
 
 void GerenciadorGrafico::atualizaView()
 {
-	sf::Vector2f posicao_view = jogador->getPosicao();
+	sf::Vector2f posicao_jog = jogador->getPosicao();
 
-	view.setCenter(jogador->getPosicao());
+	view.setCenter(posicao_jog);
 	janela.setView(view);
 }

@@ -10,7 +10,8 @@ pontoFinal(ponto)
 	jogador2 = NULL;
 	pTile = new Tile(caminhoTile);
 	pMapa = new Mapa(caminhoMapa);
-	pGm = new GerenciadorMapa(pMapa, pTile);			
+	pGm = new GerenciadorMapa(pMapa, pTile);	
+	LEntidades = new ListaEntidades();
 
 	if (!backgroundText.loadFromFile(caminhoBackground)) {
 		cout << "Erro, nao pode abrir a Textura" << endl;
@@ -19,7 +20,7 @@ pontoFinal(ponto)
 
 	backgroundSpr.setTexture(backgroundText);
 	backgroundSpr.setPosition( sf::Vector2f( 0.f, 0.f ) );
-	backgroundSpr.setScale(sf::Vector2f( 6.f, 6.f ) );
+	backgroundSpr.setScale(sf::Vector2f( 1.f, 1.f ) );
 
 	pGm->setBackground(&backgroundSpr);
 
@@ -33,7 +34,6 @@ Fase::~Fase()
 	pMapa = NULL;
 	delete (pGm);
 	pGm = NULL;
-
 }
 
 void Fase::setJogadores(Jogador* j1, Jogador* j2)
@@ -55,13 +55,32 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 		cout << "xo = " << x << endl << "yo = " << y << endl;
 	}
 
-	LEntidades.incluirEntidade(j1);
+	LEntidades->incluirEntidade(j1);
 
 	if (j2 != NULL)
 	{
-		LEntidades.incluirEntidade(j2);
+		LEntidades->incluirEntidade(j2);
 	}
 		
+}
+
+void Fase::reiniciarFase()
+{
+	cout << "Meu tamanho antes de entrar : " << LEntidades->getTamanho() << endl;
+
+	if (!LEntidades->getVaziaStatus())
+	{
+		cout << "Entrei no reiniciar" << endl;
+		LEntidades->removerEntidade(jogador1);
+
+		if (jogador2 != NULL)
+			LEntidades->removerEntidade(jogador2);
+
+		jogador1 = NULL;
+		jogador2 = NULL;
+
+		LEntidades->destruirEntidades();
+	}
 }
 
 void Fase::setConcluida(bool b)
@@ -76,7 +95,7 @@ const bool Fase::getStatus() const
 
 ListaEntidades* Fase::getListaEntidades()
 {
-	return &LEntidades;
+	return LEntidades;
 }
 
 sf::Vector2f Fase::getPosicaoJogador() const

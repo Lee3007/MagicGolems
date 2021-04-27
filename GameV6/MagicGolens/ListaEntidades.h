@@ -9,7 +9,8 @@ private:
 
 	//Atributos
 	//vector<Entidade*> lista;
-	Lista<Entidade> LEntidades;
+	Lista<Entidade> lista;
+	int tam;
 
 public:
 
@@ -19,8 +20,12 @@ public:
 
 	//Funcoes
 	void incluirEntidade(Entidade* e);
-	void excluirEntidade(Entidade* e);
-	int getTamanho();
-	Entidade* operator[](int i);
+	void removerEntidade(Entidade* e);
+	void esvaziar();
+	void destruirEntidades();
+	void atualizar(float t);
+	void desenhar(sf::RenderWindow* j);
+	bool getVaziaStatus();
+	int getTamanho() const;
 };
 

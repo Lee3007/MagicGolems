@@ -4,11 +4,20 @@
 FaseGelo::FaseGelo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto):
 Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
 {
-	criarInimigos();
 }
 
 FaseGelo::~FaseGelo()
 {
+	if (jogador1 != NULL)
+	{
+		LEntidades->removerEntidade(jogador1);
+		cout << "Jogador removido da fase gelo" << endl;
+	}
+
+	if (!LEntidades->getVaziaStatus())
+		LEntidades->destruirEntidades();
+
+	delete LEntidades;
 }
 
 void FaseGelo::setPosicaoJogadores()
@@ -38,6 +47,6 @@ void FaseGelo::criarInimigos()
 		float py = rand() % 500;
 
 		GolemGelo* pGolemGelo = new GolemGelo(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemGelo.png");
-		LEntidades.incluirEntidade(pGolemGelo);
+		LEntidades->incluirEntidade(pGolemGelo);
 	}
 }

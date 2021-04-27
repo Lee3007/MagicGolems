@@ -15,6 +15,9 @@ dt(0.f)
 GerenciadorAtualizacoes::~GerenciadorAtualizacoes()
 {
 	LEntidades = NULL;
+	GEstado = NULL;
+	LEntidades = NULL;
+	fase = NULL;
 }
 
 void GerenciadorAtualizacoes::setGerenciador(GerenciadorEstado* Ge)
@@ -47,13 +50,7 @@ void GerenciadorAtualizacoes::atualizar()
 {
 	if (!GEstado->menuAtivo())
 	{
-		Entidade* pEntidade = NULL;
-
-		for (int i = 0; i < LEntidades->getTamanho(); i++)
-		{
-			pEntidade = LEntidades->operator[](i);
-			pEntidade->atualizar(dt);
-		}
+		LEntidades->atualizar(dt);
 
 		fase->getPosicaoJogador();
 		fase->getPontoFinal();

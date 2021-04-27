@@ -4,8 +4,8 @@
 #include "GerenciadorGrafico.h"
 #include "MenuInicial.h"
 
-MenuPause::MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg):
-Menu(Ge, Gg),
+MenuPause::MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground):
+Menu(Ge, Gg, caminhoBackground),
 
 opcoes()
 {
@@ -26,16 +26,16 @@ void MenuPause::inicializarMenu()
 	}
 
 	opcoes[0].setFont(fonte);
-	opcoes[0].setFillColor(sf::Color::Cyan);
+	opcoes[0].setFillColor(sf::Color(0, 144, 150));
 	opcoes[0].setString("Voltar ao jogo");
 	opcoes[0].setOrigin(opcoes[0].getLocalBounds().width / 2, opcoes[0].getLocalBounds().height / 2);
-	opcoes[0].setPosition(sf::Vector2f(1280 / 2.f, 720 / 3 * 1));
+	opcoes[0].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 3));
 
 	opcoes[1].setFont(fonte);
 	opcoes[1].setFillColor(sf::Color::White);
 	opcoes[1].setString("Menu principal");
 	opcoes[1].setOrigin(opcoes[1].getLocalBounds().width / 2, opcoes[1].getLocalBounds().height / 2);
-	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 3 * 2));
+	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 4));
 }
 
 void MenuPause::moverCima()
@@ -44,7 +44,7 @@ void MenuPause::moverCima()
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado--;
-		opcoes[itemSelecionado].setFillColor(sf::Color::Cyan);
+		opcoes[itemSelecionado].setFillColor(sf::Color(0, 144, 150));
 	}
 }
 
@@ -54,12 +54,14 @@ void MenuPause::moverBaixo()
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado++;
-		opcoes[itemSelecionado].setFillColor(sf::Color::Cyan);
+		opcoes[itemSelecionado].setFillColor(sf::Color(0, 144, 150));
 	}
 }
 
 void MenuPause::desenhar(sf::RenderWindow* j)
 {
+	j->draw(background);
+
 	for (int i = 0; i < 2; i++)
 	{
 		j->draw(opcoes[i]);
@@ -76,6 +78,7 @@ void MenuPause::executarEnter()
 
 	case 1:
 		GGrafico->setMenu(MenuIni);
+		GEstado->reiniciarFases();
 		break;
 
 	}

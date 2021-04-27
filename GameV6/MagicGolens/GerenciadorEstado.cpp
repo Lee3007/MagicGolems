@@ -16,20 +16,26 @@ bMenu(true)
 	fase2 = NULL;
 	fase3 = NULL;
 	menu = NULL;
+	jogador1 = NULL;
+	jogador2 = NULL;
 }
 
 GerenciadorEstado::~GerenciadorEstado()
 {
-
+	GGrafico = NULL;
+	GAtualizacoes = NULL;
+	fase1 = NULL;
+	fase2 = NULL;
+	fase3 = NULL;
+	menu = NULL;
+	jogador1 = NULL;
+	jogador2 = NULL;
 }
 
 void GerenciadorEstado::inicializarFase1()
 {
-	if (fase1 == NULL)
-	{
-		cout << "Fase1 = NULL no inicializarFase1" << endl;
-	}
-
+	fase1->setJogadores(jogador1, NULL);
+	fase1->criarInimigos();
 	GGrafico->setListaEntidades(fase1->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase1->getGerenciadorMapa());
 	GAtualizacoes->setFase(fase1);
@@ -43,6 +49,8 @@ void GerenciadorEstado::inicializarFase1()
 
 void GerenciadorEstado::inicializarFase2()
 {
+	fase2->setJogadores(jogador1, NULL);
+	fase2->criarInimigos();
 	GGrafico->setListaEntidades(fase2->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase2->getGerenciadorMapa());
 	GAtualizacoes->setFase(fase2);
@@ -56,6 +64,8 @@ void GerenciadorEstado::inicializarFase2()
 
 void GerenciadorEstado::inicializarFase3()
 {
+	fase3->setJogadores(jogador1, NULL);
+	fase3->criarInimigos();
 	GGrafico->setListaEntidades(fase3->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase3->getGerenciadorMapa());
 	GAtualizacoes->setListaEntidades(fase3->getListaEntidades());
@@ -65,6 +75,19 @@ void GerenciadorEstado::inicializarFase3()
 	bFase1 = false;
 	bFase2 = false;
 	bFase3 = true;
+}
+
+void GerenciadorEstado::reiniciarFases()
+{
+	cout << "Fase 1 tam lista antes: " << fase1->getListaEntidades()->getTamanho() << endl;
+	fase1->reiniciarFase();
+	cout << "Fase 1 tam lista depois: " << fase1->getListaEntidades()->getTamanho() << endl;
+	cout << "Fase 2 tam lista antes: " << fase2->getListaEntidades()->getTamanho() << endl;
+	fase2->reiniciarFase();
+	cout << "Fase 2 tam lista depois: " << fase2->getListaEntidades()->getTamanho() << endl;
+	cout << "Fase 3 tam lista antes: " << fase3->getListaEntidades()->getTamanho() << endl;
+	fase3->reiniciarFase();
+	cout << "Fase 3 tam lista depois: " << fase3->getListaEntidades()->getTamanho() << endl;
 }
 
 void GerenciadorEstado::setFases(Fase* f1, Fase* f2, Fase* f3)
@@ -85,6 +108,16 @@ void GerenciadorEstado::setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtua
 	{
 		cout << "ERRO: Gerenciador de estados nao conseguiu receber os gerenciadores de forma correta" << endl;
 		exit(432);
+	}
+}
+
+void GerenciadorEstado::setJogadores(Jogador* j1, Jogador* j2)
+{
+	jogador1 = j1;
+
+	if (j2 != NULL)
+	{
+		jogador2 = j2;
 	}
 }
 
@@ -130,6 +163,7 @@ void GerenciadorEstado::verificaEstado()
 			fase1->setConcluida(false);
 			fase2->setConcluida(false);
 			fase3->setConcluida(false);
+			reiniciarFases();
 			GGrafico->setMenu(menu);
 			//*inicializarLeaderBoard();
 		}

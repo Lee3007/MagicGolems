@@ -4,7 +4,8 @@
 //Construtora e Destrutora
 
 ListaEntidades::ListaEntidades():
-LEntidades()
+lista(),
+tam(0)
 {
 }
 
@@ -17,20 +18,72 @@ ListaEntidades::~ListaEntidades()
 
 void ListaEntidades::incluirEntidade(Entidade* e)
 {
-	LEntidades.incluirInfo(e);
+	lista.incluirInfo(e);
+	tam++;
 }
 
-void ListaEntidades::excluirEntidade(Entidade* e)
+void ListaEntidades::removerEntidade(Entidade* e)
 {
-	LEntidades.excluirInfo(e);
+	lista.removerInfo(e);
+	tam--;
 }
 
-int ListaEntidades::getTamanho()
+void ListaEntidades::esvaziar()
 {
-	return LEntidades.getTamanho();
+	lista.esvaziar();
 }
 
-Entidade* ListaEntidades::operator[](int i)
+void ListaEntidades::destruirEntidades()
 {
-	return LEntidades.getInfo(i);
+	Entidade* e = lista.voltarInicio();
+
+	while (e != NULL)
+	{
+		if (e == NULL)
+		{
+			cout << "ERRO: Tentando deletar ponteiro NULL" << endl;
+			exit(980);
+		}
+
+		delete e;
+		e = lista.irProximo();
+	}
+
+	lista.esvaziar();
+	tam = 0;
+}
+
+void ListaEntidades::atualizar(float t)
+{
+	Entidade* e = lista.voltarInicio();
+
+	while (e != NULL)
+	{
+		e->atualizar(t);
+		e = lista.irProximo();
+	}
+}
+
+void ListaEntidades::desenhar(sf::RenderWindow* j)
+{
+	Entidade* e = lista.voltarInicio();
+
+	while (e != NULL)
+	{
+		e->desenhar(j);
+		e = lista.irProximo();
+	}
+}
+
+bool ListaEntidades::getVaziaStatus()
+{
+	if(tam > 0)
+		return false;
+
+	return true;
+}
+
+int ListaEntidades::getTamanho() const
+{
+	return tam;
 }

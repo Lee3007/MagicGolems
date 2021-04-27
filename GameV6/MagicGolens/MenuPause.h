@@ -15,7 +15,7 @@ private:
     MenuInicial* MenuIni;
     
 public:
-    MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg);
+    MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground = "");
     ~MenuPause();
     void inicializarMenu();
     void moverCima();

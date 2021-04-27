@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Fase.h"
+#include "Jogador.h"
 
 class GerenciadorAtualizacoes;
 class GerenciadorGrafico;
@@ -9,6 +10,8 @@ class Menu;
 class GerenciadorEstado
 {
 private:
+	Jogador* jogador1;
+	Jogador* jogador2;
 	Fase* fase1;
 	Fase* fase2;
 	Fase* fase3;
@@ -27,8 +30,11 @@ public:
 	void inicializarFase1();
 	void inicializarFase2();
 	void inicializarFase3();
+	void reiniciarFases();
+
 	void setFases(Fase* f1, Fase* f2, Fase* f3);
 	void setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga);
+	void setJogadores(Jogador* j1, Jogador* j2);
 	void verificaEstado();
 	void setMenu(Menu* m);
 	bool menuAtivo() const;
