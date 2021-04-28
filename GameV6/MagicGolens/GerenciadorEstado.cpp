@@ -79,15 +79,9 @@ void GerenciadorEstado::inicializarFase3()
 
 void GerenciadorEstado::reiniciarFases()
 {
-	cout << "Fase 1 tam lista antes: " << fase1->getListaEntidades()->getTamanho() << endl;
 	fase1->reiniciarFase();
-	cout << "Fase 1 tam lista depois: " << fase1->getListaEntidades()->getTamanho() << endl;
-	cout << "Fase 2 tam lista antes: " << fase2->getListaEntidades()->getTamanho() << endl;
 	fase2->reiniciarFase();
-	cout << "Fase 2 tam lista depois: " << fase2->getListaEntidades()->getTamanho() << endl;
-	cout << "Fase 3 tam lista antes: " << fase3->getListaEntidades()->getTamanho() << endl;
 	fase3->reiniciarFase();
-	cout << "Fase 3 tam lista depois: " << fase3->getListaEntidades()->getTamanho() << endl;
 }
 
 void GerenciadorEstado::setFases(Fase* f1, Fase* f2, Fase* f3)

@@ -153,8 +153,23 @@ void GerenciadorGrafico::setJogador(Jogador* jog) {
 
 void GerenciadorGrafico::atualizaView()
 {
-	sf::Vector2f posicao_jog = jogador->getPosicao();
+	sf::Vector2f posicao_view = jogador->getPosicao();
 
-	view.setCenter(posicao_jog);
+	view.setCenter(jogador->getPosicao());
+
+	
+	if ((posicao_view.x - 1920 / 2) < 0)
+		view.move( sf::Vector2f( (-1)*(posicao_view.x - 1920 / 2), 0.f ) );
+
+	if ((posicao_view.x + 1920 / 2) > 2880)
+		view.move(sf::Vector2f( 2880 - (posicao_view.x + 1920 / 2) , 0.f));
+
+	if ((posicao_view.y - 1080 / 2) < 0)
+		view.move(sf::Vector2f( 0.f , (-1) * (posicao_view.y - 1080 / 2) ) );
+
+	if ( (posicao_view.y + 1080 / 2) > 2880 )
+		view.move( sf::Vector2f( 0.f , 2880 - (posicao_view.y + 1080 / 2) ) );
+	
+
 	janela.setView(view);
 }
