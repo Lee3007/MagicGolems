@@ -9,10 +9,10 @@ private:
 	Mapa* pmapa;
 	Tile* ptile;
 	sf::Sprite* background;
-
+	sf::RenderWindow* janela;
 
 public:
-	GerenciadorMapa(Mapa* pm = NULL, Tile* pt = NULL);
+	GerenciadorMapa(Mapa* pm = NULL, Tile* pt = NULL, sf::RenderWindow* j = NULL);
 	~GerenciadorMapa();
 
 	//Métodos
@@ -22,8 +22,7 @@ public:
 	Tile* getTile() const;
 	void setBackground(sf::Sprite* sp );
 	sf::Sprite* getBackground();
-
-	void desenhar(sf::RenderWindow* jan);
+	void desenhar();
 
 
 };

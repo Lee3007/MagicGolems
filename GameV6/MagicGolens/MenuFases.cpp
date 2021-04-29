@@ -2,8 +2,8 @@
 #include "MenuFases.h"
 #include "MenuInicial.h"
 
-MenuFases::MenuFases(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground):
-Menu(Ge, Gg, caminhoBackground),
+MenuFases::MenuFases(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
+Menu(Ge, Gg, caminhoBackground, j),
 opcoes()
 {
 	MenuIni = NULL;
@@ -47,13 +47,13 @@ void MenuFases::inicializarMenu()
 	opcoes[3].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 6));
 }
 
-void MenuFases::desenhar(sf::RenderWindow* j)
+void MenuFases::desenhar()
 {
-	j->draw(background);
+	janela->draw(background);
 
 	for (int i = 0; i < 4; i++)
 	{
-		j->draw(opcoes[i]);
+		janela->draw(opcoes[i]);
 	}
 }
 

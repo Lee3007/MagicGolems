@@ -1,16 +1,18 @@
 #include "stdafx.h"
 #include "Fase.h"
 
-Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto) :
+Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
 LEntidades(),
 statusConcluida(false),
 pontoFinal(ponto)
 {
+	dt = t;
+	janela = j;
 	jogador1 = NULL;
 	jogador2 = NULL;
 	pTile = new Tile(caminhoTile);
 	pMapa = new Mapa(caminhoMapa);
-	pGm = new GerenciadorMapa(pMapa, pTile);	
+	pGm = new GerenciadorMapa(pMapa, pTile, j);	
 	LEntidades = new ListaEntidades();
 
 	if (!backgroundText.loadFromFile(caminhoBackground)) {
@@ -23,7 +25,6 @@ pontoFinal(ponto)
 	backgroundSpr.setScale(sf::Vector2f( 1.f, 1.f ) );
 
 	pGm->setBackground(&backgroundSpr);
-
 }
 
 Fase::~Fase()

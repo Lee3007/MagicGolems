@@ -53,24 +53,24 @@ void ListaEntidades::destruirEntidades()
 	tam = 0;
 }
 
-void ListaEntidades::atualizar(float t)
+void ListaEntidades::atualizar()
 {
 	Entidade* e = lista.voltarInicio();
 
 	while (e != NULL)
 	{
-		e->atualizar(t);
+		e->atualizar();
 		e = lista.irProximo();
 	}
 }
 
-void ListaEntidades::desenhar(sf::RenderWindow* j)
+void ListaEntidades::desenhar( )
 {
 	Entidade* e = lista.voltarInicio();
 
 	while (e != NULL)
 	{
-		e->desenhar(j);
+		e->desenhar();
 		e = lista.irProximo();
 	}
 }

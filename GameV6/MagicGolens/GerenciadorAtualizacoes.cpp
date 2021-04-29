@@ -50,7 +50,7 @@ void GerenciadorAtualizacoes::atualizar()
 {
 	if (!GEstado->menuAtivo())
 	{
-		LEntidades->atualizar(dt);
+		LEntidades->atualizar();
 
 		fase->getPosicaoJogador();
 		fase->getPontoFinal();
@@ -71,6 +71,11 @@ void GerenciadorAtualizacoes::setFase(Fase* f)
 		cout << "ERRO: Gerenciador de atualizacoes nao conseguiu receber a fase devidamente" << endl;
 		exit(244);
 	}
+}
+
+float* GerenciadorAtualizacoes::getTempo()
+{
+	return &dt;
 }
 
 float GerenciadorAtualizacoes::calcularDistancia(sf::Vector2f pj, sf::Vector2f pf)

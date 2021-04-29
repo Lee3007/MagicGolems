@@ -23,8 +23,8 @@ public:
 	void removerEntidade(Entidade* e);
 	void esvaziar();
 	void destruirEntidades();
-	void atualizar(float t);
-	void desenhar(sf::RenderWindow* j);
+	void atualizar();
+	void desenhar();
 	bool getVaziaStatus();
 	int getTamanho() const;
 };

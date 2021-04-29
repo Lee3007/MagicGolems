@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FaseFogo.h"
 
-FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto):
-Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
+FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j):
+Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
 {
 }
 
@@ -48,7 +48,7 @@ void FaseFogo::criarInimigos()
 		float px = rand() % 1000;
 		float py = rand() % 500;
 
-		GolemFogo* pGolemFogo = new GolemFogo(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemFogo.png");
+		GolemFogo* pGolemFogo = new GolemFogo(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemFogo.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemFogo);
 	}
 }

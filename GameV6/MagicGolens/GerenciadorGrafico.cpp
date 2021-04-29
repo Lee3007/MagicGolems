@@ -33,13 +33,13 @@ void GerenciadorGrafico::desenhar()
 	if (GEstado->menuAtivo())
 	{
 		janela.setView(janela.getDefaultView());
-		menu->desenhar(&janela);
+		menu->desenhar();
 	}
 	else
 	{
-		GMapa->desenhar(&janela);
+		GMapa->desenhar();
 		atualizaView();
-		LEntidades->desenhar(&janela);
+		LEntidades->desenhar();
 	}
 }
 
@@ -131,6 +131,11 @@ void GerenciadorGrafico::setEvento()
 bool GerenciadorGrafico::janelaExecutando()
 {
 	return janela.isOpen();
+}
+
+sf::RenderWindow* GerenciadorGrafico::getJanela()
+{
+	return &janela;
 }
 
 bool GerenciadorGrafico::clickX()

@@ -8,12 +8,12 @@ private:
 public:
 
     //Construtora e Destrutora
-    Jogador(sf::Vector2f tam = sf::Vector2f(60.f, 90.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f), string caminhoTextura = NULL);
+    Jogador(sf::Vector2f tam = sf::Vector2f(60.f, 90.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f), string caminhoTextura = NULL, float* t = NULL, sf::RenderWindow* j = NULL);
     ~Jogador();
 
     //Funcoes
-    void atualizar(float t);
-    void desenhar(sf::RenderWindow *j);
+    void atualizar();
+    void desenhar();
     void setPosicao(sf::Vector2f p);
     sf::Vector2f getPosicao();
 };

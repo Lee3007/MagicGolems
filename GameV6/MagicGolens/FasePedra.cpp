@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FasePedra.h"
 
-FasePedra::FasePedra(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto) :
-Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto)
+FasePedra::FasePedra(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
+Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
 {
 }
 
@@ -46,7 +46,7 @@ void FasePedra::criarInimigos()
 		float px = rand() % 1000;
 		float py = rand() % 500;
 
-		GolemPedra* pGolemPedra = new GolemPedra(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png");
+		GolemPedra* pGolemPedra = new GolemPedra(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemPedra);
 	}
 }

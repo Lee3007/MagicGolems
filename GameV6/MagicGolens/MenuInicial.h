@@ -14,10 +14,10 @@ private:
 	MenuPause MPause;
 
 public:
-	MenuInicial(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "");
+	MenuInicial(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
 	~MenuInicial();
 	void inicializarMenu();
-	void desenhar(sf::RenderWindow* j);
+	void desenhar();
 	void moverCima();
 	void moverBaixo();
 	void executarEnter();

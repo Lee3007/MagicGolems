@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Jogador.h"
 
-Jogador::Jogador(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura):
-Personagem(tam, p, v, caminhoTextura)
+Jogador::Jogador(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Personagem(tam, p, v, caminhoTextura, t, j)
 {
 }
 
@@ -10,7 +10,7 @@ Jogador::~Jogador()
 {
 }
 
-void Jogador::atualizar(float t)
+void Jogador::atualizar()
 {
 	velocidade.x = 0.f;
 	velocidade.y = 0.f;
@@ -33,13 +33,13 @@ void Jogador::atualizar(float t)
 		velocidade.y = 400.f;
 	}
 
-	posicao += velocidade * t;
+	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
 }
 
-void Jogador::desenhar(sf::RenderWindow* j)
+void Jogador::desenhar()
 {
-	j->draw(corpo);
+	janela->draw(corpo);
 }
 
 void Jogador::setPosicao(sf::Vector2f p)

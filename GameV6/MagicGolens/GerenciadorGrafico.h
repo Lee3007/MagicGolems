@@ -39,6 +39,7 @@ public:
 	void fecharJanela();
 	void setEvento();
 	bool janelaExecutando();
+	sf::RenderWindow* getJanela();
 	bool clickX();
 	void setJogador(Jogador* jog);
 	void atualizaView();

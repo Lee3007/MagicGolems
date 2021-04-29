@@ -12,10 +12,10 @@ private:
     MenuInicial* MenuIni;
 
 public:
-    MenuFases(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "");
+    MenuFases(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
     ~MenuFases();
     void inicializarMenu();
-    void desenhar(sf::RenderWindow* j);
+    void desenhar();
     void moverCima();
     void moverBaixo();
     void executarEnter();

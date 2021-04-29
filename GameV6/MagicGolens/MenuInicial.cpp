@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "MenuInicial.h"
 
-MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground):
-Menu(Ge, Gg, caminhoBackground),
+MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
+Menu(Ge, Gg, caminhoBackground, j),
 opcoes(),
-MFases(Ge, Gg, caminhoBackground),
-MPause(Ge, Gg, caminhoBackground)
+MFases(Ge, Gg, caminhoBackground, j),
+MPause(Ge, Gg, caminhoBackground, j)
 {
 	inicializarMenu();
 	MFases.setMenuInicial(this);
@@ -43,13 +43,13 @@ void MenuInicial::inicializarMenu()
 	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 5));
 }
 
-void MenuInicial::desenhar(sf::RenderWindow* j)
+void MenuInicial::desenhar()
 {
-	j->draw(background);
+	janela->draw(background);
 
 	for (int i = 0; i < 3; i++)
 	{
-		j->draw(opcoes[i]);
+		janela->draw(opcoes[i]);
 	}
 }
 

@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "GolemPedra.h"
 
-GolemPedra::GolemPedra(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura):
-Personagem(tam, p, v, caminhoTextura)
+GolemPedra::GolemPedra(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Personagem(tam, p, v, caminhoTextura, t, j)
 {
 }
 
@@ -10,13 +10,13 @@ GolemPedra::~GolemPedra()
 {
 }
 
-void GolemPedra::atualizar(float t)
+void GolemPedra::atualizar()
 {
-	posicao += velocidade * t;
+	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
 }
 
-void GolemPedra::desenhar(sf::RenderWindow* j)
+void GolemPedra::desenhar()
 {
-	j->draw(corpo);
+	janela->draw(corpo);
 }

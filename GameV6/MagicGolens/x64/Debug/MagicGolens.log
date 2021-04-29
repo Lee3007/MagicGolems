@@ -1,5 +1,6 @@
-﻿  GerenciadorEstado.cpp
+﻿  Fase.cpp
   GerenciadorGrafico.cpp
-  Menu.cpp
+  GerenciadorMapa.cpp
+  MenuPause.cpp
   Gerando Código...
   MagicGolens.vcxproj -> D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe

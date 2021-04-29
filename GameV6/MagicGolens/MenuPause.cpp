@@ -4,9 +4,8 @@
 #include "GerenciadorGrafico.h"
 #include "MenuInicial.h"
 
-MenuPause::MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground):
-Menu(Ge, Gg, caminhoBackground),
-
+MenuPause::MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
+Menu(Ge, Gg, caminhoBackground, j),
 opcoes()
 {
 	MenuIni = NULL;
@@ -58,13 +57,13 @@ void MenuPause::moverBaixo()
 	}
 }
 
-void MenuPause::desenhar(sf::RenderWindow* j)
+void MenuPause::desenhar()
 {
-	j->draw(background);
+	janela->draw(background);
 
 	for (int i = 0; i < 2; i++)
 	{
-		j->draw(opcoes[i]);
+		janela->draw(opcoes[i]);
 	}
 }
 

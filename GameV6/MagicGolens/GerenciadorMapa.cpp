@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "GerenciadorMapa.h"
 
-GerenciadorMapa::GerenciadorMapa(Mapa* pm, Tile* pt):
+GerenciadorMapa::GerenciadorMapa(Mapa* pm, Tile* pt, sf::RenderWindow* j):
 pmapa(pm),
 ptile(pt)
 {
@@ -9,6 +9,7 @@ ptile(pt)
 		system("pause");
 
 	background = NULL;
+	janela = j;
 }
 
 GerenciadorMapa::~GerenciadorMapa()
@@ -18,16 +19,16 @@ GerenciadorMapa::~GerenciadorMapa()
 
 
 
-void GerenciadorMapa::desenhar(sf::RenderWindow* jan)
+void GerenciadorMapa::desenhar()
 {
-	jan->draw(*background);
+	janela->draw(*background);
 	for (int i = 0; i < 30; i++) 
 	{
 		for (int j = 0; j < 30; j++)
 		{
 			ptile->setPosicao(i * 96, j * 96);
 			ptile->setRectTextura( (pmapa->getInfoXMapa(i, j)*16) , (pmapa->getInfoYMapa(i, j)*16) );
-			jan->draw( ptile->getTileSprite() );
+			janela->draw( ptile->getTileSprite() );
 
 		}
 

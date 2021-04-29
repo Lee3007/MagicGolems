@@ -15,12 +15,12 @@ private:
     MenuInicial* MenuIni;
     
 public:
-    MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground = "");
+    MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground = "", sf::RenderWindow* j = NULL);
     ~MenuPause();
     void inicializarMenu();
     void moverCima();
     void moverBaixo();
-    void desenhar(sf::RenderWindow* j);
+    void desenhar();
     void executarEnter();
     void setMenuInicial(MenuInicial* m);
 };

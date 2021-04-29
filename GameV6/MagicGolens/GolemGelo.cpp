@@ -1,18 +1,18 @@
 #include "stdafx.h"
 #include "GolemGelo.h"
 
-GolemGelo::GolemGelo(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura):
-Personagem(tam, p, v, caminhoTextura)
+GolemGelo::GolemGelo(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Personagem(tam, p, v, caminhoTextura, t, j)
 {
 }
 
-void GolemGelo::atualizar(float t)
+void GolemGelo::atualizar()
 {
-	posicao += velocidade * t;
+	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
 }
 
-void GolemGelo::desenhar(sf::RenderWindow* j)
+void GolemGelo::desenhar()
 {
-	j->draw(corpo);
+	janela->draw(corpo);
 }
