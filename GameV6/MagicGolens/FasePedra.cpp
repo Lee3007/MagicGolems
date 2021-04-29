@@ -37,14 +37,12 @@ const sf::Vector2f FasePedra::getPontoFinal() const
 
 void FasePedra::criarInimigos()
 {
-	srand(time(NULL));
-
 	int qntd = rand() % 7 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
-		float px = rand() % 1000;
-		float py = rand() % 500;
+		float px = static_cast<float>(rand() % 1000);
+		float py = static_cast<float>(rand() % 500);
 
 		GolemPedra* pGolemPedra = new GolemPedra(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemPedra);

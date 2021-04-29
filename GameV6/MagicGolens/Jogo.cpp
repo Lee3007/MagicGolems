@@ -25,6 +25,8 @@ Jogo::~Jogo()
 
 void Jogo::executarJogo()
 {
+	srand(time(NULL));
+
 	while (GerenciadorGrafico.janelaExecutando())
 	{
 		GerenciadorEstado.verificaEstado();

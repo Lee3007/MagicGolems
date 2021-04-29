@@ -25,6 +25,7 @@ public:
 	void destruirEntidades();
 	void atualizar();
 	void desenhar();
+	void colidir();
 	bool getVaziaStatus();
 	int getTamanho() const;
 };

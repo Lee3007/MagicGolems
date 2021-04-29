@@ -75,6 +75,11 @@ void ListaEntidades::desenhar( )
 	}
 }
 
+void ListaEntidades::colidir()
+{
+	Entidade* e = lista.voltarInicio();
+}
+
 bool ListaEntidades::getVaziaStatus()
 {
 	if(tam > 0)

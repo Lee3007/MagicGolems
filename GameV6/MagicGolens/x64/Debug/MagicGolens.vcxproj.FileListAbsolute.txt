@@ -2,5 +2,3 @@ C:\Users\Usuario\Desktop\Jogo\MagicGolens\x64\Debug\MagicGolens.exe
 C:\Users\Usuario\Desktop\Jogo\MagicGolens\x64\Debug\MagicGolens.pdb
 C:\Users\felip\Desktop\ProjJogo\GameV6\MagicGolens\x64\Debug\MagicGolens.exe
 C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe
-D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.pdb

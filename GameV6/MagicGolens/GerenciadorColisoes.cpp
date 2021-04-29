@@ -20,6 +20,5 @@ void GerenciadorColisoes::setListaEntidades(ListaEntidades* lista)
 bool GerenciadorColisoes::verificarColisoes() 
 {
 	
-
 	return false;
 }
