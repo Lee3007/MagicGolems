@@ -20,4 +20,6 @@ public:
 	//Funcoes
 	virtual void atualizar() = 0;
 	virtual void desenhar() = 0;
+	void setPosicao(sf::Vector2f p);
+	sf::Vector2f getPosicao();
 };

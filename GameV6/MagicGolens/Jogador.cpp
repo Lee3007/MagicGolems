@@ -41,14 +41,3 @@ void Jogador::desenhar()
 {
 	janela->draw(corpo);
 }
-
-void Jogador::setPosicao(sf::Vector2f p)
-{
-	posicao = p;
-	corpo.setPosition(posicao);
-}
-
-sf::Vector2f Jogador::getPosicao()
-{
-	return corpo.getPosition();
-}

@@ -161,6 +161,7 @@
     <ClCompile Include="FaseGelo.cpp" />
     <ClCompile Include="FasePedra.cpp" />
     <ClCompile Include="GerenciadorAtualizacoes.cpp" />
+    <ClCompile Include="GerenciadorColisoes.cpp" />
     <ClCompile Include="GerenciadorEstado.cpp" />
     <ClCompile Include="GerenciadorGrafico.cpp" />
     <ClCompile Include="GerenciadorMapa.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="FaseGelo.h" />
     <ClInclude Include="FasePedra.h" />
     <ClInclude Include="GerenciadorAtualizacoes.h" />
+    <ClInclude Include="GerenciadorColisoes.h" />
     <ClInclude Include="GerenciadorEstado.h" />
     <ClInclude Include="GerenciadorGrafico.h" />
     <ClInclude Include="GerenciadorMapa.h" />

@@ -14,7 +14,5 @@ public:
     //Funcoes
     void atualizar();
     void desenhar();
-    void setPosicao(sf::Vector2f p);
-    sf::Vector2f getPosicao();
 };
 
