@@ -32,15 +32,18 @@ void Tile::setRectTextura(int x, int y) {
 
 }
 
-sf::Sprite Tile::getTileSprite() {
+sf::Sprite Tile::getTileSprite() 
+{
 	return tileSprite;
 }
 
-sf::RectangleShape Tile::getTileRect() {
+sf::RectangleShape Tile::getTileRect() 
+{
 	return tileCorpo;
 }
 
-void Tile::setTipoTile(int x, int y) {
+void Tile::setTipoTile(int x, int y) 
+{
 	if (x == 0 && y == 0)
 		tipoTile = 0;
 	else if (x == 1 && y == 0)

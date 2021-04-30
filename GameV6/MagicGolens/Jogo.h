@@ -3,6 +3,7 @@
 #include "GerenciadorGrafico.h"
 #include "GerenciadorAtualizacoes.h"
 #include "GerenciadorEstado.h"
+#include "GerenciadorColisoes.h"
 #include "Jogador.h"
 #include "FasePedra.h"
 #include "FaseFogo.h"
@@ -17,6 +18,7 @@ private:
 	GerenciadorGrafico GerenciadorGrafico;
 	GerenciadorAtualizacoes GerenciadorAtualizacoes;
 	GerenciadorEstado GerenciadorEstado;
+	GerenciadorColisoes GerenciadorColisoes;
 
 	MenuInicial menu;
 
@@ -37,6 +39,7 @@ public:
 	//Funcoes
 	void executarJogo();
 	void inicializarGerenciadores();
+	void inicializarFases();
 
 };
 

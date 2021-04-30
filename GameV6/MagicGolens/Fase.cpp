@@ -10,6 +10,7 @@ pontoFinal(ponto)
 	janela = j;
 	jogador1 = NULL;
 	jogador2 = NULL;
+	GColisoes = NULL;
 	pTile = new Tile(caminhoTile);
 	pMapa = new Mapa(caminhoMapa);
 	pGm = new GerenciadorMapa(pMapa, pTile, j);	
@@ -65,6 +66,14 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 		
 }
 
+void Fase::inicializarFase(Jogador* j1, Jogador* j2)
+{
+	setJogadores(j1, j2);
+	GColisoes->adicionarEntidade(j1);
+	criarInimigos();
+	setPosicaoJogadores();
+}
+
 void Fase::reiniciarFase()
 {
 	cout << "Meu tamanho antes de entrar : " << LEntidades->getTamanho() << endl;
@@ -111,4 +120,9 @@ const sf::Vector2f Fase::getPontoFinal() const
 
 GerenciadorMapa* Fase::getGerenciadorMapa() {
 	return pGm;
+}
+
+void Fase::setGerenciadorColisoes(GerenciadorColisoes* pg)
+{
+	GColisoes = pg;
 }

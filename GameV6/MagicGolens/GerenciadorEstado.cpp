@@ -12,6 +12,7 @@ bMenu(true)
 {
 	GGrafico = NULL;
 	GAtualizacoes = NULL;
+	GColisoes = NULL;
 	fase1 = NULL;
 	fase2 = NULL;
 	fase3 = NULL;
@@ -24,6 +25,7 @@ GerenciadorEstado::~GerenciadorEstado()
 {
 	GGrafico = NULL;
 	GAtualizacoes = NULL;
+	GColisoes = NULL;
 	fase1 = NULL;
 	fase2 = NULL;
 	fase3 = NULL;
@@ -34,13 +36,11 @@ GerenciadorEstado::~GerenciadorEstado()
 
 void GerenciadorEstado::inicializarFase1()
 {
-	fase1->setJogadores(jogador1, NULL);
-	fase1->criarInimigos();
+	fase1->inicializarFase(jogador1, NULL);
 	GGrafico->setListaEntidades(fase1->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase1->getGerenciadorMapa());
 	GAtualizacoes->setFase(fase1);
 	GAtualizacoes->setListaEntidades(fase1->getListaEntidades());
-	fase1->setPosicaoJogadores();
 	bMenu = false;
 	bFase1 = true;
 	bFase2 = false;
@@ -49,13 +49,11 @@ void GerenciadorEstado::inicializarFase1()
 
 void GerenciadorEstado::inicializarFase2()
 {
-	fase2->setJogadores(jogador1, NULL);
-	fase2->criarInimigos();
+	fase2->inicializarFase(jogador1, NULL);
 	GGrafico->setListaEntidades(fase2->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase2->getGerenciadorMapa());
 	GAtualizacoes->setFase(fase2);
 	GAtualizacoes->setListaEntidades(fase2->getListaEntidades());
-	fase2->setPosicaoJogadores();
 	bMenu = false;
 	bFase1 = false;
 	bFase2 = true;
@@ -64,13 +62,11 @@ void GerenciadorEstado::inicializarFase2()
 
 void GerenciadorEstado::inicializarFase3()
 {
-	fase3->setJogadores(jogador1, NULL);
-	fase3->criarInimigos();
+	fase3->inicializarFase(jogador1, NULL);
 	GGrafico->setListaEntidades(fase3->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase3->getGerenciadorMapa());
 	GAtualizacoes->setListaEntidades(fase3->getListaEntidades());
 	GAtualizacoes->setFase(fase3);
-	fase3->setPosicaoJogadores();
 	bMenu = false;
 	bFase1 = false;
 	bFase2 = false;
@@ -84,6 +80,11 @@ void GerenciadorEstado::reiniciarFases()
 	fase3->reiniciarFase();
 }
 
+void GerenciadorEstado::esvaziarGColisoes()
+{
+	GColisoes->esvaziar();
+}
+
 void GerenciadorEstado::setFases(Fase* f1, Fase* f2, Fase* f3)
 {
 	fase1 = f1;
@@ -91,12 +92,13 @@ void GerenciadorEstado::setFases(Fase* f1, Fase* f2, Fase* f3)
 	fase3 = f3;
 }
 
-void GerenciadorEstado::setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga)
+void GerenciadorEstado::setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga, GerenciadorColisoes* Gc)
 {
-	if (Gg != NULL && Ga != NULL)
+	if (Gg != NULL && Ga != NULL && Gc != NULL)
 	{
 		GGrafico = Gg;
 		GAtualizacoes = Ga;
+		GColisoes = Gc;
 	}
 	else
 	{
@@ -129,6 +131,7 @@ void GerenciadorEstado::verificaEstado()
 			bFase1 = false;
 			bFase2 = false;
 			bFase3 = false;
+			GColisoes->esvaziar();
 			inicializarFase2();
 			cout << "Inicializando fase 2!" << endl;
 		}
@@ -141,6 +144,7 @@ void GerenciadorEstado::verificaEstado()
 			bFase2 = false;
 			bFase1 = false;
 			bMenu = false;
+			GColisoes->esvaziar();
 			inicializarFase3();
 			cout << "Inicializando fase 3!" << endl;
 		}
@@ -154,6 +158,7 @@ void GerenciadorEstado::verificaEstado()
 			bFase2 = false;
 			bFase3 = false;
 			bMenu = true;
+			GColisoes->esvaziar();
 			fase1->setConcluida(false);
 			fase2->setConcluida(false);
 			fase3->setConcluida(false);

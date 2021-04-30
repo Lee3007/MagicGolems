@@ -44,7 +44,8 @@ void FasePedra::criarInimigos()
 		float px = static_cast<float>(rand() % 1000);
 		float py = static_cast<float>(rand() % 500);
 
-		GolemPedra* pGolemPedra = new GolemPedra(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png", dt, janela);
+		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemPedra);
+		GColisoes->adicionarEntidade(pGolemPedra);
 	}
 }

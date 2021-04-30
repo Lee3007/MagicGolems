@@ -77,6 +77,7 @@ void MenuPause::executarEnter()
 
 	case 1:
 		GGrafico->setMenu(MenuIni);
+		GEstado->esvaziarGColisoes();
 		GEstado->reiniciarFases();
 		break;
 

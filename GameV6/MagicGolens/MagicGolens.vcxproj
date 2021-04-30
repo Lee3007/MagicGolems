@@ -200,6 +200,7 @@
     <ClInclude Include="GolemGelo.h" />
     <ClInclude Include="GolemFogo.h" />
     <ClInclude Include="GolemPedra.h" />
+    <ClInclude Include="IdsColidiveis.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />

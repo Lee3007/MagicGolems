@@ -3,6 +3,7 @@
 #include "ListaEntidades.h"
 #include "Jogador.h"
 #include "GerenciadorMapa.h"
+#include "GerenciadorColisoes.h"
 #include "Fase.h"
 #include "Mapa.h"
 #include "GolemPedra.h"
@@ -22,6 +23,7 @@ protected:
 	Tile* pTile;
 	Mapa* pMapa;
 	GerenciadorMapa* pGm;
+	GerenciadorColisoes* GColisoes;
 	sf::Texture backgroundText;
 	sf::Sprite backgroundSpr;
 
@@ -32,8 +34,9 @@ public:
 	~Fase();
 
 	//Funcoes
-	void setJogadores(Jogador* j1, Jogador* j2);
+	void inicializarFase(Jogador* j1, Jogador* j2);
 	void reiniciarFase();
+	void setJogadores(Jogador* j1, Jogador* j2);
 	virtual void criarInimigos() = 0;
 	void setConcluida(bool b);
 	const bool getStatus() const;
@@ -42,4 +45,5 @@ public:
 	virtual void setPosicaoJogadores() = 0;
 	virtual const sf::Vector2f getPontoFinal() const = 0;
 	GerenciadorMapa* getGerenciadorMapa();
+	void setGerenciadorColisoes(GerenciadorColisoes* pg);
 };

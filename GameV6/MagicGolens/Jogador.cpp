@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "Jogador.h"
 
-Jogador::Jogador(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
-Personagem(tam, p, v, caminhoTextura, t, j)
+Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Personagem(ID, tam, p, v, caminhoTextura, t, j)
 {
 }
 
@@ -40,4 +40,9 @@ void Jogador::atualizar()
 void Jogador::desenhar()
 {
 	janela->draw(corpo);
+}
+
+void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+{
+	cout << "AI!" << endl;
 }

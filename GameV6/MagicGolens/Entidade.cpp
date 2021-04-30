@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include "Entidade.h"
 
-Entidade::Entidade(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Id(ID),
 posicao(p),
 velocidade(v),
 textura(),
-corpo(tam)
+corpo(tam),
+dimensoes(tam)
 {
 	textura.loadFromFile(caminhoTextura);
 	corpo.setTexture(&textura);
@@ -28,4 +30,14 @@ void Entidade::setPosicao(sf::Vector2f p)
 sf::Vector2f Entidade::getPosicao()
 {
 	return corpo.getPosition();
+}
+
+sf::Vector2f Entidade::getDimensoes()
+{
+	return dimensoes;
+}
+
+const IdsColidiveis Entidade::getId()
+{
+	return Id;
 }

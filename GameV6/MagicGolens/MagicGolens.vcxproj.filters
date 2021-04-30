@@ -167,5 +167,8 @@
     <ClInclude Include="GerenciadorColisoes.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="IdsColidiveis.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

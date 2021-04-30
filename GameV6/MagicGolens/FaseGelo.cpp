@@ -44,10 +44,12 @@ void FaseGelo::criarInimigos()
 		float px = static_cast<float>(rand() % 1000);
 		float py = static_cast<float>(rand() % 500);
 
-		GolemGelo* pGolemGelo = new GolemGelo(sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemGelo.png", dt, janela);
+		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemGelo.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemGelo);
+		GColisoes->adicionarEntidade(pGolemGelo);
 	}
 
-	GolemGelo* pGolemGelo = new GolemGelo(sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(2.f, -5.f), "text/golemGelo.png", dt, janela);
+	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(2.f, -5.f), "text/golemGelo.png", dt, janela);
 	LEntidades->incluirEntidade(pGolemGelo);
+	GColisoes->adicionarEntidade(pGolemGelo);
 }

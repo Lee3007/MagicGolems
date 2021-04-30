@@ -18,6 +18,7 @@ private:
 	Menu* menu;
 	GerenciadorGrafico* GGrafico;
 	GerenciadorAtualizacoes* GAtualizacoes;
+	GerenciadorColisoes* GColisoes;
 	bool bFase1;
 	bool bFase2;
 	bool bFase3;
@@ -31,9 +32,9 @@ public:
 	void inicializarFase2();
 	void inicializarFase3();
 	void reiniciarFases();
-
+	void esvaziarGColisoes();
 	void setFases(Fase* f1, Fase* f2, Fase* f3);
-	void setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga);
+	void setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga, GerenciadorColisoes* Gc);
 	void setJogadores(Jogador* j1, Jogador* j2);
 	void verificaEstado();
 	void setMenu(Menu* m);

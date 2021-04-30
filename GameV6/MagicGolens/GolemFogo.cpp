@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "GolemFogo.h"
 
-GolemFogo::GolemFogo(sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
-Personagem(tam, p, v, caminhoTextura, t, j)
+GolemFogo::GolemFogo(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
+Personagem(ID, tam, p, v, caminhoTextura, t, j)
 {
 }
 
@@ -19,4 +19,8 @@ void GolemFogo::atualizar()
 void GolemFogo::desenhar()
 {
 	janela->draw(corpo);
+}
+
+void GolemFogo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+{
 }
