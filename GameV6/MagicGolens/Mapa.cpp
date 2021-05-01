@@ -31,9 +31,6 @@ void Mapa::carregarMapa(const char* caminho) {
 			}
 			else
 				contador.x++;
-
-		
-
 		}
 
 		contador.y++;
@@ -47,4 +44,9 @@ int Mapa::getInfoXMapa(int i, int j) {
 
 int Mapa::getInfoYMapa(int i, int j) {
 	return mapa[i][j].y;
+}
+
+sf::Vector2i Mapa::getInfoMapa(int i, int j)
+{
+	return mapa[i][j];
 }

@@ -1,1 +1,31 @@
-﻿
+﻿  stdafx.cpp
+  Entidade.cpp
+  Fase.cpp
+  FaseFogo.cpp
+  FaseGelo.cpp
+  FasePedra.cpp
+  GerenciadorAtualizacoes.cpp
+  GerenciadorColisoes.cpp
+  GerenciadorEstado.cpp
+  GerenciadorGrafico.cpp
+  GerenciadorMapa.cpp
+  GolemGelo.cpp
+  GolemFogo.cpp
+  GolemPedra.cpp
+  Jogador.cpp
+  Jogo.cpp
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\Jogo.cpp(30,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  ListaEntidades.cpp
+  MagicGolens.cpp
+  Mapa.cpp
+  Menu.cpp
+  MenuFases.cpp
+  Gerando Código...
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\Lista.h(194): warning C4715: 'Lista<Entidade>::voltarInicio': nem todos os caminhos de controle retornam um valor
+  Compilando...
+  MenuInicial.cpp
+  MenuPause.cpp
+  Personagem.cpp
+  Tile.cpp
+  Gerando Código...
+  MagicGolens.vcxproj -> D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\x64\Debug\MagicGolens.exe

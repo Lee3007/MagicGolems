@@ -1,7 +1,8 @@
 #pragma once
 #include "Mapa.h"
 #include "Tile.h"
-
+#include "IdsColidiveis.h"
+#include "Entidade.h"
 
 class GerenciadorMapa
 {
@@ -10,8 +11,16 @@ private:
 	Tile* ptile;
 	sf::Sprite* background;
 	sf::RenderWindow* janela;
+	vector<Tile*> listaTiles;
 
 public:
+
+	typedef struct dadosTiles {
+		const IdsColidiveis Id;
+		sf::Vector2f posicao;
+		sf::Vector2f tamanho;
+	}DadosTiles;
+
 	GerenciadorMapa(Mapa* pm = NULL, Tile* pt = NULL, sf::RenderWindow* j = NULL);
 	~GerenciadorMapa();
 
@@ -23,6 +32,6 @@ public:
 	void setBackground(sf::Sprite* sp );
 	sf::Sprite* getBackground();
 	void desenhar();
-
-
+	vector<DadosTiles> checarColisoes(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt);
+	bool estaoColidindo(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt, sf::Vector2i tipoTile);
 };

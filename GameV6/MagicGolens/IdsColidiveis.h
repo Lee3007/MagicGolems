@@ -6,5 +6,9 @@ enum IdsColidiveis
 	golemFogo,
 	golemPedra,
 	golemGelo,
+	espinho,
+	areia,
+	fogo,
+	bloco,
 	standby
 };

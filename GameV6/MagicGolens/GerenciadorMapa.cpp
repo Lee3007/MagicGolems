@@ -3,10 +3,11 @@
 
 GerenciadorMapa::GerenciadorMapa(Mapa* pm, Tile* pt, sf::RenderWindow* j):
 pmapa(pm),
-ptile(pt)
+ptile(pt),
+listaTiles()
 {
-	if ( pm == NULL || pt == NULL)
-		system("pause");
+	if (pm == NULL || pt == NULL)
+		exit(80);
 
 	background = NULL;
 	janela = j;
@@ -16,8 +17,6 @@ GerenciadorMapa::~GerenciadorMapa()
 {
 
 }
-
-
 
 void GerenciadorMapa::desenhar()
 {
@@ -34,6 +33,22 @@ void GerenciadorMapa::desenhar()
 
 	}
 
+}
+
+vector<GerenciadorMapa::DadosTiles> GerenciadorMapa::checarColisoes(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt)
+{
+	vector<DadosTiles> colisoes;
+
+	return colisoes;
+}
+
+
+bool GerenciadorMapa::estaoColidindo(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt, sf::Vector2i tipoTile)
+{
+	if(tipoTile == sf::Vector2i(1,2))
+		return false;
+
+	return true;
 }
 
 void GerenciadorMapa::setMapa(Mapa* pm)
