@@ -4,7 +4,9 @@
 Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
 Personagem(ID, tam, p, v, caminhoTextura, t, j),
 lentidao(1),
-vivo(false)
+vivo(false),
+podePular(true),
+alturaPulo(200)
 {
 }
 
@@ -17,26 +19,27 @@ void Jogador::atualizar()
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		velocidade.x = 400.f/lentidao;
+		velocidade.x = 600.f/lentidao;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		velocidade.x = -400.f/lentidao;
+		velocidade.x = -600.f/lentidao;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
 	{
-		velocidade.y = -400.f;
+		podePular = 0;
+		velocidade.y = -sqrt(250.0f * 98.f * alturaPulo);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-	{
-		velocidade.y = 400.f;
-	}
+
+	velocidade.y += 98.1f * 0.99;
+	velocidade.x *= 0.8f;
+	
 
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
 
-	velocidade.x = 0.f;
-	velocidade.y = 0.f;
+
+
 }
 
 void Jogador::desenhar()
@@ -64,13 +67,15 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 				{
 					posicao.x = posicao.x + fabsf(invasao.x);
 					corpo.setPosition(posicao);
-					cout << "invasao lateral direita" << endl;
+					cout << "invasao lateral direita" << endl;	//B <- P
+					velocidade.x = 0.f;
 				}
 				else
 				{
 					posicao.x = posicao.x - fabsf(invasao.x);
 					corpo.setPosition(posicao);
-					cout << "invasao lateral esquerda" << endl;
+					cout << "invasao lateral esquerda" << endl;	// P -> B
+					velocidade.x = 0.f;
 				}
 			}
 			else
@@ -80,12 +85,15 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 					posicao.y = posicao.y + fabsf(invasao.y);
 					corpo.setPosition(posicao);
 					cout << "invasao vertical por baixo" << endl;
+					velocidade.y = 0.f;
 				}
 				else
 				{
 					posicao.y = posicao.y - fabsf(invasao.y);
 					corpo.setPosition(posicao);
 					cout << "invasao vertical por cima" << endl;
+					velocidade.y = 0.f;
+					podePular = true;
 				}
 			}
 		}
@@ -95,7 +103,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	else if (IdOutro == areia)
 	{
 		lentidao = 3;
-		velocidade.y = 10.f;
+		//velocidade.y = 10.f;
 
 		cout << "Areia" << endl;
 	}

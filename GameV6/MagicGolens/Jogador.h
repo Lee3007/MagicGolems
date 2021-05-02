@@ -6,6 +6,8 @@ class Jogador :
 private:
     float lentidao;
     bool vivo;
+    bool podePular;
+    float alturaPulo = 200;
 
 public:
 
@@ -20,5 +22,6 @@ public:
     void morrer();
     bool estaVivo();
     void reiniciar();
+    //void estaColidindo();
 };
 
