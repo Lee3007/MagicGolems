@@ -18,10 +18,15 @@ FaseGelo::~FaseGelo()
 		LEntidades->destruirEntidades();
 
 	delete LEntidades;
+	delete mapaTiles[0];
+	delete mapaTiles[1];
+	delete mapaTiles[2];
+	delete mapaTiles[3];
 }
 
 void FaseGelo::setPosicaoJogadores()
 {
+	jogador1->reiniciar();
 	jogador1->setPosicao(sf::Vector2f(3.5 * 96.f, 5 * 96.f));
 
 	if (jogador2 != NULL)
@@ -37,12 +42,12 @@ const sf::Vector2f FaseGelo::getPontoFinal() const
 
 void FaseGelo::criarInimigos()
 {
-	int qntd = rand() % 7 + 5;
+	int qntd = rand() % 16 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
-		float px = static_cast<float>(rand() % 1000);
-		float py = static_cast<float>(rand() % 500);
+		float px = static_cast<float>(rand() % 2700 + 100);
+		float py = static_cast<float>(rand() % 2700 + 100);
 
 		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemGelo.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemGelo);
@@ -52,4 +57,16 @@ void FaseGelo::criarInimigos()
 	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(2.f, -5.f), "text/golemGelo.png", dt, janela);
 	LEntidades->incluirEntidade(pGolemGelo);
 	GColisoes->adicionarEntidade(pGolemGelo);
+}
+
+void FaseGelo::inicializarTiles(const char* caminhoTile)
+{
+	pTile = new Tile(caminhoTile, bloco);
+	mapaTiles[0] = pTile;
+	pTile = new Tile(caminhoTile, naocolidivel);
+	mapaTiles[3] = pTile;
+	pTile = new Tile(caminhoTile, espinho);
+	mapaTiles[1] = pTile;
+	pTile = new Tile(caminhoTile, naocolidivel);
+	mapaTiles[2] = pTile;
 }

@@ -52,6 +52,11 @@ void GerenciadorAtualizacoes::atualizar()
 	{
 		LEntidades->atualizar();
 
+		if (fase->jogadorMorto())
+		{
+			fase->setPosicaoJogadores();
+		}
+
 		fase->getPosicaoJogador();
 		fase->getPontoFinal();
 

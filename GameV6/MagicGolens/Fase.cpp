@@ -4,17 +4,39 @@
 Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
 LEntidades(),
 statusConcluida(false),
-pontoFinal(ponto)
+pontoFinal(ponto),
+mapaTiles()
 {
 	dt = t;
 	janela = j;
 	jogador1 = NULL;
 	jogador2 = NULL;
 	GColisoes = NULL;
-	pTile = new Tile(caminhoTile);
-	pMapa = new Mapa(caminhoMapa);
-	pGm = new GerenciadorMapa(pMapa, pTile, j);	
 	LEntidades = new ListaEntidades();
+	pGm = NULL;
+	pMapa = NULL;
+	pTile = NULL;
+
+	this->caminhoTile = caminhoTile;
+	this->caminhoMapa = caminhoMapa;
+	this->caminhoBackground = caminhoBackground;
+}
+
+Fase::~Fase()
+{
+	pTile = NULL;
+	delete (pMapa);
+	pMapa = NULL;
+	delete (pGm);
+	pGm = NULL;
+}
+
+void Fase::criarMapa()
+{
+	inicializarTiles(caminhoTile);
+
+	pMapa = new Mapa(caminhoMapa);
+	pGm = new GerenciadorMapa(mapaTiles, pMapa, janela);
 
 	if (!backgroundText.loadFromFile(caminhoBackground)) {
 		cout << "Erro, nao pode abrir a Textura" << endl;
@@ -22,20 +44,10 @@ pontoFinal(ponto)
 	}
 
 	backgroundSpr.setTexture(backgroundText);
-	backgroundSpr.setPosition( sf::Vector2f( 0.f, 0.f ) );
-	backgroundSpr.setScale(sf::Vector2f( 1.f, 1.f ) );
+	backgroundSpr.setPosition(sf::Vector2f(0.f, 0.f));
+	backgroundSpr.setScale(sf::Vector2f(1.f, 1.f));
 
 	pGm->setBackground(&backgroundSpr);
-}
-
-Fase::~Fase()
-{
-	delete (pTile);
-	pTile = NULL;
-	delete (pMapa);
-	pMapa = NULL;
-	delete (pGm);
-	pGm = NULL;
 }
 
 void Fase::setJogadores(Jogador* j1, Jogador* j2)
@@ -69,6 +81,7 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 void Fase::inicializarFase(Jogador* j1, Jogador* j2)
 {
 	setJogadores(j1, j2);
+	j1->reiniciar();
 	GColisoes->adicionarEntidade(j1);
 	criarInimigos();
 	setPosicaoJogadores();
@@ -76,11 +89,8 @@ void Fase::inicializarFase(Jogador* j1, Jogador* j2)
 
 void Fase::reiniciarFase()
 {
-	cout << "Meu tamanho antes de entrar : " << LEntidades->getTamanho() << endl;
-
 	if (!LEntidades->getVaziaStatus())
 	{
-		cout << "Entrei no reiniciar" << endl;
 		LEntidades->removerEntidade(jogador1);
 
 		if (jogador2 != NULL)
@@ -125,4 +135,15 @@ GerenciadorMapa* Fase::getGerenciadorMapa() {
 void Fase::setGerenciadorColisoes(GerenciadorColisoes* pg)
 {
 	GColisoes = pg;
+}
+
+bool Fase::jogadorMorto()
+{
+	if (!jogador1->estaVivo())
+		return true;
+	if (jogador2 != NULL)
+		if (!jogador2->estaVivo())
+			return true;
+
+	return false;
 }

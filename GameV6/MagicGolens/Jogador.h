@@ -4,6 +4,8 @@ class Jogador :
     public Personagem
 {
 private:
+    float lentidao;
+    bool vivo;
 
 public:
 
@@ -15,5 +17,8 @@ public:
     void atualizar();
     void desenhar();
     void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro);
+    void morrer();
+    bool estaVivo();
+    void reiniciar();
 };
 

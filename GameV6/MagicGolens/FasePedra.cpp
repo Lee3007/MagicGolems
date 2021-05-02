@@ -18,10 +18,15 @@ FasePedra::~FasePedra()
 		LEntidades->destruirEntidades();
 
 	delete LEntidades;
+	delete mapaTiles[0];
+	delete mapaTiles[1];
+	delete mapaTiles[2];
+	delete mapaTiles[3];
 }
 
 void FasePedra::setPosicaoJogadores()
 {
+	jogador1->reiniciar();
 	jogador1->setPosicao(sf::Vector2f(3.5 * 96.f, 28 * 96.f));
 
 	if (jogador2 != NULL)
@@ -37,15 +42,27 @@ const sf::Vector2f FasePedra::getPontoFinal() const
 
 void FasePedra::criarInimigos()
 {
-	int qntd = rand() % 7 + 5;
+	int qntd = rand() % 16 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
-		float px = static_cast<float>(rand() % 1000);
-		float py = static_cast<float>(rand() % 500);
+		float px = static_cast<float>(rand() % 2700 + 100);
+		float py = static_cast<float>(rand() % 2700 + 100);
 
-		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(2.f, -5.f), "text/golemPedra.png", dt, janela);
+		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(50.f, 0.f), "text/golemPedra.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemPedra);
 		GColisoes->adicionarEntidade(pGolemPedra);
 	}
+}
+
+void FasePedra::inicializarTiles(const char* caminhoTile)
+{
+	pTile = new Tile(caminhoTile, bloco);
+	mapaTiles[0] = pTile;
+	pTile = new Tile(caminhoTile, naocolidivel);
+	mapaTiles[3]= pTile;
+	pTile = new Tile(caminhoTile, areia);
+	mapaTiles[1]= pTile;
+	pTile = new Tile(caminhoTile, naocolidivel);
+	mapaTiles[2]= pTile;
 }

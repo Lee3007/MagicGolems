@@ -1,12 +1,11 @@
 #include "stdafx.h"
 #include "GerenciadorMapa.h"
 
-GerenciadorMapa::GerenciadorMapa(Mapa* pm, Tile* pt, sf::RenderWindow* j):
-pmapa(pm),
-ptile(pt),
-listaTiles()
+GerenciadorMapa::GerenciadorMapa(map <int, Tile*> map, Mapa* pm, sf::RenderWindow* j):
+mapaTiles(map),
+pmapa(pm)
 {
-	if (pm == NULL || pt == NULL)
+	if (pm == NULL)
 		exit(80);
 
 	background = NULL;
@@ -25,6 +24,9 @@ void GerenciadorMapa::desenhar()
 	{
 		for (int j = 0; j < 30; j++)
 		{
+			Tile* ptile = NULL;
+			int k = pmapa->getInfoMapa(i, j).x + pmapa->getInfoMapa(i, j).y;
+			ptile = mapaTiles[k];
 			ptile->setPosicao(i * 96, j * 96);
 			ptile->setRectTextura( (pmapa->getInfoXMapa(i, j)*16) , (pmapa->getInfoYMapa(i, j)*16) );
 			janela->draw( ptile->getTileSprite() );
@@ -35,6 +37,11 @@ void GerenciadorMapa::desenhar()
 
 }
 
+sf::Vector2f GerenciadorMapa::converterCoordenadas(int i, int j)
+{
+	return sf::Vector2f(96.f*i + 96 / 2.f, 96.f*j + 96 / 2.f);
+}
+
 vector<GerenciadorMapa::DadosTiles> GerenciadorMapa::checarColisoes(sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt)
 {
 	vector<GerenciadorMapa::DadosTiles> colisoes;
@@ -43,27 +50,17 @@ vector<GerenciadorMapa::DadosTiles> GerenciadorMapa::checarColisoes(sf::Vector2f
 	{
 		for (int j = 0; j < 30; j++)
 		{
-			sf::Vector2i coordTile;
-			coordTile.x = i;
-			coordTile.y = j;
+			int k = pmapa->getInfoXMapa(i, j) + pmapa->getInfoYMapa(i, j);
 
-			sf::Vector2i tipoTile = pmapa->getInfoMapa(i, j);
-			if (tipoTile == sf::Vector2i(0, 0) || (tipoTile == sf::Vector2i(0, 1)))
+			Tile* tile = mapaTiles[k];
+
+			if (tile->getId() != naocolidivel)
 			{
-				sf::Vector2f t;
-				t.x = 96.f;
-				t.y = 96.f;
-
-				sf::Vector2f p;
-				p.x = (96.f * coordTile.x) + (96 / 2.f);
-				p.y = (96.f * coordTile.y) + (96 / 2.f);
+				sf::Vector2f p = converterCoordenadas(i, j);
 
 				if (estaoColidindo(posicaoEnt, tamanhoEnt, p))
 				{
-					if (tipoTile == sf::Vector2i(0, 0))
-						colisoes.push_back({ chao, p, t });
-					else if (tipoTile == sf::Vector2i(0, 1))
-						colisoes.push_back({ areia, p, t });
+					colisoes.push_back({ tile->getId(), p, tile->getDimensoes() });
 				}
 			}
 		}
@@ -90,16 +87,6 @@ void GerenciadorMapa::setMapa(Mapa* pm)
 Mapa* GerenciadorMapa::getMapa() const
 {
 	return pmapa;
-}
-
-void GerenciadorMapa::setTile(Tile* pt)
-{
-	ptile = pt;
-}
-
-Tile* GerenciadorMapa::getTile() const
-{
-	return ptile;
 }
 
 void GerenciadorMapa::setBackground(sf::Sprite* sp) {

@@ -71,4 +71,8 @@ void Jogo::inicializarFases()
 	fasePedra.setGerenciadorColisoes(&GerenciadorColisoes);
 	faseFogo.setGerenciadorColisoes(&GerenciadorColisoes);
 	faseGelo.setGerenciadorColisoes(&GerenciadorColisoes);
+
+	fasePedra.criarMapa();
+	faseFogo.criarMapa();
+	faseGelo.criarMapa();
 }

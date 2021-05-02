@@ -14,6 +14,8 @@ dimensoes(tam)
 	corpo.setOrigin(corpo.getSize() / 2.f);
 	janela = j;
 	dt = t;
+	dimensoes.x = dimensoes.x - 15.f;
+	dimensoes.y = dimensoes.y - 15.f;
 }
 
 Entidade::~Entidade()

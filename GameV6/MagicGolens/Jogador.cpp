@@ -2,7 +2,9 @@
 #include "Jogador.h"
 
 Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
-Personagem(ID, tam, p, v, caminhoTextura, t, j)
+Personagem(ID, tam, p, v, caminhoTextura, t, j),
+lentidao(1),
+vivo(false)
 {
 }
 
@@ -12,17 +14,14 @@ Jogador::~Jogador()
 
 void Jogador::atualizar()
 {
-	velocidade.x = 0.f;
-	velocidade.y = 0.f;
-
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		velocidade.x = 400.f;
+		velocidade.x = 400.f/lentidao;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		velocidade.x = -400.f;
+		velocidade.x = -400.f/lentidao;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 	{
@@ -35,6 +34,9 @@ void Jogador::atualizar()
 
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
+
+	velocidade.x = 0.f;
+	velocidade.y = 0.f;
 }
 
 void Jogador::desenhar()
@@ -47,8 +49,9 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	sf::Vector2f dist = posicao - posicaoOutro;
 	sf::Vector2f invasao;
 
-	if (IdOutro == chao || IdOutro == parede)
+	if (IdOutro == bloco)
 	{
+		lentidao = 1;
 
 		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
 		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
@@ -90,7 +93,31 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 		//cout << "Bloco" << endl;
 	}
 	else if (IdOutro == areia)
+	{
+		lentidao = 3;
+		velocidade.y = 10.f;
+
 		cout << "Areia" << endl;
-	else
-		cout << "INIMIGO!" << endl;
+	}
+	else if (IdOutro == fogo)
+		cout << "Fogo" << endl;
+	else if(IdOutro == golemPedra)
+	{
+		morrer();
+	}
+}
+
+void Jogador::morrer()
+{
+	vivo = false;
+}
+
+bool Jogador::estaVivo()
+{
+	return vivo;
+}
+
+void Jogador::reiniciar()
+{
+	vivo = true;
 }

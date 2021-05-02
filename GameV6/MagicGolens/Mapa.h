@@ -11,7 +11,6 @@ public:
 	~Mapa();
 
 	void carregarMapa(const char* caminho);
-
 	int getInfoXMapa(int i, int j);
 	int getInfoYMapa(int i, int j);
 	sf::Vector2i getInfoMapa(int i, int j);

@@ -12,5 +12,6 @@ public:
     void setPosicaoJogadores();
     const sf::Vector2f getPontoFinal() const;
     void criarInimigos();
+    void inicializarTiles(const char* caminhoTile);
 };
 

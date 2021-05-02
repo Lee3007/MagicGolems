@@ -4,11 +4,13 @@
 #include "Jogador.h"
 #include "GerenciadorMapa.h"
 #include "GerenciadorColisoes.h"
-#include "Fase.h"
 #include "Mapa.h"
 #include "GolemPedra.h"
 #include "GolemFogo.h"
 #include "GolemGelo.h"
+#include "Tile.h"
+#include <map>
+using namespace std;
 
 class Fase
 {
@@ -25,7 +27,11 @@ protected:
 	GerenciadorMapa* pGm;
 	GerenciadorColisoes* GColisoes;
 	sf::Texture backgroundText;
-	sf::Sprite backgroundSpr;
+	sf::Sprite backgroundSpr; 
+	map<int, Tile*> mapaTiles;
+	const char* caminhoTile;
+	const char* caminhoMapa;
+	const char* caminhoBackground;
 
 public:
 
@@ -36,6 +42,8 @@ public:
 	//Funcoes
 	void inicializarFase(Jogador* j1, Jogador* j2);
 	void reiniciarFase();
+	virtual void inicializarTiles(const char* caminhoTile) = 0;
+	void criarMapa();
 	void setJogadores(Jogador* j1, Jogador* j2);
 	virtual void criarInimigos() = 0;
 	void setConcluida(bool b);
@@ -46,4 +54,5 @@ public:
 	virtual const sf::Vector2f getPontoFinal() const = 0;
 	GerenciadorMapa* getGerenciadorMapa();
 	void setGerenciadorColisoes(GerenciadorColisoes* pg);
+	bool jogadorMorto();
 };
