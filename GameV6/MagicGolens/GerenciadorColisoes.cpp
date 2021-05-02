@@ -5,11 +5,16 @@
 GerenciadorColisoes::GerenciadorColisoes():
 lista()
 {
-	
+	GMapa = NULL;
 }
 
 GerenciadorColisoes::~GerenciadorColisoes() 
 {
+}
+
+void GerenciadorColisoes::setGerenciadorMapa(GerenciadorMapa* pGm)
+{
+	GMapa = pGm;
 }
 
 void GerenciadorColisoes::adicionarEntidade(Entidade* e)
@@ -29,14 +34,22 @@ void GerenciadorColisoes::esvaziar()
 
 void GerenciadorColisoes::verificarColisoes() 
 {
+
 	for (auto colidivel = lista.begin(); colidivel != lista.end(); colidivel++)
 	{
+		Entidade* e1 = *colidivel;
+		vector<GerenciadorMapa::DadosTiles> tilesColidindo = GMapa->checarColisoes(e1->getPosicao(), e1->getDimensoes());
+
+		for (auto colisao : tilesColidindo)
+		{
+			e1->colidir(colisao.Id, colisao.posicao, colisao.tamanho);
+		}
+
 		auto outroColidivel = colidivel;
 		outroColidivel++;
 
 		for (; outroColidivel != lista.end(); outroColidivel++)
 		{
-			Entidade* e1 = *colidivel;
 			Entidade* e2 = *outroColidivel;
 
 			if (estaoColidindo(e1, e2))

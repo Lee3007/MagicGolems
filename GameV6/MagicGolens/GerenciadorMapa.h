@@ -32,6 +32,6 @@ public:
 	void setBackground(sf::Sprite* sp );
 	sf::Sprite* getBackground();
 	void desenhar();
-	vector<DadosTiles> checarColisoes(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt);
-	bool estaoColidindo(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt, sf::Vector2i tipoTile);
+	vector<DadosTiles> checarColisoes(sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt);
+	bool estaoColidindo(sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt, sf::Vector2f posTile);
 };

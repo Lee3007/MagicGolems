@@ -44,5 +44,53 @@ void Jogador::desenhar()
 
 void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
 {
-	cout << "AI!" << endl;
+	sf::Vector2f dist = posicao - posicaoOutro;
+	sf::Vector2f invasao;
+
+	if (IdOutro == chao || IdOutro == parede)
+	{
+
+		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
+		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
+
+		if (invasao.x < 0.f && invasao.y < 0.f)
+		{
+			if (fabsf(invasao.x) < fabsf(invasao.y))
+			{
+				if (dist.x > 0.f)
+				{
+					posicao.x = posicao.x + fabsf(invasao.x);
+					corpo.setPosition(posicao);
+					cout << "invasao lateral direita" << endl;
+				}
+				else
+				{
+					posicao.x = posicao.x - fabsf(invasao.x);
+					corpo.setPosition(posicao);
+					cout << "invasao lateral esquerda" << endl;
+				}
+			}
+			else
+			{
+				if (dist.y > 0.f)
+				{
+					posicao.y = posicao.y + fabsf(invasao.y);
+					corpo.setPosition(posicao);
+					cout << "invasao vertical por baixo" << endl;
+				}
+				else
+				{
+					posicao.y = posicao.y - fabsf(invasao.y);
+					corpo.setPosition(posicao);
+					cout << "invasao vertical por cima" << endl;
+				}
+			}
+		}
+
+		//cout << "Bloco" << endl;
+	}
+	else if (IdOutro == areia)
+		cout << "Areia" << endl;
+	else
+		cout << "INIMIGO!" << endl;
 }

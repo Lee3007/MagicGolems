@@ -35,20 +35,51 @@ void GerenciadorMapa::desenhar()
 
 }
 
-vector<GerenciadorMapa::DadosTiles> GerenciadorMapa::checarColisoes(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt)
+vector<GerenciadorMapa::DadosTiles> GerenciadorMapa::checarColisoes(sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt)
 {
-	vector<DadosTiles> colisoes;
+	vector<GerenciadorMapa::DadosTiles> colisoes;
+
+	for (int i = 0; i < 30; i++)
+	{
+		for (int j = 0; j < 30; j++)
+		{
+			sf::Vector2i coordTile;
+			coordTile.x = i;
+			coordTile.y = j;
+
+			sf::Vector2i tipoTile = pmapa->getInfoMapa(i, j);
+			if (tipoTile == sf::Vector2i(0, 0) || (tipoTile == sf::Vector2i(0, 1)))
+			{
+				sf::Vector2f t;
+				t.x = 96.f;
+				t.y = 96.f;
+
+				sf::Vector2f p;
+				p.x = (96.f * coordTile.x) + (96 / 2.f);
+				p.y = (96.f * coordTile.y) + (96 / 2.f);
+
+				if (estaoColidindo(posicaoEnt, tamanhoEnt, p))
+				{
+					if (tipoTile == sf::Vector2i(0, 0))
+						colisoes.push_back({ chao, p, t });
+					else if (tipoTile == sf::Vector2i(0, 1))
+						colisoes.push_back({ areia, p, t });
+				}
+			}
+		}
+	}
 
 	return colisoes;
 }
 
-
-bool GerenciadorMapa::estaoColidindo(IdsColidiveis IdEnt, sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt, sf::Vector2i tipoTile)
+bool GerenciadorMapa::estaoColidindo(sf::Vector2f posicaoEnt, sf::Vector2f tamanhoEnt, sf::Vector2f posTile)
 {
-	if(tipoTile == sf::Vector2i(1,2))
-		return false;
+	sf::Vector2f dist = posicaoEnt - posTile;
 
-	return true;
+	if ((fabsf(dist.x) < ((tamanhoEnt.x + 96) / 2)) && (fabsf(dist.y) < ((tamanhoEnt.y + 96) / 2)))
+		return true;
+
+	return false;
 }
 
 void GerenciadorMapa::setMapa(Mapa* pm)

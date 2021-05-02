@@ -29,7 +29,7 @@ void Entidade::setPosicao(sf::Vector2f p)
 
 sf::Vector2f Entidade::getPosicao()
 {
-	return corpo.getPosition();
+	return posicao;
 }
 
 sf::Vector2f Entidade::getDimensoes()

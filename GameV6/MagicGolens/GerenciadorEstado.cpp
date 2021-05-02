@@ -39,6 +39,7 @@ void GerenciadorEstado::inicializarFase1()
 	fase1->inicializarFase(jogador1, NULL);
 	GGrafico->setListaEntidades(fase1->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase1->getGerenciadorMapa());
+	GColisoes->setGerenciadorMapa(fase1->getGerenciadorMapa());
 	GAtualizacoes->setFase(fase1);
 	GAtualizacoes->setListaEntidades(fase1->getListaEntidades());
 	bMenu = false;
@@ -52,6 +53,7 @@ void GerenciadorEstado::inicializarFase2()
 	fase2->inicializarFase(jogador1, NULL);
 	GGrafico->setListaEntidades(fase2->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase2->getGerenciadorMapa());
+	GColisoes->setGerenciadorMapa(fase2->getGerenciadorMapa());
 	GAtualizacoes->setFase(fase2);
 	GAtualizacoes->setListaEntidades(fase2->getListaEntidades());
 	bMenu = false;
@@ -65,6 +67,7 @@ void GerenciadorEstado::inicializarFase3()
 	fase3->inicializarFase(jogador1, NULL);
 	GGrafico->setListaEntidades(fase3->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase3->getGerenciadorMapa());
+	GColisoes->setGerenciadorMapa(fase3->getGerenciadorMapa());
 	GAtualizacoes->setListaEntidades(fase3->getListaEntidades());
 	GAtualizacoes->setFase(fase3);
 	bMenu = false;

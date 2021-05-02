@@ -9,6 +9,7 @@ enum IdsColidiveis
 	espinho,
 	areia,
 	fogo,
-	bloco,
+	chao,
+	parede,
 	standby
 };

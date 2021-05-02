@@ -9,10 +9,12 @@ class GerenciadorColisoes
 {
 private:
 	set<Entidade*> lista;
+	GerenciadorMapa* GMapa;
 
 public:
 	GerenciadorColisoes();
 	~GerenciadorColisoes();
+	void setGerenciadorMapa(GerenciadorMapa* pGm);
 	void adicionarEntidade(Entidade* e);
 	void removerEntidade(Entidade* e);
 	void esvaziar();

@@ -19,4 +19,9 @@ void GolemGelo::desenhar()
 
 void GolemGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
 {
+	if (IdOutro == jogador)
+	{
+		velocidade.x += 10.f;
+		velocidade.y += 10.f;
+	}
 }
