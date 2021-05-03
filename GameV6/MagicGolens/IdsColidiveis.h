@@ -6,13 +6,13 @@ enum IdsColidiveis
 	golemFogo,
 	golemPedra,
 	golemGelo,
+	orb,
 	espinho,
 	areia,
 	fogo,
 	bloco,
 	ar,
-	inicio,
-	fim,
+	porta,
 	naocolidivel,
 	standby
 };

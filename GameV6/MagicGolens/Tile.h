@@ -13,7 +13,7 @@ public:
 	Tile(const char* caminho = "", const IdsColidiveis i = standby);
 	~Tile();
 
-	void setPosicao(int x, int y);
+	void setPosicao(float x, float y);
 	void setRectTextura(int x, int y);
 	sf::Vector2f getDimensoes() const;
 	sf::Sprite getTileSprite();

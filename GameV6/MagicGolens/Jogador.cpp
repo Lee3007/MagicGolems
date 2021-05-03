@@ -6,7 +6,7 @@ Personagem(ID, tam, p, v, caminhoTextura, t, j),
 lentidao(1),
 vivo(false),
 podePular(true),
-alturaPulo(125)
+alturaPulo(150)
 {
 }
 
@@ -30,18 +30,16 @@ void Jogador::atualizar()
 		podePular = false;
 		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
 	}
-	//cout << *dt << "  ";
-
-	velocidade.y += 98.1f * 0.99;
-	velocidade.x *= 0.8f;
 	
 
-	//posicao += velocidade * (*dt);
-	posicao += velocidade * 0.02f;
-	corpo.setPosition(posicao);
+	velocidade.y += 98.1f;
+	velocidade.x *= 0.8f;
+	
+	
 
-	cout << "velocidade x:" << velocidade.x << " . ";
-	cout << "velocidade y:" << velocidade.y << endl;
+	posicao += velocidade * (*dt);
+	//posicao += velocidade * 0.02f;
+	corpo.setPosition(posicao);
 
 }
 
@@ -58,6 +56,55 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	if (IdOutro == bloco)
 	{
 		lentidao = 1;
+
+		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
+		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
+
+		if (invasao.x < 0.f && invasao.y < 0.f)
+		{
+			if (fabsf(invasao.x) < fabsf(invasao.y))
+			{
+				if (dist.x > 0.f)
+				{
+					posicao.x = posicao.x + fabsf(invasao.x);
+					corpo.setPosition(posicao);
+					cout << "invasao lateral direita" << endl;	//B <- P
+					velocidade.x = 0.f;
+				}
+				else
+				{
+					posicao.x = posicao.x - fabsf(invasao.x);
+					corpo.setPosition(posicao);
+					cout << "invasao lateral esquerda" << endl;	// P -> B
+					velocidade.x = 0.f;
+				}
+			}
+			else
+			{
+				if (dist.y > 0.f)
+				{
+					posicao.y = posicao.y + fabsf(invasao.y);
+					corpo.setPosition(posicao);
+					cout << "invasao vertical por baixo" << endl;
+					velocidade.y = 0.f;
+				}
+				else
+				{
+					posicao.y = posicao.y - fabsf(invasao.y);
+					corpo.setPosition(posicao);
+					cout << "invasao vertical por cima" << endl;
+					velocidade.y = 0.f;
+					podePular = true;
+				}
+			}
+		}
+
+		//cout << "Bloco" << endl;
+	}
+	else if (IdOutro == areia)
+	{
+		lentidao = 3;
+		//velocidade.y = 10.f;
 
 		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
 		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
@@ -100,13 +147,6 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 				}
 			}
 		}
-
-		//cout << "Bloco" << endl;
-	}
-	else if (IdOutro == areia)
-	{
-		lentidao = 3;
-		//velocidade.y = 10.f;
 
 		cout << "Areia" << endl;
 	}

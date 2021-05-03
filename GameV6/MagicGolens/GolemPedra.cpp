@@ -12,6 +12,7 @@ GolemPedra::~GolemPedra()
 
 void GolemPedra::atualizar()
 {
+	velocidade.y += 9.81f;
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
 }
@@ -23,7 +24,7 @@ void GolemPedra::desenhar()
 
 void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
 {
-	if (IdOutro == bloco)
+	if (IdOutro == bloco || IdOutro == areia || IdOutro == porta)
 	{
 		sf::Vector2f dist = posicao - posicaoOutro;
 		sf::Vector2f invasao;
@@ -54,11 +55,13 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 				{
 					posicao.y = posicao.y + fabsf(invasao.y);
 					corpo.setPosition(posicao);
+					velocidade.y = 0.f;
 				}
 				else
 				{
 					posicao.y = posicao.y - fabsf(invasao.y);
 					corpo.setPosition(posicao);
+					velocidade.y = 0.f;
 				}
 			}
 		}

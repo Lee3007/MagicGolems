@@ -20,6 +20,7 @@ GerenciadorMapa::~GerenciadorMapa()
 void GerenciadorMapa::desenhar()
 {
 	janela->draw(*background);
+
 	for (int i = 0; i < 30; i++) 
 	{
 		for (int j = 0; j < 30; j++)
@@ -27,7 +28,7 @@ void GerenciadorMapa::desenhar()
 			Tile* ptile = NULL;
 			int k = pmapa->getInfoMapa(i, j).x + pmapa->getInfoMapa(i, j).y;
 			ptile = mapaTiles[k];
-			ptile->setPosicao(i * 96, j * 96);
+			ptile->setPosicao(i * 96.f, j * 96.f);
 			ptile->setRectTextura( (pmapa->getInfoXMapa(i, j)*16) , (pmapa->getInfoYMapa(i, j)*16) );
 			janela->draw( ptile->getTileSprite() );
 

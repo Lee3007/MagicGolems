@@ -42,7 +42,7 @@ const sf::Vector2f FasePedra::getPontoFinal() const
 
 void FasePedra::criarInimigos()
 {
-	int qntd = rand() % 16 + 5;
+	int qntd = rand() % 7 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
@@ -63,6 +63,6 @@ void FasePedra::inicializarTiles(const char* caminhoTile)
 	mapaTiles[3]= pTile;
 	pTile = new Tile(caminhoTile, areia);
 	mapaTiles[1]= pTile;
-	pTile = new Tile(caminhoTile, naocolidivel);
+	pTile = new Tile(caminhoTile, porta);
 	mapaTiles[2]= pTile;
 }

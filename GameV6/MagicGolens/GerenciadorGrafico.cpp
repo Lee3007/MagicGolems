@@ -16,7 +16,7 @@ view(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(1920.0f, 1080.0f))
 	GMapa = NULL;
 	jogador = NULL;
 	janela.setVerticalSyncEnabled(1);
-	janela.setFramerateLimit(50);
+	janela.setFramerateLimit(60);
 }
 
 GerenciadorGrafico::~GerenciadorGrafico()
@@ -162,8 +162,16 @@ void GerenciadorGrafico::atualizaView()
 {
 	sf::Vector2f posicao_view = jogador->getPosicao();
 
-	view.setCenter(jogador->getPosicao());
+	float x = posicao_view.x;
+	float y = posicao_view.y;
 
+	x = std::floorf(x);
+	y = std::floorf(y);
+
+	x += 0.375f;
+	y += 0.375f;
+
+	view.setCenter(x, y);
 	
 	if ((posicao_view.x - 1920 / 2) < 0)
 		view.move( sf::Vector2f( (-1)*(posicao_view.x - 1920 / 2), 0.f ) );

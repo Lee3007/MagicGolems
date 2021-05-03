@@ -78,9 +78,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -89,12 +91,12 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include;D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include;C:\Users\Usuario\Desktop\Jogo\SFML-2.5.1%28x64%29\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib;D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -107,14 +109,14 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include;D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include;C:\Users\Usuario\Desktop\Jogo\SFML-2.5.1%28x64%29\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib;D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -125,12 +127,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\SFML-2.5.1(x64)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\SFML-2.5.1(x64)\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib;C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\SFML-2.5.1(x64)\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -143,14 +145,14 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\SFML-2.5.1(x64)\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\SFML-2.5.1(x64)\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV6\SFML-2.5.1%28x64%29\lib;C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\SFML-2.5.1(x64)\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -177,6 +179,7 @@
     <ClCompile Include="MenuFases.cpp" />
     <ClCompile Include="MenuInicial.cpp" />
     <ClCompile Include="MenuPause.cpp" />
+    <ClCompile Include="Orb.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -210,6 +213,7 @@
     <ClInclude Include="MenuFases.h" />
     <ClInclude Include="MenuInicial.h" />
     <ClInclude Include="MenuPause.h" />
+    <ClInclude Include="Orb.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tile.h" />

@@ -12,6 +12,7 @@ GolemFogo::~GolemFogo()
 
 void GolemFogo::atualizar()
 {
+	velocidade.y += 9.81f;
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
 }
@@ -23,4 +24,47 @@ void GolemFogo::desenhar()
 
 void GolemFogo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
 {
+	if (IdOutro == bloco || IdOutro == fogo || IdOutro == porta)
+	{
+		sf::Vector2f dist = posicao - posicaoOutro;
+		sf::Vector2f invasao;
+
+		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
+		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
+
+		if (invasao.x < 0.f && invasao.y < 0.f)
+		{
+			if (fabsf(invasao.x) < fabsf(invasao.y))
+			{
+				if (dist.x > 0.f)
+				{
+					posicao.x = posicao.x + fabsf(invasao.x);
+					corpo.setPosition(posicao);
+					velocidade.x = (-1) * velocidade.x;
+				}
+				else
+				{
+					posicao.x = posicao.x - fabsf(invasao.x);
+					corpo.setPosition(posicao);
+					velocidade.x = (-1) * velocidade.x;
+				}
+			}
+			else
+			{
+				if (dist.y > 0.f)
+				{
+					posicao.y = posicao.y + fabsf(invasao.y);
+					corpo.setPosition(posicao);
+					velocidade.y = 0.f;
+				}
+				else
+				{
+					posicao.y = posicao.y - fabsf(invasao.y);
+					corpo.setPosition(posicao);
+					velocidade.y = 0.f;
+				}
+			}
+		}
+
+	}
 }

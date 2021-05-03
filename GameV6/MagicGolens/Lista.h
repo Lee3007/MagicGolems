@@ -189,8 +189,9 @@ TL* Lista<TL>::voltarInicio()
 	{
 		return pPrim->getInfo();
 	}
-	else
-		cout << "ERRO: pPrim = NULL" << endl;
+
+	cout << "ERRO: pPrim = NULL" << endl;
+	return NULL;
 }
 
 template<class TL>

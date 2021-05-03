@@ -19,8 +19,10 @@ Id(i)
 
 Tile::~Tile() {}
 
-void Tile::setPosicao(int x, int y) {
-	tileSprite.setPosition((float)x, (float)y);
+void Tile::setPosicao(float x, float y) {
+
+
+	tileSprite.setPosition(x, y);
 }
 
 void Tile::setRectTextura(int x, int y) {
