@@ -6,7 +6,7 @@ Personagem(ID, tam, p, v, caminhoTextura, t, j),
 lentidao(1),
 vivo(false),
 podePular(true),
-alturaPulo(200)
+alturaPulo(125)
 {
 }
 
@@ -27,18 +27,21 @@ void Jogador::atualizar()
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
 	{
-		podePular = 0;
-		velocidade.y = -sqrt(250.0f * 98.f * alturaPulo);
+		podePular = false;
+		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
 	}
+	//cout << *dt << "  ";
 
 	velocidade.y += 98.1f * 0.99;
 	velocidade.x *= 0.8f;
 	
 
-	posicao += velocidade * (*dt);
+	//posicao += velocidade * (*dt);
+	posicao += velocidade * 0.02f;
 	corpo.setPosition(posicao);
 
-
+	cout << "velocidade x:" << velocidade.x << " . ";
+	cout << "velocidade y:" << velocidade.y << endl;
 
 }
 
@@ -67,14 +70,14 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 				{
 					posicao.x = posicao.x + fabsf(invasao.x);
 					corpo.setPosition(posicao);
-					cout << "invasao lateral direita" << endl;	//B <- P
+					//cout << "invasao lateral direita" << endl;	//B <- P
 					velocidade.x = 0.f;
 				}
 				else
 				{
 					posicao.x = posicao.x - fabsf(invasao.x);
 					corpo.setPosition(posicao);
-					cout << "invasao lateral esquerda" << endl;	// P -> B
+					//cout << "invasao lateral esquerda" << endl;	// P -> B
 					velocidade.x = 0.f;
 				}
 			}
@@ -84,14 +87,14 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 				{
 					posicao.y = posicao.y + fabsf(invasao.y);
 					corpo.setPosition(posicao);
-					cout << "invasao vertical por baixo" << endl;
+					//cout << "invasao vertical por baixo" << endl;
 					velocidade.y = 0.f;
 				}
 				else
 				{
 					posicao.y = posicao.y - fabsf(invasao.y);
 					corpo.setPosition(posicao);
-					cout << "invasao vertical por cima" << endl;
+					//cout << "invasao vertical por cima" << endl;
 					velocidade.y = 0.f;
 					podePular = true;
 				}

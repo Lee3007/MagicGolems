@@ -124,11 +124,11 @@ void GerenciadorEstado::verificaEstado()
 {
 	if (bMenu)
 	{
-		cout << "Menu ativo" << endl;
+		//cout << "Menu ativo" << endl;
 	}
 	else if (bFase1)
 	{
-		cout << "Fase1 sendo executada" << endl;
+		//cout << "Fase1 sendo executada" << endl;
 		if (fase1->getStatus())
 		{
 			bFase1 = false;
@@ -141,7 +141,7 @@ void GerenciadorEstado::verificaEstado()
 	}
 	else if (bFase2)
 	{
-		cout << "Fase2 sendo executada" << endl;
+		//cout << "Fase2 sendo executada" << endl;
 		if (fase2->getStatus())
 		{
 			bFase2 = false;
@@ -154,7 +154,7 @@ void GerenciadorEstado::verificaEstado()
 	}
 	else if (bFase3)
 	{
-		cout << "Fase3 sendo executada" << endl;
+		//cout << "Fase3 sendo executada" << endl;
 		if (fase3->getStatus())
 		{
 			bFase1 = false;
@@ -162,9 +162,9 @@ void GerenciadorEstado::verificaEstado()
 			bFase3 = false;
 			bMenu = true;
 			GColisoes->esvaziar();
-			fase1->setConcluida(false);
-			fase2->setConcluida(false);
-			fase3->setConcluida(false);
+			//fase1->setConcluida(false);
+			//fase2->setConcluida(false);
+			//fase3->setConcluida(false);
 			reiniciarFases();
 			GGrafico->setMenu(menu);
 			//*inicializarLeaderBoard();

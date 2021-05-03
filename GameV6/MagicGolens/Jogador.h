@@ -7,7 +7,7 @@ private:
     float lentidao;
     bool vivo;
     bool podePular;
-    float alturaPulo = 200;
+    float alturaPulo;
 
 public:
 

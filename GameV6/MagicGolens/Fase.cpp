@@ -57,16 +57,7 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 
 	if (j1 != NULL)
 	{
-		float x;
-		float y;
-
-		sf::Vector2f p = getPosicaoJogador();
-
-		x = p.x;
-		y = p.y;
-
 		cout << "Jogador recebido pela fase com sucesso" << endl;
-		cout << "xo = " << x << endl << "yo = " << y << endl;
 	}
 
 	LEntidades->incluirEntidade(j1);
@@ -89,9 +80,11 @@ void Fase::inicializarFase(Jogador* j1, Jogador* j2)
 
 void Fase::reiniciarFase()
 {
+	statusConcluida = false;
 	if (!LEntidades->getVaziaStatus())
 	{
 		LEntidades->removerEntidade(jogador1);
+		cout << "jogador 1 removido" << endl;
 
 		if (jogador2 != NULL)
 			LEntidades->removerEntidade(jogador2);

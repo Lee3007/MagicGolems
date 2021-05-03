@@ -15,6 +15,8 @@ view(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(1920.0f, 1080.0f))
 	LEntidades = NULL;
 	GMapa = NULL;
 	jogador = NULL;
+	janela.setVerticalSyncEnabled(1);
+	janela.setFramerateLimit(50);
 }
 
 GerenciadorGrafico::~GerenciadorGrafico()
