@@ -8,7 +8,8 @@ GerenciadorEstado::GerenciadorEstado() :
 	bFase1(false),
 	bFase2(false),
 	bFase3(false),
-	bMenu(true)
+	bMenu(true),
+	coop(false)
 {
 	GGrafico = NULL;
 	GAtualizacoes = NULL;
@@ -36,7 +37,14 @@ GerenciadorEstado::~GerenciadorEstado()
 
 void GerenciadorEstado::inicializarFase1()
 {
-	fase1->inicializarFase(jogador1, NULL);
+	if (coop)
+		fase1->inicializarFase(jogador1, jogador2);
+	else
+	{
+		cout << "1 player" << endl;
+		fase1->inicializarFase(jogador1, NULL);
+	}
+
 	GGrafico->setListaEntidades(fase1->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase1->getGerenciadorMapa());
 	GColisoes->setGerenciadorMapa(fase1->getGerenciadorMapa());
@@ -50,7 +58,12 @@ void GerenciadorEstado::inicializarFase1()
 
 void GerenciadorEstado::inicializarFase2()
 {
-	fase2->inicializarFase(jogador1, NULL);
+	if (coop)
+		fase2->inicializarFase(jogador1, jogador2);
+	else
+		fase2->inicializarFase(jogador1, NULL);
+
+	fase2->inicializarFase(jogador1, jogador2);
 	GGrafico->setListaEntidades(fase2->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase2->getGerenciadorMapa());
 	GColisoes->setGerenciadorMapa(fase2->getGerenciadorMapa());
@@ -64,7 +77,12 @@ void GerenciadorEstado::inicializarFase2()
 
 void GerenciadorEstado::inicializarFase3()
 {
-	fase3->inicializarFase(jogador1, NULL);
+	if (coop)
+		fase3->inicializarFase(jogador1, jogador2);
+	else
+		fase3->inicializarFase(jogador1, NULL);
+
+	fase3->inicializarFase(jogador1, jogador2);
 	GGrafico->setListaEntidades(fase3->getListaEntidades());
 	GGrafico->setGerenciadorMapa(fase3->getGerenciadorMapa());
 	GColisoes->setGerenciadorMapa(fase3->getGerenciadorMapa());
@@ -113,11 +131,7 @@ void GerenciadorEstado::setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtua
 void GerenciadorEstado::setJogadores(Jogador* j1, Jogador* j2)
 {
 	jogador1 = j1;
-
-	if (j2 != NULL)
-	{
-		jogador2 = j2;
-	}
+	jogador2 = j2;
 }
 
 void GerenciadorEstado::verificaEstado()
@@ -192,4 +206,9 @@ bool GerenciadorEstado::menuAtivo() const
 void GerenciadorEstado::setMenuStatus(bool b)
 {
 	bMenu = b;
+}
+
+void GerenciadorEstado::setCoop(bool b)
+{
+	coop = b;
 }

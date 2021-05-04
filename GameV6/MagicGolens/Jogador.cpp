@@ -17,48 +17,6 @@ Jogador::~Jogador()
 {
 }
 
-void Jogador::atualizar()
-{
-	cooldown += *dt;
-
-	possoAtirar(cooldown);
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-	{
-		velocidade.x = 600.f / lentidao;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-	{
-		velocidade.x = -600.f / lentidao;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
-	{
-		podePular = false;
-		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && podePular)
-	{
-		podePular = false;
-		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
-	}
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && podeAtirar) {
-		podeAtirar = false;
-		Orbe* pOrbe = NULL;
-
-		pOrbe = new Orbe(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(800.f, 0.f), "text/orbe.png", dt, janela, LEntidades, GColisoes);
-		GColisoes->adicionarEntidade(pOrbe);
-		LEntidades->incluirEntidade(pOrbe);
-
-		cooldown = 0.f;
-	}
-
-	velocidade.y += 98.1f;
-	velocidade.x *= 0.8f;
-
-	posicao += velocidade * (*dt);
-	corpo.setPosition(posicao);
-}
-
 void Jogador::desenhar()
 {
 	janela->draw(corpo);

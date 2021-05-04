@@ -55,7 +55,7 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 	jogador1 = j1;
 	jogador2 = j2;
 
-	if (j1 != NULL)
+	if (jogador1 != NULL)
 	{
 		cout << "Jogador recebido pela fase com sucesso" << endl;
 	}
@@ -64,21 +64,28 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 	jogador1->setListaEntidades(LEntidades);
 	LEntidades->incluirEntidade(j1);
 
-	if (j2 != NULL)
+	if (jogador2 != NULL)
 	{
 		cout << "Jogador 2 recebido pela fase com sucesso" << endl;
 		LEntidades->incluirEntidade(j2);
 		jogador2->setGerenciadorColisoes(GColisoes);
 		jogador2->setListaEntidades(LEntidades);
-		LEntidades->incluirEntidade(j2);
 	}
 }
 
 void Fase::inicializarFase(Jogador* j1, Jogador* j2)
 {
 	setJogadores(j1, j2);
-	j1->reiniciar();
-	GColisoes->adicionarEntidade(j1);
+
+	jogador1->reiniciar();
+	GColisoes->adicionarEntidade(jogador1);
+
+	if (jogador2 != NULL)
+	{
+		j2->reiniciar();
+		GColisoes->adicionarEntidade(j2);
+	}
+
 	criarInimigos();
 	setPosicaoJogadores();
 }
@@ -92,7 +99,10 @@ void Fase::reiniciarFase()
 		cout << "jogador 1 removido" << endl;
 
 		if (jogador2 != NULL)
+		{
 			LEntidades->removerEntidade(jogador2);
+			cout << "jogador 2 removido" << endl;
+		}
 
 		jogador1 = NULL;
 		jogador2 = NULL;

@@ -7,7 +7,7 @@
 class Jogador :
 	public Personagem, public Atirador
 {
-private:
+protected:
 	float lentidao;
 	bool vivo;
 	bool podePular;
@@ -22,7 +22,7 @@ public:
 	~Jogador();
 
 	//Funcoes
-	void atualizar();
+	virtual void atualizar() = 0;
 	void desenhar();
 	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro);
 	void morrer();

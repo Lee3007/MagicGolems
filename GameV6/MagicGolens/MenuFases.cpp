@@ -97,7 +97,7 @@ void MenuFases::executarEnter()
 		break;
 
 	case 3:
-		GGrafico->setMenu(MenuIni);
+		GGrafico->setMenu(MenuIni->getMenuJogadores());
 		break;
 	}
 }

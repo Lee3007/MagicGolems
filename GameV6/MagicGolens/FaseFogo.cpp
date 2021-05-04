@@ -11,7 +11,13 @@ FaseFogo::~FaseFogo()
 	if (jogador1 != NULL)
 	{
 		LEntidades->removerEntidade(jogador1);
-		cout << "Jogador removido da fase fogo" << endl;
+		cout << "Jogador1 removido da fase fogo" << endl;
+	}
+
+	if (jogador2 != NULL)
+	{
+		LEntidades->removerEntidade(jogador2);
+		cout << "Jogador2 removido da fase fogo" << endl;
 	}
 
 	if (!LEntidades->getVaziaStatus())
@@ -28,12 +34,11 @@ FaseFogo::~FaseFogo()
 
 void FaseFogo::setPosicaoJogadores()
 {
-	jogador1->reiniciar();
 	jogador1->setPosicao(sf::Vector2f(27.5 * 96.f, 16 * 96.f));
 
 	if (jogador2 != NULL)
 	{
-		jogador2->setPosicao(sf::Vector2f(28.5 * 96.f, 16 * 96.f));
+		jogador2->setPosicao(sf::Vector2f(27.5 * 96.f, 16 * 96.f));
 	}
 }
 

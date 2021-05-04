@@ -5,11 +5,13 @@ MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string c
 	Menu(Ge, Gg, caminhoBackground, j),
 	opcoes(),
 	MFases(Ge, Gg, caminhoBackground, j),
-	MPause(Ge, Gg, caminhoBackground, j)
+	MPause(Ge, Gg, caminhoBackground, j),
+	MJogadores(Ge, Gg, caminhoBackground, j)
 {
 	inicializarMenu();
 	MFases.setMenuInicial(this);
 	MPause.setMenuInicial(this);
+	MJogadores.setMenuInicial(this);
 }
 
 MenuInicial::~MenuInicial()
@@ -78,7 +80,7 @@ void MenuInicial::executarEnter()
 	switch (itemSelecionado)
 	{
 	case 0:
-		GGrafico->setMenu(&MFases);
+		GGrafico->setMenu(&MJogadores);
 		break;
 
 	case 1:
@@ -90,7 +92,17 @@ void MenuInicial::executarEnter()
 	}
 }
 
-MenuPause* MenuInicial::getMenuPause()
+Menu* MenuInicial::getMenuPause()
 {
 	return &MPause;
+}
+
+Menu* MenuInicial::getMenuFases()
+{
+	return &MFases;
+}
+
+Menu* MenuInicial::getMenuJogadores()
+{
+	return &MJogadores;
 }

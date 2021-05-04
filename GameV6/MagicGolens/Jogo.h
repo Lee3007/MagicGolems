@@ -5,6 +5,8 @@
 #include "GerenciadorEstado.h"
 #include "GerenciadorColisoes.h"
 #include "Jogador.h"
+#include "Mago.h"
+#include "Anjo.h"
 #include "FasePedra.h"
 #include "FaseFogo.h"
 #include "FaseGelo.h"
@@ -24,6 +26,7 @@ private:
 
 	//Entidades
 	Jogador* jogador1;
+	Jogador* jogador2;
 
 	//Fases
 	FasePedra fasePedra;

@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Anjo.cpp" />
     <ClCompile Include="Arremessavel.cpp" />
     <ClCompile Include="Atirador.cpp" />
     <ClCompile Include="Entidade.cpp" />
@@ -176,10 +177,12 @@
     <ClCompile Include="Jogo.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="MagicGolens.cpp" />
+    <ClCompile Include="Mago.cpp" />
     <ClCompile Include="Mapa.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuFases.cpp" />
     <ClCompile Include="MenuInicial.cpp" />
+    <ClCompile Include="MenuJogadores.cpp" />
     <ClCompile Include="MenuPause.cpp" />
     <ClCompile Include="Orbe.cpp" />
     <ClCompile Include="Personagem.cpp" />
@@ -192,6 +195,7 @@
     <ClCompile Include="Tile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Anjo.h" />
     <ClInclude Include="Arremessavel.h" />
     <ClInclude Include="Atirador.h" />
     <ClInclude Include="Entidade.h" />
@@ -212,10 +216,12 @@
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Mago.h" />
     <ClInclude Include="Mapa.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuFases.h" />
     <ClInclude Include="MenuInicial.h" />
+    <ClInclude Include="MenuJogadores.h" />
     <ClInclude Include="MenuPause.h" />
     <ClInclude Include="Orbe.h" />
     <ClInclude Include="Personagem.h" />

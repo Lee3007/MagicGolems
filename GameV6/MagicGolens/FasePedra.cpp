@@ -11,7 +11,13 @@ FasePedra::~FasePedra()
 	if (jogador1 != NULL)
 	{
 		LEntidades->removerEntidade(jogador1);
-		cout << "Jogador removido da fase pedra" << endl;
+		cout << "Jogador1 removido da fase pedra" << endl;
+	}
+
+	if (jogador2 != NULL)
+	{
+		LEntidades->removerEntidade(jogador2);
+		cout << "Jogador2 removido da fase pedra" << endl;
 	}
 
 	if (!LEntidades->getVaziaStatus())
@@ -31,7 +37,8 @@ void FasePedra::setPosicaoJogadores()
 
 	if (jogador2 != NULL)
 	{
-		jogador2->setPosicao(sf::Vector2f(4.5 * 96.f, 28 * 96.f));
+		jogador2->reiniciar();
+		jogador2->setPosicao(sf::Vector2f(3.5 * 96.f, 28 * 96.f));
 	}
 }
 
