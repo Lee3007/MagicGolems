@@ -2,16 +2,18 @@
 #include "Personagem.h"
 #include "Orbe.h"
 #include <vector>
+#include "Atirador.h"
+
 class Jogador :
-	public Personagem
+	public Personagem, public Atirador
 {
 private:
 	float lentidao;
 	bool vivo;
 	bool podePular;
+	bool podeAtirar;
 	float alturaPulo;
-	Orbe orbe1;
-	vector<Orbe> orbes;
+	float cooldown;
 
 public:
 
@@ -26,6 +28,5 @@ public:
 	void morrer();
 	bool estaVivo();
 	void reiniciar();
-	//void estaColidindo();
-	void desenharOrbes();
+	void possoAtirar(float t);
 };

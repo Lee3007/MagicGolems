@@ -60,10 +60,16 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 		cout << "Jogador recebido pela fase com sucesso" << endl;
 	}
 
+	jogador1->setGerenciadorColisoes(GColisoes);
+	jogador1->setListaEntidades(LEntidades);
 	LEntidades->incluirEntidade(j1);
 
 	if (j2 != NULL)
 	{
+		cout << "Jogador 2 recebido pela fase com sucesso" << endl;
+		LEntidades->incluirEntidade(j2);
+		jogador2->setGerenciadorColisoes(GColisoes);
+		jogador2->setListaEntidades(LEntidades);
 		LEntidades->incluirEntidade(j2);
 	}
 }

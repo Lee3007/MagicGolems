@@ -9,6 +9,7 @@ public:
 	~Lista();
 	void incluirInfo(TL* info);
 	void removerInfo(TL* info);
+	void removerDestruir(TL* info);
 	void esvaziar();
 	TL* voltarInicio();
 	TL* irProximo();
@@ -156,6 +157,38 @@ void Lista<TL>::removerInfo(TL* info)
 		pAux->getpProx()->setpAnt(pAux->getpAnt());
 	}
 
+	delete pAux;
+}
+
+template<class TL>
+void Lista<TL>::removerDestruir(TL* info)
+{
+	Elemento<TL>* pAux = pPrim;
+	TL* pInfo = NULL;
+
+	while (pInfo != info)
+	{
+		pAux = pAux->getpProx();
+		pInfo = pAux->getInfo();
+	}
+
+	if (pAux == pPrim)
+	{
+		pPrim = pAux->getpProx();
+		pPrim->setpAnt(NULL);
+	}
+	else if (pAux == pFim)
+	{
+		pFim = pFim->getpAnt();
+		pFim->setpProx(NULL);
+	}
+	else
+	{
+		pAux->getpAnt()->setpProx(pAux->getpProx());
+		pAux->getpProx()->setpAnt(pAux->getpAnt());
+	}
+
+	delete pInfo;
 	delete pAux;
 }
 

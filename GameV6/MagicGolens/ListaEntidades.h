@@ -21,6 +21,7 @@ public:
 	//Funcoes
 	void incluirEntidade(Entidade* e);
 	void removerEntidade(Entidade* e);
+	void removerDestruir(Entidade* e);
 	void esvaziar();
 	void destruirEntidades();
 	void atualizar();

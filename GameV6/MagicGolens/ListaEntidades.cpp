@@ -27,6 +27,11 @@ void ListaEntidades::removerEntidade(Entidade* e)
 	tam--;
 }
 
+void ListaEntidades::removerDestruir(Entidade* e)
+{
+	lista.removerDestruir(e);
+}
+
 void ListaEntidades::esvaziar()
 {
 	lista.esvaziar();

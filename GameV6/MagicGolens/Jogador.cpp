@@ -3,11 +3,13 @@
 
 Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j) :
 	Personagem(ID, tam, p, v, caminhoTextura, t, j),
+	Atirador(),
 	lentidao(1),
 	vivo(false),
 	podePular(true),
+	podeAtirar(true),
 	alturaPulo(150),
-	orbe1(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(0.f, 0.f), "text/orbe.png", dt, janela, this)
+	cooldown(0.f)
 {
 }
 
@@ -17,6 +19,10 @@ Jogador::~Jogador()
 
 void Jogador::atualizar()
 {
+	cooldown += *dt;
+
+	possoAtirar(cooldown);
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
 		velocidade.x = 600.f / lentidao;
@@ -35,25 +41,27 @@ void Jogador::atualizar()
 		podePular = false;
 		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
 	}
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-		orbe1.setPosicao(this->getPosicao());
-		orbe1.executar();
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && podeAtirar) {
+		podeAtirar = false;
+		Orbe* pOrbe = NULL;
 
-		orbes.push_back(orbe1);
+		pOrbe = new Orbe(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(800.f, 0.f), "text/orbe.png", dt, janela, LEntidades, GColisoes);
+		GColisoes->adicionarEntidade(pOrbe);
+		LEntidades->incluirEntidade(pOrbe);
+
+		cooldown = 0.f;
 	}
 
 	velocidade.y += 98.1f;
 	velocidade.x *= 0.8f;
 
 	posicao += velocidade * (*dt);
-	//posicao += velocidade * 0.02f;
 	corpo.setPosition(posicao);
 }
 
 void Jogador::desenhar()
 {
 	janela->draw(corpo);
-	desenharOrbes();
 }
 
 void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
@@ -61,7 +69,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	sf::Vector2f dist = posicao - posicaoOutro;
 	sf::Vector2f invasao;
 
-	if (IdOutro == bloco)
+	if (IdOutro == bloco || IdOutro == areia)
 	{
 		lentidao = 1;
 
@@ -109,52 +117,11 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 
 		//cout << "Bloco" << endl;
 	}
-	else if (IdOutro == areia)
+
+	if (IdOutro == areia)
 	{
 		lentidao = 3;
 		//velocidade.y = 10.f;
-
-		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
-		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
-
-		if (invasao.x < 0.f && invasao.y < 0.f)
-		{
-			if (fabsf(invasao.x) < fabsf(invasao.y))
-			{
-				if (dist.x > 0.f)
-				{
-					posicao.x = posicao.x + fabsf(invasao.x);
-					corpo.setPosition(posicao);
-					//cout << "invasao lateral direita" << endl;	//B <- P
-					velocidade.x = 0.f;
-				}
-				else
-				{
-					posicao.x = posicao.x - fabsf(invasao.x);
-					corpo.setPosition(posicao);
-					//cout << "invasao lateral esquerda" << endl;	// P -> B
-					velocidade.x = 0.f;
-				}
-			}
-			else
-			{
-				if (dist.y > 0.f)
-				{
-					posicao.y = posicao.y + fabsf(invasao.y);
-					corpo.setPosition(posicao);
-					//cout << "invasao vertical por baixo" << endl;
-					velocidade.y = 0.f;
-				}
-				else
-				{
-					posicao.y = posicao.y - fabsf(invasao.y);
-					corpo.setPosition(posicao);
-					//cout << "invasao vertical por cima" << endl;
-					velocidade.y = 0.f;
-					podePular = true;
-				}
-			}
-		}
 
 		cout << "Areia" << endl;
 	}
@@ -181,10 +148,10 @@ void Jogador::reiniciar()
 	vivo = true;
 }
 
-void Jogador::desenharOrbes()
+void Jogador::possoAtirar(float t)
 {
-	for (int i = 0; i < orbes.size(); i++) {
-		orbes[i].atualizar();
-		orbes[i].desenhar();
+	if (t >= 1)
+	{
+		podeAtirar = true;
 	}
 }
