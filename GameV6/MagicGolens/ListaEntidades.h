@@ -29,4 +29,3 @@ public:
 	bool getVaziaStatus();
 	int getTamanho() const;
 };
-

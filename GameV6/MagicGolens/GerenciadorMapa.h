@@ -27,7 +27,7 @@ public:
 	//Métodos
 	void setMapa(Mapa* pm);
 	Mapa* getMapa() const;
-	void setBackground(sf::Sprite* sp );
+	void setBackground(sf::Sprite* sp);
 	sf::Sprite* getBackground();
 	void desenhar();
 	sf::Vector2f converterCoordenadas(int i, int j);

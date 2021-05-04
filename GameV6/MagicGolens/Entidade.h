@@ -13,7 +13,7 @@ protected:
 	sf::RectangleShape corpo;
 	sf::RenderWindow* janela;
 	float* dt;
-	
+
 public:
 
 	//Construtora e Destrutora

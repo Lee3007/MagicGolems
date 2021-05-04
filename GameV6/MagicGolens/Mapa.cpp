@@ -2,20 +2,15 @@
 #include "Mapa.h"
 #include<fstream>
 
-
 Mapa::Mapa(const char* caminho)
 {
 	carregarMapa(caminho);
-
 }
 
 Mapa::~Mapa() {
-
-
 }
 
 void Mapa::carregarMapa(const char* caminho) {
-
 	std::ifstream openfile(caminho);
 	if (openfile.is_open()) {
 		while (!openfile.eof())
@@ -35,7 +30,6 @@ void Mapa::carregarMapa(const char* caminho) {
 
 		contador.y++;
 	}
-
 }
 
 int Mapa::getInfoXMapa(int i, int j) {

@@ -2,13 +2,13 @@
 #include <math.h>
 #include "GerenciadorColisoes.h"
 
-GerenciadorColisoes::GerenciadorColisoes():
-lista()
+GerenciadorColisoes::GerenciadorColisoes() :
+	lista()
 {
 	GMapa = NULL;
 }
 
-GerenciadorColisoes::~GerenciadorColisoes() 
+GerenciadorColisoes::~GerenciadorColisoes()
 {
 }
 
@@ -32,9 +32,8 @@ void GerenciadorColisoes::esvaziar()
 	lista.clear();
 }
 
-void GerenciadorColisoes::verificarColisoes() 
+void GerenciadorColisoes::verificarColisoes()
 {
-
 	for (auto colidivel = lista.begin(); colidivel != lista.end(); colidivel++)
 	{
 		Entidade* e1 = *colidivel;
@@ -59,7 +58,6 @@ void GerenciadorColisoes::verificarColisoes()
 			}
 		}
 	}
-	
 }
 
 bool GerenciadorColisoes::estaoColidindo(Entidade* e1, Entidade* e2)
@@ -68,9 +66,9 @@ bool GerenciadorColisoes::estaoColidindo(Entidade* e1, Entidade* e2)
 	sf::Vector2f p2 = e2->getPosicao();
 	sf::Vector2f dim1 = e1->getDimensoes();
 	sf::Vector2f dim2 = e2->getDimensoes();
-	
+
 	sf::Vector2f dist = p1 - p2;
-	
+
 	if (fabsf(dist.x) < ((dim1.x + dim2.x) / 2) && fabsf(dist.y) < ((dim1.y + dim2.y) / 2))
 		return true;
 

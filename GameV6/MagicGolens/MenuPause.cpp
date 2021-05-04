@@ -4,9 +4,9 @@
 #include "GerenciadorGrafico.h"
 #include "MenuInicial.h"
 
-MenuPause::MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
-Menu(Ge, Gg, caminhoBackground, j),
-opcoes()
+MenuPause::MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j) :
+	Menu(Ge, Gg, caminhoBackground, j),
+	opcoes()
 {
 	MenuIni = NULL;
 	inicializarMenu();
@@ -80,7 +80,6 @@ void MenuPause::executarEnter()
 		GEstado->esvaziarGColisoes();
 		GEstado->reiniciarFases();
 		break;
-
 	}
 }
 

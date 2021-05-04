@@ -5,7 +5,7 @@
 #include "MenuFases.h"
 #include "MenuPause.h"
 
-class MenuInicial:
+class MenuInicial :
 	public Menu
 {
 private:
@@ -23,4 +23,3 @@ public:
 	void executarEnter();
 	MenuPause* getMenuPause();
 };
-

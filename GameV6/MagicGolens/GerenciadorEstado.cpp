@@ -4,11 +4,11 @@
 #include "GerenciadorAtualizacoes.h"
 #include "Menu.h"
 
-GerenciadorEstado::GerenciadorEstado():
-bFase1(false),
-bFase2(false),
-bFase3(false),
-bMenu(true)
+GerenciadorEstado::GerenciadorEstado() :
+	bFase1(false),
+	bFase2(false),
+	bFase3(false),
+	bMenu(true)
 {
 	GGrafico = NULL;
 	GAtualizacoes = NULL;

@@ -5,10 +5,10 @@
 
 //Construtora e Destrutora
 
-GerenciadorGrafico::GerenciadorGrafico():
-janela(sf::VideoMode(1280,720), "MagicGolens"),
-evento(),
-view(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(1920.0f, 1080.0f))
+GerenciadorGrafico::GerenciadorGrafico() :
+	janela(sf::VideoMode(1280, 720), "MagicGolens"),
+	evento(),
+	view(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(1920.0f, 1080.0f))
 {
 	GEstado = NULL;
 	menu = NULL;
@@ -52,7 +52,7 @@ void GerenciadorGrafico::setListaEntidades(ListaEntidades* L)
 
 void GerenciadorGrafico::setMenu(Menu* m)
 {
-	if(m != NULL)
+	if (m != NULL)
 		menu = m;
 	else
 	{
@@ -172,19 +172,18 @@ void GerenciadorGrafico::atualizaView()
 	y += 0.375f;
 
 	view.setCenter(x, y);
-	
+
 	if ((posicao_view.x - 1920 / 2) < 0)
-		view.move( sf::Vector2f( (-1)*(posicao_view.x - 1920 / 2), 0.f ) );
+		view.move(sf::Vector2f((-1) * (posicao_view.x - 1920 / 2), 0.f));
 
 	if ((posicao_view.x + 1920 / 2) > 2880)
-		view.move(sf::Vector2f( 2880 - (posicao_view.x + 1920 / 2) , 0.f));
+		view.move(sf::Vector2f(2880 - (posicao_view.x + 1920 / 2), 0.f));
 
 	if ((posicao_view.y - 1080 / 2) < 0)
-		view.move(sf::Vector2f( 0.f , (-1) * (posicao_view.y - 1080 / 2) ) );
+		view.move(sf::Vector2f(0.f, (-1) * (posicao_view.y - 1080 / 2)));
 
-	if ( (posicao_view.y + 1080 / 2) > 2880 )
-		view.move( sf::Vector2f( 0.f , 2880 - (posicao_view.y + 1080 / 2) ) );
-	
+	if ((posicao_view.y + 1080 / 2) > 2880)
+		view.move(sf::Vector2f(0.f, 2880 - (posicao_view.y + 1080 / 2)));
 
 	janela.setView(view);
 }

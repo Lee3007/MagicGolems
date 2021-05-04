@@ -2,9 +2,9 @@
 #include "GerenciadorAtualizacoes.h"
 #include "GerenciadorEstado.h"
 
-GerenciadorAtualizacoes::GerenciadorAtualizacoes():
-relogio(),
-dt(0.f)
+GerenciadorAtualizacoes::GerenciadorAtualizacoes() :
+	relogio(),
+	dt(0.f)
 {
 	GEstado = NULL;
 	LEntidades = NULL;
@@ -89,7 +89,7 @@ float GerenciadorAtualizacoes::calcularDistancia(sf::Vector2f pj, sf::Vector2f p
 
 	dx = (pj.x - pf.x);
 	dy = (pj.y - pf.y);
-	
+
 	d = sqrt(dx * dx + dy * dy);
 
 	return d;

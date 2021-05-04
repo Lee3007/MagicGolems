@@ -23,7 +23,7 @@ private:
 	MenuInicial menu;
 
 	//Entidades
-	Jogador *jogador1;
+	Jogador* jogador1;
 
 	//Fases
 	FasePedra fasePedra;
@@ -40,6 +40,4 @@ public:
 	void executarJogo();
 	void inicializarGerenciadores();
 	void inicializarFases();
-
 };
-

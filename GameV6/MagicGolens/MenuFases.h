@@ -5,21 +5,19 @@
 class MenuInicial;
 
 class MenuFases :
-    public Menu
+	public Menu
 {
 private:
-    sf::Text opcoes[4];
-    MenuInicial* MenuIni;
+	sf::Text opcoes[4];
+	MenuInicial* MenuIni;
 
 public:
-    MenuFases(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
-    ~MenuFases();
-    void inicializarMenu();
-    void desenhar();
-    void moverCima();
-    void moverBaixo();
-    void executarEnter();
-    void setMenuInicial(MenuInicial* m);
-
+	MenuFases(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
+	~MenuFases();
+	void inicializarMenu();
+	void desenhar();
+	void moverCima();
+	void moverBaixo();
+	void executarEnter();
+	void setMenuInicial(MenuInicial* m);
 };
-

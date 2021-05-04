@@ -27,7 +27,7 @@ protected:
 	GerenciadorMapa* pGm;
 	GerenciadorColisoes* GColisoes;
 	sf::Texture backgroundText;
-	sf::Sprite backgroundSpr; 
+	sf::Sprite backgroundSpr;
 	map<int, Tile*> mapaTiles;
 	const char* caminhoTile;
 	const char* caminhoMapa;

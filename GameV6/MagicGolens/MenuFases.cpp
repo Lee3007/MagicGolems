@@ -2,9 +2,9 @@
 #include "MenuFases.h"
 #include "MenuInicial.h"
 
-MenuFases::MenuFases(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
-Menu(Ge, Gg, caminhoBackground, j),
-opcoes()
+MenuFases::MenuFases(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j) :
+	Menu(Ge, Gg, caminhoBackground, j),
+	opcoes()
 {
 	MenuIni = NULL;
 	inicializarMenu();

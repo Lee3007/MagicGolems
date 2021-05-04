@@ -2,7 +2,7 @@
 #include "FasePedra.h"
 
 FasePedra::FasePedra(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
-Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
+	Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
 {
 }
 
@@ -14,7 +14,7 @@ FasePedra::~FasePedra()
 		cout << "Jogador removido da fase pedra" << endl;
 	}
 
-	if(!LEntidades->getVaziaStatus())
+	if (!LEntidades->getVaziaStatus())
 		LEntidades->destruirEntidades();
 
 	delete LEntidades;
@@ -60,9 +60,9 @@ void FasePedra::inicializarTiles(const char* caminhoTile)
 	pTile = new Tile(caminhoTile, bloco);
 	mapaTiles[0] = pTile;
 	pTile = new Tile(caminhoTile, naocolidivel);
-	mapaTiles[3]= pTile;
+	mapaTiles[3] = pTile;
 	pTile = new Tile(caminhoTile, areia);
-	mapaTiles[1]= pTile;
+	mapaTiles[1] = pTile;
 	pTile = new Tile(caminhoTile, porta);
-	mapaTiles[2]= pTile;
+	mapaTiles[2] = pTile;
 }

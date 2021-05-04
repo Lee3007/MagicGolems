@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FaseFogo.h"
 
-FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j):
-Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
+FaseFogo::FaseFogo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
+	Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
 {
 }
 

@@ -2,8 +2,8 @@
 #include "Tile.h"
 
 Tile::Tile(const char* caminho, const IdsColidiveis i) :
-caminhoText(caminho),
-Id(i)
+	caminhoText(caminho),
+	Id(i)
 {
 	if (caminho == "")
 		cout << "caminho vazio!!!!" << endl;
@@ -20,8 +20,6 @@ Id(i)
 Tile::~Tile() {}
 
 void Tile::setPosicao(float x, float y) {
-
-
 	tileSprite.setPosition(x, y);
 }
 
@@ -35,7 +33,7 @@ sf::Vector2f Tile::getDimensoes() const
 	return sf::Vector2f(96.f, 96.f);
 }
 
-sf::Sprite Tile::getTileSprite() 
+sf::Sprite Tile::getTileSprite()
 {
 	return tileSprite;
 }

@@ -1,13 +1,13 @@
 #include "stdafx.h"
 #include "Entidade.h"
 
-Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
-Id(ID),
-posicao(p),
-velocidade(v),
-textura(),
-corpo(tam),
-dimensoes(tam)
+Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j) :
+	Id(ID),
+	posicao(p),
+	velocidade(v),
+	textura(),
+	corpo(tam),
+	dimensoes(tam)
 {
 	textura.loadFromFile(caminhoTextura);
 	corpo.setTexture(&textura);
@@ -20,7 +20,6 @@ dimensoes(tam)
 
 Entidade::~Entidade()
 {
-
 }
 
 void Entidade::setPosicao(sf::Vector2f p)

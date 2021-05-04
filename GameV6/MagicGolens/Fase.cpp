@@ -2,10 +2,10 @@
 #include "Fase.h"
 
 Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
-LEntidades(),
-statusConcluida(false),
-pontoFinal(ponto),
-mapaTiles()
+	LEntidades(),
+	statusConcluida(false),
+	pontoFinal(ponto),
+	mapaTiles()
 {
 	dt = t;
 	janela = j;
@@ -66,7 +66,6 @@ void Fase::setJogadores(Jogador* j1, Jogador* j2)
 	{
 		LEntidades->incluirEntidade(j2);
 	}
-		
 }
 
 void Fase::inicializarFase(Jogador* j1, Jogador* j2)

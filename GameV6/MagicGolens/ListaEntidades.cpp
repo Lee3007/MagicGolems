@@ -3,15 +3,14 @@
 
 //Construtora e Destrutora
 
-ListaEntidades::ListaEntidades():
-lista(),
-tam(0)
+ListaEntidades::ListaEntidades() :
+	lista(),
+	tam(0)
 {
 }
 
 ListaEntidades::~ListaEntidades()
 {
-
 }
 
 //Funcoes
@@ -64,7 +63,7 @@ void ListaEntidades::atualizar()
 	}
 }
 
-void ListaEntidades::desenhar( )
+void ListaEntidades::desenhar()
 {
 	Entidade* e = lista.voltarInicio();
 
@@ -82,7 +81,7 @@ void ListaEntidades::colidir()
 
 bool ListaEntidades::getVaziaStatus()
 {
-	if(tam > 0)
+	if (tam > 0)
 		return false;
 
 	return true;

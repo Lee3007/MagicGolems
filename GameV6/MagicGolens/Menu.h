@@ -23,4 +23,3 @@ public:
 	virtual void moverBaixo() = 0;
 	virtual void executarEnter() = 0;
 };
-

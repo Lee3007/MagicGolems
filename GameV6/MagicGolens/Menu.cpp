@@ -2,17 +2,17 @@
 #include "Menu.h"
 #include "GerenciadorGrafico.h"
 
-Menu::Menu(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
-textura(),
-background(),
-fonte(),
-itemSelecionado(0)
+Menu::Menu(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j) :
+	textura(),
+	background(),
+	fonte(),
+	itemSelecionado(0)
 {
 	GEstado = Ge;
 	GGrafico = Gg;
 	textura.loadFromFile(caminhoBackground);
 	background.setTexture(textura);
-	background.setScale(sf::Vector2f(2/3.f, 2/3.f));
+	background.setScale(sf::Vector2f(2 / 3.f, 2 / 3.f));
 	janela = j;
 }
 

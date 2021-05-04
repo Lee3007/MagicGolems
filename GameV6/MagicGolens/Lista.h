@@ -18,7 +18,6 @@ private:
 	template<class TE>
 	class Elemento
 	{
-
 	private:
 		Elemento<TE>* pProx;
 		Elemento<TE>* pAnt;
@@ -102,9 +101,7 @@ Lista<TL>::Lista()
 template<class TL>
 Lista<TL>::~Lista()
 {
-
 }
-
 
 template<class TL>
 void Lista<TL>::incluirInfo(TL* info)
@@ -125,7 +122,6 @@ void Lista<TL>::incluirInfo(TL* info)
 			pAux->setpAnt(pFim);
 			pFim = pAux;
 		}
-
 	}
 	else
 	{
@@ -139,7 +135,7 @@ void Lista<TL>::removerInfo(TL* info)
 {
 	Elemento<TL>* pAux = pPrim;
 
-	while (pAux ->getInfo() != info)
+	while (pAux->getInfo() != info)
 	{
 		pAux = pAux->getpProx();
 	}
@@ -199,7 +195,7 @@ TL* Lista<TL>::irProximo()
 {
 	pAtual = pAtual->getpProx();
 
-	if(pAtual != NULL)
+	if (pAtual != NULL)
 		return pAtual->getInfo();
 	else
 	{

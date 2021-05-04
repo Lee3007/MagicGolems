@@ -1,12 +1,13 @@
 #include "stdafx.h"
 #include "Jogador.h"
 
-Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
-Personagem(ID, tam, p, v, caminhoTextura, t, j),
-lentidao(1),
-vivo(false),
-podePular(true),
-alturaPulo(150)
+Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j) :
+	Personagem(ID, tam, p, v, caminhoTextura, t, j),
+	lentidao(1),
+	vivo(false),
+	podePular(true),
+	alturaPulo(150),
+	orbe1(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(0.f, 0.f), "text/orbe.png", dt, janela, this)
 {
 }
 
@@ -16,36 +17,43 @@ Jogador::~Jogador()
 
 void Jogador::atualizar()
 {
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 	{
-		velocidade.x = 600.f/lentidao;
+		velocidade.x = 600.f / lentidao;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 	{
-		velocidade.x = -600.f/lentidao;
+		velocidade.x = -600.f / lentidao;
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && podePular)
 	{
 		podePular = false;
 		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
 	}
-	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && podePular)
+	{
+		podePular = false;
+		velocidade.y = -sqrt(250.0f * 98.0f * alturaPulo);
+	}
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+		orbe1.setPosicao(this->getPosicao());
+		orbe1.executar();
+
+		orbes.push_back(orbe1);
+	}
 
 	velocidade.y += 98.1f;
 	velocidade.x *= 0.8f;
-	
-	
 
 	posicao += velocidade * (*dt);
 	//posicao += velocidade * 0.02f;
 	corpo.setPosition(posicao);
-
 }
 
 void Jogador::desenhar()
 {
 	janela->draw(corpo);
+	desenharOrbes();
 }
 
 void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
@@ -68,14 +76,14 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 				{
 					posicao.x = posicao.x + fabsf(invasao.x);
 					corpo.setPosition(posicao);
-					cout << "invasao lateral direita" << endl;	//B <- P
+					//cout << "invasao lateral direita" << endl;	//B <- P
 					velocidade.x = 0.f;
 				}
 				else
 				{
 					posicao.x = posicao.x - fabsf(invasao.x);
 					corpo.setPosition(posicao);
-					cout << "invasao lateral esquerda" << endl;	// P -> B
+					//cout << "invasao lateral esquerda" << endl;	// P -> B
 					velocidade.x = 0.f;
 				}
 			}
@@ -85,14 +93,14 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 				{
 					posicao.y = posicao.y + fabsf(invasao.y);
 					corpo.setPosition(posicao);
-					cout << "invasao vertical por baixo" << endl;
+					//cout << "invasao vertical por baixo" << endl;
 					velocidade.y = 0.f;
 				}
 				else
 				{
 					posicao.y = posicao.y - fabsf(invasao.y);
 					corpo.setPosition(posicao);
-					cout << "invasao vertical por cima" << endl;
+					//cout << "invasao vertical por cima" << endl;
 					velocidade.y = 0.f;
 					podePular = true;
 				}
@@ -152,7 +160,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	}
 	else if (IdOutro == fogo)
 		cout << "Fogo" << endl;
-	else if(IdOutro == golemPedra)
+	else if (IdOutro == golemPedra)
 	{
 		morrer();
 	}
@@ -171,4 +179,12 @@ bool Jogador::estaVivo()
 void Jogador::reiniciar()
 {
 	vivo = true;
+}
+
+void Jogador::desenharOrbes()
+{
+	for (int i = 0; i < orbes.size(); i++) {
+		orbes[i].atualizar();
+		orbes[i].desenhar();
+	}
 }

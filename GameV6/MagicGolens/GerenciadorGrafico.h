@@ -17,8 +17,8 @@ private:
 	GerenciadorMapa* GMapa;
 	sf::RenderWindow janela;
 	sf::Event evento;
-	Menu *menu;
-	ListaEntidades *LEntidades;
+	Menu* menu;
+	ListaEntidades* LEntidades;
 	sf::View view;
 	Jogador* jogador;
 
@@ -44,4 +44,3 @@ public:
 	void setJogador(Jogador* jog);
 	void atualizaView();
 };
-

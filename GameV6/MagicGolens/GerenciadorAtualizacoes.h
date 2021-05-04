@@ -29,4 +29,3 @@ public:
 	float* getTempo();
 	float calcularDistancia(sf::Vector2f pj, sf::Vector2f pf);
 };
-

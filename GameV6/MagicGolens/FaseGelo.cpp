@@ -1,8 +1,8 @@
 #include "stdafx.h"
 #include "FaseGelo.h"
 
-FaseGelo::FaseGelo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j):
-Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
+FaseGelo::FaseGelo(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
+	Fase(caminhoTile, caminhoMapa, caminhoBackground, ponto, t, j)
 {
 }
 

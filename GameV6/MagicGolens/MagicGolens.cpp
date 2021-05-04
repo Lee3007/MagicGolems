@@ -3,8 +3,8 @@
 
 int main()
 {
-    Jogo jogo;
-    jogo.executarJogo();
+	Jogo jogo;
+	jogo.executarJogo();
 
-    return 0;
+	return 0;
 }

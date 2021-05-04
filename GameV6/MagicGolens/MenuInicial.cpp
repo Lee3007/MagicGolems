@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "MenuInicial.h"
 
-MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
-Menu(Ge, Gg, caminhoBackground, j),
-opcoes(),
-MFases(Ge, Gg, caminhoBackground, j),
-MPause(Ge, Gg, caminhoBackground, j)
+MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j) :
+	Menu(Ge, Gg, caminhoBackground, j),
+	opcoes(),
+	MFases(Ge, Gg, caminhoBackground, j),
+	MPause(Ge, Gg, caminhoBackground, j)
 {
 	inicializarMenu();
 	MFases.setMenuInicial(this);

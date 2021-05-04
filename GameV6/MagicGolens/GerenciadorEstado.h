@@ -41,4 +41,3 @@ public:
 	bool menuAtivo() const;
 	void setMenuStatus(bool b);
 };
-

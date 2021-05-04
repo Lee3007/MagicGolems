@@ -7,21 +7,20 @@ class GerenciadorGrafico;
 class MenuInicial;
 
 class MenuPause :
-    public Menu
+	public Menu
 {
 private:
 
-    sf::Text opcoes[2];
-    MenuInicial* MenuIni;
-    
-public:
-    MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground = "", sf::RenderWindow* j = NULL);
-    ~MenuPause();
-    void inicializarMenu();
-    void moverCima();
-    void moverBaixo();
-    void desenhar();
-    void executarEnter();
-    void setMenuInicial(MenuInicial* m);
-};
+	sf::Text opcoes[2];
+	MenuInicial* MenuIni;
 
+public:
+	MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground = "", sf::RenderWindow* j = NULL);
+	~MenuPause();
+	void inicializarMenu();
+	void moverCima();
+	void moverBaixo();
+	void desenhar();
+	void executarEnter();
+	void setMenuInicial(MenuInicial* m);
+};
