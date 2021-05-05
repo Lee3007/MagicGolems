@@ -210,3 +210,24 @@ void GerenciadorEstado::setCoop(bool b)
 {
 	coop = b;
 }
+
+//new
+
+void GerenciadorEstado::salvarJogada()
+{
+	ofstream GravadorJogada("salvar/jogada.txt", ios::out);
+
+	if (!GravadorJogada) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(010);
+	}
+
+	//GravadorJogada << jogador1->getPosicao().x << ' ' << jogador1->getPosicao().y << ' ' << jogador1.getPontuacao();
+
+
+	GravadorJogada.close();
+}
+
+void GerenciadorEstado::recuperarJogada()
+{
+}

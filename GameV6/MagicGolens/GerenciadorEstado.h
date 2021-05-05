@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Fase.h"
 #include "Jogador.h"
+#include <fstream>
 
 class GerenciadorAtualizacoes;
 class GerenciadorGrafico;
@@ -42,4 +43,8 @@ public:
 	bool menuAtivo() const;
 	void setMenuStatus(bool b);
 	void setCoop(bool b);
+
+	//new
+	void salvarJogada();
+	void recuperarJogada();
 };

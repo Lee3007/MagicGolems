@@ -13,6 +13,7 @@ protected:
 	sf::RectangleShape corpo;
 	sf::RenderWindow* janela;
 	float* dt;
+	bool viradoDir;
 
 public:
 

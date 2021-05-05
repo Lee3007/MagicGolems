@@ -41,12 +41,14 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 					posicao.x = posicao.x + fabsf(invasao.x);
 					corpo.setPosition(posicao);
 					velocidade.x = (-1) * velocidade.x;
+					corpo.setScale(sf::Vector2f(1.f, 1.f));
 				}
 				else
 				{
 					posicao.x = posicao.x - fabsf(invasao.x);
 					corpo.setPosition(posicao);
 					velocidade.x = (-1) * velocidade.x;
+					corpo.setScale(sf::Vector2f(-1.f, 1.f));
 				}
 			}
 			else

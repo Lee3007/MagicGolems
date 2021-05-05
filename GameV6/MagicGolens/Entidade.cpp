@@ -7,7 +7,8 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	velocidade(v),
 	textura(),
 	corpo(tam),
-	dimensoes(tam)
+	dimensoes(tam),
+	viradoDir(1)
 {
 	textura.loadFromFile(caminhoTextura);
 	corpo.setTexture(&textura);
@@ -16,6 +17,7 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	dt = t;
 	dimensoes.x = dimensoes.x - 15.f;
 	dimensoes.y = dimensoes.y - 15.f;
+
 }
 
 Entidade::~Entidade()
