@@ -16,6 +16,7 @@ private:
 public:
 
 	typedef struct dadosTiles {
+		Tile* tile;
 		const IdsColidiveis Id;
 		sf::Vector2f posicao;
 		sf::Vector2f tamanho;

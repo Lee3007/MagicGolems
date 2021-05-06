@@ -56,14 +56,14 @@ void FaseGelo::criarInimigos()
 		float px = static_cast<float>(rand() % 2700 + 100);
 		float py = static_cast<float>(rand() % 2700 + 100);
 
-		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(80.f, 80.f), "text/golemGelo.png", dt, janela, jogador1, jogador2);
+		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(80.f, 80.f), "text/golemGelov2.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pGolemGelo);
 		GColisoes->adicionarEntidade(pGolemGelo);
 		pGolemGelo->setListaEntidades(LEntidades);
 		pGolemGelo->setGerenciadorColisoes(GColisoes);
 	}
 
-	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(0.f, 0.f), "text/golemGelo.png", dt, janela, jogador1, jogador2);
+	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(0.f, 0.f), "text/golemGelov2.png", dt, janela, jogador1, jogador2);
 	LEntidades->incluirEntidade(pGolemGelo);
 	GColisoes->adicionarEntidade(pGolemGelo);
 	pGolemGelo->setListaEntidades(LEntidades);
@@ -72,12 +72,14 @@ void FaseGelo::criarInimigos()
 
 void FaseGelo::inicializarTiles(const char* caminhoTile)
 {
-	pTile = new Tile(caminhoTile, bloco);
+	Tile* pTile = NULL;
+
+	pTile = new Bloco(bloco, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[0] = pTile;
-	pTile = new Tile(caminhoTile, naocolidivel);
+	pTile = new Ar(naocolidivel, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[3] = pTile;
-	pTile = new Tile(caminhoTile, espinho);
+	pTile = new Espinho(espinho, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[1] = pTile;
-	pTile = new Tile(caminhoTile, porta);
+	pTile = new Porta(porta, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[2] = pTile;
 }

@@ -101,5 +101,6 @@ bool Jogador::estaVivo()
 
 void Jogador::reiniciar()
 {
+	velocidade = sf::Vector2f(0.f, 0.f);
 	vivo = true;
 }

@@ -29,7 +29,7 @@ void GerenciadorMapa::desenhar()
 			ptile = mapaTiles[k];
 			ptile->setPosicao(i * 96.f, j * 96.f);
 			ptile->setRectTextura((pmapa->getInfoXMapa(i, j) * 16), (pmapa->getInfoYMapa(i, j) * 16));
-			janela->draw(ptile->getTileSprite());
+			ptile->desenhar();
 		}
 	}
 }
@@ -54,10 +54,11 @@ vector<GerenciadorMapa::DadosTiles> GerenciadorMapa::checarColisoes(sf::Vector2f
 			if (tile->getId() != naocolidivel)
 			{
 				sf::Vector2f p = converterCoordenadas(i, j);
+				tile->setPosicao(p.x, p.y);
 
 				if (estaoColidindo(posicaoEnt, tamanhoEnt, p))
 				{
-					colisoes.push_back({ tile->getId(), p, tile->getDimensoes() });
+					colisoes.push_back({ tile ,tile->getId(), tile->getPosicao(), tile->getDimensoes() });
 				}
 			}
 		}

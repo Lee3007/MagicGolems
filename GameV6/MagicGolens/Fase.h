@@ -9,6 +9,12 @@
 #include "GolemFogo.h"
 #include "GolemGelo.h"
 #include "Tile.h"
+#include "Bloco.h"
+#include "Porta.h"
+#include "Areia.h"
+#include "Ar.h"
+#include "Fogo.h"
+#include "Espinho.h"
 #include <map>
 using namespace std;
 
@@ -22,7 +28,6 @@ protected:
 	const sf::Vector2f pontoFinal;
 	float* dt;
 	sf::RenderWindow* janela;
-	Tile* pTile;
 	Mapa* pMapa;
 	GerenciadorMapa* pGm;
 	GerenciadorColisoes* GColisoes;

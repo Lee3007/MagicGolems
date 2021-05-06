@@ -7,6 +7,7 @@ class Entidade
 protected:
 	const IdsColidiveis Id;
 	sf::Texture textura;
+	sf::Sprite sprite;
 	sf::Vector2f posicao;
 	sf::Vector2f velocidade;
 	sf::Vector2f dimensoes;

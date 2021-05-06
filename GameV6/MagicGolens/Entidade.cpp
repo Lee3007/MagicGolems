@@ -6,18 +6,23 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	posicao(p),
 	velocidade(v),
 	textura(),
+	sprite(),
 	corpo(tam),
 	dimensoes(tam),
 	viradoDir(1),
 	destruir(false)
 {
 	textura.loadFromFile(caminhoTextura);
-	corpo.setTexture(&textura);
+	sprite.setTexture(textura);
+	corpo.setTexture(sprite.getTexture());
 	corpo.setOrigin(corpo.getSize() / 2.f);
 	janela = j;
 	dt = t;
-	dimensoes.x = dimensoes.x - 15.f;
-	dimensoes.y = dimensoes.y - 15.f;
+	if (Id == jogador || Id == golemPedra || Id == golemFogo || Id == golemGelo)
+	{
+		dimensoes.x = dimensoes.x - 25.f;
+		dimensoes.y = dimensoes.y - 15.f;
+	}
 
 }
 

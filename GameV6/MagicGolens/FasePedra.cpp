@@ -56,7 +56,7 @@ void FasePedra::criarInimigos()
 		float px = static_cast<float>(rand() % 2700 + 100);
 		float py = static_cast<float>(rand() % 2700 + 100);
 
-		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(50.f, 0.f), "text/golemPedra.png", dt, janela);
+		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(50.f, 0.f), "text/golemPedrav2.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemPedra);
 		GColisoes->adicionarEntidade(pGolemPedra);
 	}
@@ -64,12 +64,14 @@ void FasePedra::criarInimigos()
 
 void FasePedra::inicializarTiles(const char* caminhoTile)
 {
-	pTile = new Tile(caminhoTile, bloco);
+	Tile* pTile = NULL;
+
+	pTile = new Bloco(bloco, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[0] = pTile;
-	pTile = new Tile(caminhoTile, naocolidivel);
+	pTile = new Ar(naocolidivel, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[3] = pTile;
-	pTile = new Tile(caminhoTile, areia);
+	pTile = new Areia(areia, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[1] = pTile;
-	pTile = new Tile(caminhoTile, porta);
+	pTile = new Porta(porta, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[2] = pTile;
 }

@@ -15,7 +15,6 @@ Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminho
 	LEntidades = new ListaEntidades();
 	pGm = NULL;
 	pMapa = NULL;
-	pTile = NULL;
 
 	this->caminhoTile = caminhoTile;
 	this->caminhoMapa = caminhoMapa;
@@ -24,7 +23,6 @@ Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminho
 
 Fase::~Fase()
 {
-	pTile = NULL;
 	delete (pMapa);
 	pMapa = NULL;
 	delete (pGm);

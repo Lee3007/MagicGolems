@@ -1,21 +1,19 @@
 #pragma once
-#include "IdsColidiveis.h"
+#include "Entidade.h"
 
-class Tile
+class Tile:
+	public Entidade
 {
-private:
-	const IdsColidiveis Id;
-	sf::Texture tileTexture;
-	sf::Sprite tileSprite;
-	const char* caminhoText;
+protected:
 
 public:
-	Tile(const char* caminho = "", const IdsColidiveis i = standby);
+	Tile(IdsColidiveis ID = standby, sf::Vector2f tam = sf::Vector2f(96.f, 96.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f), string caminhoTextura = "", float* t = NULL, sf::RenderWindow* j = NULL);
 	~Tile();
 
 	void setPosicao(float x, float y);
 	void setRectTextura(int x, int y);
-	sf::Vector2f getDimensoes() const;
 	sf::Sprite getTileSprite();
-	IdsColidiveis getId() const;
+	void desenhar();
+	void atualizar();
+	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro) = 0;
 };

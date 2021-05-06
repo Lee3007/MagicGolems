@@ -15,8 +15,8 @@ Jogo::Jogo() :
 {
 	jogador1 = NULL;
 	jogador2 = NULL;
-	jogador1 = new Mago(jogador, sf::Vector2f(118.f, 144.f), sf::Vector2f(400.f, 400.f), sf::Vector2f(0.f, 0.f), "text/mago.png", GerenciadorAtualizacoes.getTempo(), GerenciadorGrafico.getJanela());
-	jogador2 = new Anjo(jogador, sf::Vector2f(96.f, 144.f), sf::Vector2f(400.f, 400.f), sf::Vector2f(0.f, 0.f), "text/anjo.png", GerenciadorAtualizacoes.getTempo(), GerenciadorGrafico.getJanela());
+	jogador1 = new Mago(jogador, sf::Vector2f(118.f, 144.f), sf::Vector2f(400.f, 400.f), sf::Vector2f(0.f, 0.f), "text/magov2.png", GerenciadorAtualizacoes.getTempo(), GerenciadorGrafico.getJanela());
+	jogador2 = new Anjo(jogador, sf::Vector2f(96.f, 144.f), sf::Vector2f(400.f, 400.f), sf::Vector2f(0.f, 0.f), "text/anjov2.png", GerenciadorAtualizacoes.getTempo(), GerenciadorGrafico.getJanela());
 	inicializarGerenciadores();
 	inicializarFases();
 }
