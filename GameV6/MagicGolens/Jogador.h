@@ -11,9 +11,7 @@ protected:
 	float lentidao;
 	bool vivo;
 	bool podePular;
-	bool podeAtirar;
 	float alturaPulo;
-	float cooldown;
 
 public:
 
@@ -28,5 +26,4 @@ public:
 	void morrer();
 	bool estaVivo();
 	void reiniciar();
-	void possoAtirar(float t);
 };

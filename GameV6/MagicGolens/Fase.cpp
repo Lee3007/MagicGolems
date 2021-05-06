@@ -86,6 +86,7 @@ void Fase::inicializarFase(Jogador* j1, Jogador* j2)
 		GColisoes->adicionarEntidade(j2);
 	}
 
+	GColisoes->setListaEntidades(LEntidades);
 	criarInimigos();
 	setPosicaoJogadores();
 }

@@ -2,7 +2,9 @@
 #include "GolemPedra.h"
 
 GolemPedra::GolemPedra(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j) :
-	Personagem(ID, tam, p, v, caminhoTextura, t, j)
+	Inimigo(ID, tam, p, v, caminhoTextura, t, j),
+	crescimento(1.2f),
+	cura(100.f)
 {
 }
 
@@ -41,14 +43,14 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 					posicao.x = posicao.x + fabsf(invasao.x);
 					corpo.setPosition(posicao);
 					velocidade.x = (-1) * velocidade.x;
-					corpo.setScale(sf::Vector2f(1.f, 1.f));
+					corpo.scale(sf::Vector2f(1.f, 1.f));
 				}
 				else
 				{
 					posicao.x = posicao.x - fabsf(invasao.x);
 					corpo.setPosition(posicao);
 					velocidade.x = (-1) * velocidade.x;
-					corpo.setScale(sf::Vector2f(-1.f, 1.f));
+					corpo.scale(sf::Vector2f(-1.f, 1.f));
 				}
 			}
 			else
@@ -67,5 +69,21 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 				}
 			}
 		}
+	}
+
+	if (IdOutro == jogador)
+	{
+		if (nivel <= 3)
+		{
+			hp += cura;
+			dimensoes *= crescimento;
+			corpo.scale(sf::Vector2f(crescimento, crescimento));
+			nivel++;
+		}
+	}
+
+	if (IdOutro == orb)
+	{
+		destruir = true;
 	}
 }

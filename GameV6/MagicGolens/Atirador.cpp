@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "Atirador.h"
 
-Atirador::Atirador()
+Atirador::Atirador(float t):
+limite(t),
+podeAtirar(false),
+cooldown(0.f)
 {
 	LEntidades = NULL;
 	GColisoes = NULL;
@@ -19,5 +22,17 @@ void Atirador::setListaEntidades(ListaEntidades* lista)
 
 void Atirador::setGerenciadorColisoes(GerenciadorColisoes* Gc)
 {
-	GColisoes = Gc;
+	if (Gc != NULL)
+	{
+		cout << "Gc recebido por um atirador" << endl;
+		GColisoes = Gc;
+	}
+}
+
+void Atirador::possoAtirar(float t)
+{
+	if (t >= limite)
+	{
+		podeAtirar = true;
+	}
 }

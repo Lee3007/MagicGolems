@@ -8,7 +8,8 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	textura(),
 	corpo(tam),
 	dimensoes(tam),
-	viradoDir(1)
+	viradoDir(1),
+	destruir(false)
 {
 	textura.loadFromFile(caminhoTextura);
 	corpo.setTexture(&textura);
@@ -43,4 +44,9 @@ sf::Vector2f Entidade::getDimensoes()
 const IdsColidiveis Entidade::getId()
 {
 	return Id;
+}
+
+bool Entidade::destruirEntidade() const
+{
+	return destruir;
 }

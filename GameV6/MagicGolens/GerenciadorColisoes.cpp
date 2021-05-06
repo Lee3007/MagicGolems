@@ -1,11 +1,13 @@
 #include "stdafx.h"
 #include <math.h>
 #include "GerenciadorColisoes.h"
+#include "Arremessavel.h"
 
 GerenciadorColisoes::GerenciadorColisoes() :
 	lista()
 {
 	GMapa = NULL;
+	LEntidades = NULL;
 }
 
 GerenciadorColisoes::~GerenciadorColisoes()
@@ -17,6 +19,11 @@ void GerenciadorColisoes::setGerenciadorMapa(GerenciadorMapa* pGm)
 	GMapa = pGm;
 }
 
+void GerenciadorColisoes::setListaEntidades(ListaEntidades* lista)
+{
+	LEntidades = lista;
+}
+
 void GerenciadorColisoes::adicionarEntidade(Entidade* e)
 {
 	lista.insert(e);
@@ -25,6 +32,31 @@ void GerenciadorColisoes::adicionarEntidade(Entidade* e)
 void GerenciadorColisoes::removerEntidade(Entidade* e)
 {
 	lista.erase(e);
+}
+
+void GerenciadorColisoes::limparEntidades()
+{
+	Entidade* pAux;
+	set<Entidade*> limpeza;
+
+	for (auto iterador = lista.begin(); iterador != lista.end(); iterador++)
+	{
+		pAux = *iterador;
+
+		if (pAux->destruirEntidade())
+		{
+			limpeza.insert(pAux);
+		}
+	}
+
+	for (auto iterador = limpeza.begin(); iterador != limpeza.end(); iterador++)
+	{
+		pAux = *iterador;
+		removerEntidade(pAux);
+		LEntidades->removerDestruir(pAux);
+	}
+
+	limpeza.clear();
 }
 
 void GerenciadorColisoes::esvaziar()
@@ -58,6 +90,9 @@ void GerenciadorColisoes::verificarColisoes()
 			}
 		}
 	}
+
+	limparEntidades();
+
 }
 
 bool GerenciadorColisoes::estaoColidindo(Entidade* e1, Entidade* e2)

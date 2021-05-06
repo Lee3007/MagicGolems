@@ -14,6 +14,7 @@ protected:
 	sf::RenderWindow* janela;
 	float* dt;
 	bool viradoDir;
+	bool destruir;
 
 public:
 
@@ -29,4 +30,5 @@ public:
 	sf::Vector2f getPosicao();
 	sf::Vector2f getDimensoes();
 	const IdsColidiveis getId();
+	bool destruirEntidade() const;
 };

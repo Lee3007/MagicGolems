@@ -7,9 +7,7 @@ Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2
 	lentidao(1),
 	vivo(false),
 	podePular(true),
-	podeAtirar(true),
-	alturaPulo(150),
-	cooldown(0.f)
+	alturaPulo(150)
 {
 }
 
@@ -104,12 +102,4 @@ bool Jogador::estaVivo()
 void Jogador::reiniciar()
 {
 	vivo = true;
-}
-
-void Jogador::possoAtirar(float t)
-{
-	if (t >= 1)
-	{
-		podeAtirar = true;
-	}
 }

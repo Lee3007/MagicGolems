@@ -7,6 +7,7 @@ enum IdsColidiveis
 	golemPedra,
 	golemGelo,
 	orb,
+	cristal,
 	espinho,
 	areia,
 	fogo,

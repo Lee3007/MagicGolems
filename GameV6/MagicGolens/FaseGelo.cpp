@@ -49,21 +49,25 @@ const sf::Vector2f FaseGelo::getPontoFinal() const
 
 void FaseGelo::criarInimigos()
 {
-	int qntd = rand() % 16 + 5;
+	int qntd = rand() % 7 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
 		float px = static_cast<float>(rand() % 2700 + 100);
 		float py = static_cast<float>(rand() % 2700 + 100);
 
-		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(80.f, 80.f), "text/golemGelo.png", dt, janela);
+		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(80.f, 80.f), "text/golemGelo.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pGolemGelo);
 		GColisoes->adicionarEntidade(pGolemGelo);
+		pGolemGelo->setListaEntidades(LEntidades);
+		pGolemGelo->setGerenciadorColisoes(GColisoes);
 	}
 
-	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(0.f, 0.f), "text/golemGelo.png", dt, janela);
+	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(0.f, 0.f), "text/golemGelo.png", dt, janela, jogador1, jogador2);
 	LEntidades->incluirEntidade(pGolemGelo);
 	GColisoes->adicionarEntidade(pGolemGelo);
+	pGolemGelo->setListaEntidades(LEntidades);
+	pGolemGelo->setGerenciadorColisoes(GColisoes);
 }
 
 void FaseGelo::inicializarTiles(const char* caminhoTile)

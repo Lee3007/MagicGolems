@@ -39,9 +39,9 @@ void Mago::atualizar()
 		Orbe* pOrbe = NULL;
 
 		if(viradoDir)
-			pOrbe = new Orbe(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(800.f, 0.f), "text/orbe.png", dt, janela, LEntidades, GColisoes);
+			pOrbe = new Orbe(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(800.f, 0.f), "text/orbe.png", dt, janela);
 		else
-			pOrbe = new Orbe(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(-800.f, 0.f), "text/orbe.png", dt, janela, LEntidades, GColisoes);
+			pOrbe = new Orbe(orb, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(-800.f, 0.f), "text/orbe.png", dt, janela);
 
 
 		GColisoes->adicionarEntidade(pOrbe);
@@ -51,7 +51,7 @@ void Mago::atualizar()
 	}
 
 	velocidade.y += 98.1f;
-	velocidade.x *= 0.8f;
+	velocidade.x *= 0.9f;
 
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);

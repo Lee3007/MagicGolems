@@ -45,7 +45,8 @@ void Jogo::executarJogo()
 
 		GerenciadorAtualizacoes.atualizar();
 
-		GerenciadorColisoes.verificarColisoes();
+		if(!GerenciadorEstado.menuAtivo())
+			GerenciadorColisoes.verificarColisoes();
 
 		GerenciadorGrafico.desenhar();
 
