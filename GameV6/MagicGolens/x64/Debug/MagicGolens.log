@@ -1,1 +1,51 @@
-﻿
+﻿  stdafx.cpp
+  Anjo.cpp
+  Ar.cpp
+  Areia.cpp
+  Arremessavel.cpp
+  Atirador.cpp
+  Bloco.cpp
+  CristalGelo.cpp
+  Entidade.cpp
+  Espinho.cpp
+  Estalactite.cpp
+  Fase.cpp
+  FaseFogo.cpp
+  FaseGelo.cpp
+  FasePedra.cpp
+  Fogo.cpp
+  GerenciadorAtualizacoes.cpp
+  GerenciadorColisoes.cpp
+  GerenciadorEstado.cpp
+  GerenciadorGrafico.cpp
+  GerenciadorMapa.cpp
+  Gerando Código...
+  Compilando...
+  GolemGelo.cpp
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\GolemGelo.cpp(40,17): warning C4305: '-=': truncamento de 'double' para 'float'
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\GolemGelo.cpp(43,26): warning C4305: '+=': truncamento de 'double' para 'float'
+  GolemFogo.cpp
+  GolemPedra.cpp
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\GolemPedra.cpp(33,14): warning C4244: '+=': conversão de 'float' para 'int', possível perda de dados
+  Inimigo.cpp
+  Jogador.cpp
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\Jogador.cpp(36,16): warning C4305: '+=': truncamento de 'double' para 'float'
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\Jogador.cpp(50,16): warning C4305: '+=': truncamento de 'double' para 'float'
+  Jogo.cpp
+D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\Jogo.cpp(34,12): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  ListaEntidades.cpp
+  MagicGolens.cpp
+  Mago.cpp
+  Mapa.cpp
+  Menu.cpp
+  MenuFases.cpp
+  MenuInicial.cpp
+  MenuJogadores.cpp
+  MenuPause.cpp
+  Obstaculo.cpp
+  Orbe.cpp
+  Personagem.cpp
+  Porta.cpp
+  Tile.cpp
+  Gerando Código...
+  MagicGolens.vcxproj -> D:\repositorio_magicgolens\TecProgGame\GameV6\MagicGolens\Debug\MagicGolens.exe
