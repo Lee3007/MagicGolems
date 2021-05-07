@@ -6,6 +6,8 @@ GolemGelo::GolemGelo(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vec
 	Atirador(3),
 	tamanhoCristal(tamCristal)
 {
+	if (Id == boss)
+		hp = 1000;
 }
 
 void GolemGelo::atualizar()
