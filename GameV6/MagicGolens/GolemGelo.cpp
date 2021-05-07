@@ -1,12 +1,11 @@
 #include "stdafx.h"
 #include "GolemGelo.h"
 
-GolemGelo::GolemGelo(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j, Jogador* j1, Jogador* j2) :
+GolemGelo::GolemGelo(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j, float tamCristal) :
 	Inimigo(ID, tam, p, v, caminhoTextura, t, j),
-	Atirador(3)
+	Atirador(3),
+	tamanhoCristal(tamCristal)
 {
-	jogador1 = j1;
-	jogador2 = j2;
 }
 
 void GolemGelo::atualizar()
@@ -35,13 +34,12 @@ void GolemGelo::desenhar()
 
 void GolemGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
-	
 }
 
 void GolemGelo::arremessarCristal()
 {
 	CristalGelo* pCristal = NULL;
-	pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f), posicao, sf::Vector2f(300.f, -300.f), "text/cristal.png", dt, janela);
+	pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f)* tamanhoCristal, posicao, sf::Vector2f(300.f, -300.f), "text/cristal.png", dt, janela);
 	LEntidades->incluirEntidade(pCristal);
 	GColisoes->adicionarEntidade(pCristal);
 }

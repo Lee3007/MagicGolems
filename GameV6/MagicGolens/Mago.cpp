@@ -51,7 +51,7 @@ void Mago::atualizar()
 	}
 
 	velocidade.y += 98.1f;
-	velocidade.x *= 0.9f;
+	velocidade.x *= 0.8f;
 
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);

@@ -39,7 +39,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	}
 	else if (IdOutro == fogo)
 		cout << "Fogo" << endl;
-	else if (IdOutro == golemPedra)
+	else if (IdOutro == golemPedra || IdOutro == estalactite)
 	{
 		morrer();
 	}

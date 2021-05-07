@@ -6,6 +6,7 @@ enum IdsColidiveis
 	golemFogo,
 	golemPedra,
 	golemGelo,
+	boss,
 	orb,
 	cristal,
 	espinho,

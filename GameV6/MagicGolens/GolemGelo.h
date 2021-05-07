@@ -8,12 +8,10 @@ class GolemGelo :
 	public Inimigo, public Atirador
 {
 private:
-
-	Jogador* jogador1;
-	Jogador* jogador2;
+	float tamanhoCristal;
 
 public:
-	GolemGelo(IdsColidiveis ID = standby, sf::Vector2f tam = sf::Vector2f(96.f, 144.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f), string caminhoTextura = NULL, float* t = NULL, sf::RenderWindow* j = NULL, Jogador* j1 = NULL, Jogador* j2 = NULL);
+	GolemGelo(IdsColidiveis ID = standby, sf::Vector2f tam = sf::Vector2f(96.f, 144.f), sf::Vector2f p = sf::Vector2f(0.f, 0.f), sf::Vector2f v = sf::Vector2f(0.f, 0.f), string caminhoTextura = NULL, float* t = NULL, sf::RenderWindow* j = NULL, float tamCristal = 1);
 	~GolemGelo();
 	void atualizar();
 	void desenhar();

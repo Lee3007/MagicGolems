@@ -19,7 +19,7 @@ void CristalGelo::atualizar()
 
 void CristalGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
-	if (IdOutro != naocolidivel && IdOutro != golemGelo && IdOutro != porta)
+	if (IdOutro != naocolidivel && IdOutro != golemGelo && IdOutro != porta && IdOutro != boss)
 	{
 		destruir = true;
 	}

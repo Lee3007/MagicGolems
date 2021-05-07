@@ -12,7 +12,7 @@ Espinho::~Espinho()
 
 void Espinho::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
-	if (IdOutro == golemGelo)
+	if (IdOutro == golemGelo || IdOutro == golemPedra)
 	{
 		sf::Vector2f dist = posicaoOutro - posicao;
 		sf::Vector2f invasao;
@@ -31,14 +31,14 @@ void Espinho::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 					posicaoOutro.x = posicaoOutro.x + fabsf(invasao.x);
 					e->setPosicao(posicaoOutro);
 					//cout << "invasao lateral direita" << endl;	//B <- P
-					e->setVelocidadeX(0.f);
+					e->virar();
 				}
 				else
 				{
 					posicaoOutro.x = posicaoOutro.x - fabsf(invasao.x);
 					e->setPosicao(posicaoOutro);
 					//cout << "invasao lateral esquerda" << endl;	// P -> B
-					e->setVelocidadeX(0.f);
+					e->virar();
 				}
 			}
 			else

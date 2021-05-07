@@ -61,7 +61,7 @@ void Areia::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector
 		}
 	}
 
-	else if(IdOutro == golemPedra)
+	else if(IdOutro == golemPedra || IdOutro == golemFogo)
 	{
 		if (invasao.x < 0.f && invasao.y < 0.f)
 		{

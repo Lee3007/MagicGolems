@@ -49,21 +49,33 @@ const sf::Vector2f FaseGelo::getPontoFinal() const
 
 void FaseGelo::criarInimigos()
 {
-	int qntd = rand() % 7 + 5;
+	int qntd = rand() % 2 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
 		float px = static_cast<float>(rand() % 2400 + 200);
 		float py = static_cast<float>(rand() % 2400 + 200);
 
-		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(80.f, 80.f), "text/golemGelov2.png", dt, janela, jogador1, jogador2);
+		GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(80.f, 80.f), "text/golemGelov2.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemGelo);
 		GColisoes->adicionarEntidade(pGolemGelo);
 		pGolemGelo->setListaEntidades(LEntidades);
 		pGolemGelo->setGerenciadorColisoes(GColisoes);
 	}
 
-	GolemGelo* pGolemGelo = new GolemGelo(golemGelo, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(0.f, 0.f), "text/golemGelov2.png", dt, janela, jogador1, jogador2);
+	qntd = rand() % 2 + 5;
+
+	for (int i = 0; i < qntd; i++)
+	{
+		float px = static_cast<float>(rand() % 2400 + 200);
+		float py = static_cast<float>(rand() % 2400 + 200);
+
+		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(50.f, 50.f), "text/golemPedrav2.png", dt, janela);
+		LEntidades->incluirEntidade(pGolemPedra);
+		GColisoes->adicionarEntidade(pGolemPedra);
+	}
+
+	GolemGelo* pGolemGelo = new GolemGelo(boss, sf::Vector2f(288.f, 432.f), sf::Vector2f(1920.f, 2060.f), sf::Vector2f(0.f, 0.f), "text/golemGelov2.png", dt, janela, 3.f);
 	LEntidades->incluirEntidade(pGolemGelo);
 	GColisoes->adicionarEntidade(pGolemGelo);
 	pGolemGelo->setListaEntidades(LEntidades);
@@ -75,35 +87,35 @@ void FaseGelo::criarObstaculos()
 	int qntd;
 	float px;
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 2 + 5;
 
 	for (int i = 1; i <= qntd; i++)
 	{
-		px = static_cast<float>(rand() % 2000);
+		px = static_cast<float>(rand() % 288);
 		Estalactite* pEst = NULL;
-		pEst= new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(200.f + px, 96.3f + 100/2.f), sf::Vector2f(0.f, 0.f), "text/estalactitegelo.png", dt, janela, jogador1, jogador2);
+		pEst= new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(2208.f + px, 96.5f + 100/2.f), sf::Vector2f(0.f, 0.f), "text/estalactitegelo.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pEst);
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 2 + 5;
 
 	for (int i = 1; i <= qntd; i++)
 	{
 		px = static_cast<float>(rand() % 384);
 		Estalactite* pEst = NULL;
-		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(192.f + px, 672.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitegelo.png", dt, janela, jogador1, jogador2);
+		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(192.f + px, 672.5f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitegelo.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pEst);
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 2 + 5;
 
 	for (int i = 1; i <= qntd; i++)
 	{
 		px = static_cast<float>(rand() % 864);
 		Estalactite* pEst = NULL;
-		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(192.f + px, 1824.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitegelo.png", dt, janela, jogador1, jogador2);
+		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(1900.f + px, 1824.5f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitegelo.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pEst);
 		GColisoes->adicionarEntidade(pEst);
 	}

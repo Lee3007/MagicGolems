@@ -40,7 +40,7 @@ void Estalactite::devoCair()
 	}
 	else
 	{
-		if((j1->getPosicao().x > posicao.x - 100.f && j1->getPosicao().x < posicao.x + 100.f) && (j1->getPosicao().y > posicao.y + 100.f && j1->getPosicao().y < posicao.y + 600.f))
+		if((j1->getPosicao().x > posicao.x - 100.f && j1->getPosicao().x < posicao.x + 100.f) && (j1->getPosicao().y > posicao.y + 100.f && j1->getPosicao().y < posicao.y + 1000.f))
 		caindo = true;
 	}
 }

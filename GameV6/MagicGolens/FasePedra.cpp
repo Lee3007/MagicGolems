@@ -49,7 +49,7 @@ const sf::Vector2f FasePedra::getPontoFinal() const
 
 void FasePedra::criarInimigos()
 {
-	int qntd = rand() % 7 + 5;
+	int qntd = rand() % 4 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
@@ -59,6 +59,18 @@ void FasePedra::criarInimigos()
 		GolemPedra* pGolemPedra = new GolemPedra(golemPedra, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(50.f, 0.f), "text/golemPedrav2.png", dt, janela);
 		LEntidades->incluirEntidade(pGolemPedra);
 		GColisoes->adicionarEntidade(pGolemPedra);
+	}
+
+	qntd = rand() % 3 + 5;
+
+	for (int i = 0; i < qntd; i++)
+	{
+		float px = static_cast<float>(rand() % 2500 + 200);
+		float py = static_cast<float>(rand() % 2400 + 200);
+
+		GolemFogo* pGolemFogo = new GolemFogo(golemFogo, sf::Vector2f(96.f, 144.f), sf::Vector2f(px, py), sf::Vector2f(120.f, 0.f), "text/golemFogov2.png", dt, janela);
+		LEntidades->incluirEntidade(pGolemFogo);
+		GColisoes->adicionarEntidade(pGolemFogo);
 	}
 }
 
@@ -71,9 +83,9 @@ void FasePedra::criarObstaculos()
 
 	for (int i = 1; i <= qntd; i++)
 	{
-		px = static_cast<float>(rand() % 2000);
+		px = static_cast<float>(rand() % 768);
 		Estalactite* pEst = NULL;
-		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(200.f + px, 96.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitepedra.png", dt, janela, jogador1, jogador2);
+		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(576.f + px, 1920.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitepedra.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pEst);
 		GColisoes->adicionarEntidade(pEst);
 	}
@@ -82,9 +94,9 @@ void FasePedra::criarObstaculos()
 
 	for (int i = 1; i <= qntd; i++)
 	{
-		px = static_cast<float>(rand() % 384);
+		px = static_cast<float>(rand() % 1152);
 		Estalactite* pEst = NULL;
-		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(192.f + px, 672.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitepedra.png", dt, janela, jogador1, jogador2);
+		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(1440.f + px, 1248.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitepedra.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pEst);
 		GColisoes->adicionarEntidade(pEst);
 	}
@@ -93,9 +105,9 @@ void FasePedra::criarObstaculos()
 
 	for (int i = 1; i <= qntd; i++)
 	{
-		px = static_cast<float>(rand() % 864);
+		px = static_cast<float>(rand() % 1248);
 		Estalactite* pEst = NULL;
-		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(192.f + px, 1824.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitepedra.png", dt, janela, jogador1, jogador2);
+		pEst = new Estalactite(estalactite, sf::Vector2f(40.f, 100.f), sf::Vector2f(864.f + px, 672.3f + 100 / 2.f), sf::Vector2f(0.f, 0.f), "text/estalactitepedra.png", dt, janela, jogador1, jogador2);
 		LEntidades->incluirEntidade(pEst);
 		GColisoes->adicionarEntidade(pEst);
 	}
