@@ -17,6 +17,6 @@ public:
 	~GolemGelo();
 	void atualizar();
 	void desenhar();
-	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro);
+	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
 	void arremessarCristal();
 };

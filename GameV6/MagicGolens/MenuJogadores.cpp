@@ -79,6 +79,7 @@ void MenuJogadores::executarEnter()
 	{
 	case 0:
 		GGrafico->setMenu(MenuIni->getMenuFases());
+		GEstado->setCoop(false);
 		break;
 
 	case 1:

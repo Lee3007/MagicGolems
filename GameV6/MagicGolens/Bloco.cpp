@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Bloco.h"
+#include "Jogador.h"
 
 Bloco::Bloco(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
 Tile(ID, tam, p, v, caminhoTextura, t, j)
@@ -10,51 +11,101 @@ Bloco::~Bloco()
 {
 }
 
-void Bloco::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+void Bloco::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
-	sf::Vector2f dist = posicao - posicaoOutro;
+	sf::Vector2f dist = posicaoOutro - posicao;
 	sf::Vector2f invasao;
+
 
 	invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
 	invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
 
-	if (invasao.x < 0.f && invasao.y < 0.f)
+	if (IdOutro == jogador)
 	{
-		if (fabsf(invasao.x) < fabsf(invasao.y))
+		if (invasao.x < 0.f && invasao.y < 0.f)
 		{
-			if (dist.x > 0.f)
+			if (fabsf(invasao.x) < fabsf(invasao.y))
 			{
-				posicao.x = posicao.x + fabsf(invasao.x);
-				corpo.setPosition(posicao);
-				//cout << "invasao lateral direita" << endl;	//B <- P
-				velocidade.x = 0.f;
+
+				if (dist.x > 0.f)
+				{
+					posicaoOutro.x = posicaoOutro.x + fabsf(invasao.x);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao lateral direita" << endl;	//B <- P
+					e->setVelocidadeX(0.f);
+				}
+				else
+				{
+					posicaoOutro.x = posicaoOutro.x - fabsf(invasao.x);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao lateral esquerda" << endl;	// P -> B
+					e->setVelocidadeX(0.f);
+				}
 			}
 			else
 			{
-				posicao.x = posicao.x - fabsf(invasao.x);
-				corpo.setPosition(posicao);
-				//cout << "invasao lateral esquerda" << endl;	// P -> B
-				velocidade.x = 0.f;
+				if (dist.y > 0.f)
+				{
+					posicaoOutro.y = posicaoOutro.y + fabsf(invasao.y);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao vertical por baixo" << endl;
+					e->setVelocidadeY(0.f);
+				}
+				else
+				{
+					posicaoOutro.y = posicaoOutro.y - fabsf(invasao.y);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao vertical por cima" << endl;
+					e->setVelocidadeY(0.f);
+					if (e->getId() == jogador)
+					{
+						Jogador* j = static_cast<Jogador*>(e);
+						j->setPulo(true);
+					}
+				}
 			}
 		}
-		else
+	}
+	else
+	{
+		if (invasao.x < 0.f && invasao.y < 0.f)
 		{
-			if (dist.y > 0.f)
+			if (fabsf(invasao.x) < fabsf(invasao.y))
 			{
-				posicao.y = posicao.y + fabsf(invasao.y);
-				corpo.setPosition(posicao);
-				//cout << "invasao vertical por baixo" << endl;
-				velocidade.y = 0.f;
+
+				if (dist.x > 0.f)
+				{
+					posicaoOutro.x = posicaoOutro.x + fabsf(invasao.x);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao lateral direita" << endl;	//B <- P
+					e->virar();
+				}
+				else
+				{
+					posicaoOutro.x = posicaoOutro.x - fabsf(invasao.x);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao lateral esquerda" << endl;	// P -> B
+					e->virar();
+				}
 			}
 			else
 			{
-				posicao.y = posicao.y - fabsf(invasao.y);
-				corpo.setPosition(posicao);
-				//cout << "invasao vertical por cima" << endl;
-				velocidade.y = 0.f;
+				if (dist.y > 0.f)
+				{
+					posicaoOutro.y = posicaoOutro.y + fabsf(invasao.y);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao vertical por baixo" << endl;
+					e->setVelocidadeY(0.f);
+				}
+				else
+				{
+					posicaoOutro.y = posicaoOutro.y - fabsf(invasao.y);
+					e->setPosicao(posicaoOutro);
+					//cout << "invasao vertical por cima" << endl;
+					e->setVelocidadeY(0.f);
+				}
 			}
 		}
 	}
 
-	//cout << "Bloco" << endl;
 }

@@ -7,7 +7,8 @@ Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2
 	lentidao(1),
 	vivo(false),
 	podePular(true),
-	alturaPulo(150)
+	alturaPulo(150),
+	viradoDir(true)
 {
 }
 
@@ -20,64 +21,19 @@ void Jogador::desenhar()
 	janela->draw(corpo);
 }
 
-void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
 	sf::Vector2f dist = posicao - posicaoOutro;
 	sf::Vector2f invasao;
 
-	if (IdOutro == bloco || IdOutro == areia)
+	if (IdOutro == bloco)
 	{
 		lentidao = 1;
-
-		invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
-		invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
-
-		if (invasao.x < 0.f && invasao.y < 0.f)
-		{
-			if (fabsf(invasao.x) < fabsf(invasao.y))
-			{
-				if (dist.x > 0.f)
-				{
-					posicao.x = posicao.x + fabsf(invasao.x);
-					corpo.setPosition(posicao);
-					//cout << "invasao lateral direita" << endl;	//B <- P
-					velocidade.x = 0.f;
-				}
-				else
-				{
-					posicao.x = posicao.x - fabsf(invasao.x);
-					corpo.setPosition(posicao);
-					//cout << "invasao lateral esquerda" << endl;	// P -> B
-					velocidade.x = 0.f;
-				}
-			}
-			else
-			{
-				if (dist.y > 0.f)
-				{
-					posicao.y = posicao.y + fabsf(invasao.y);
-					corpo.setPosition(posicao);
-					//cout << "invasao vertical por baixo" << endl;
-					velocidade.y = 0.f;
-				}
-				else
-				{
-					posicao.y = posicao.y - fabsf(invasao.y);
-					corpo.setPosition(posicao);
-					//cout << "invasao vertical por cima" << endl;
-					velocidade.y = 0.f;
-					podePular = true;
-				}
-			}
-		}
-
-		//cout << "Bloco" << endl;
 	}
 
 	if (IdOutro == areia)
 	{
 		lentidao = 3;
-		//velocidade.y = 10.f;
 
 		cout << "Areia" << endl;
 	}
@@ -103,4 +59,9 @@ void Jogador::reiniciar()
 {
 	velocidade = sf::Vector2f(0.f, 0.f);
 	vivo = true;
+}
+
+void Jogador::setPulo(bool b)
+{
+	podePular = b;
 }

@@ -17,7 +17,7 @@ void CristalGelo::atualizar()
 	corpo.setPosition(posicao);
 }
 
-void CristalGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+void CristalGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
 	if (IdOutro != naocolidivel && IdOutro != golemGelo && IdOutro != porta)
 	{

@@ -10,6 +10,6 @@ Fogo::~Fogo()
 {
 }
 
-void Fogo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+void Fogo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
 }

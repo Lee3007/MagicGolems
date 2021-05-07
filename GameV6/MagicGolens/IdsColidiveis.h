@@ -14,6 +14,7 @@ enum IdsColidiveis
 	bloco,
 	ar,
 	porta,
+	estalactite,
 	naocolidivel,
 	standby
 };

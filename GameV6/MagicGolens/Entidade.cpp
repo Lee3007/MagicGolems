@@ -9,11 +9,11 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	sprite(),
 	corpo(tam),
 	dimensoes(tam),
-	viradoDir(1),
 	destruir(false)
 {
 	textura.loadFromFile(caminhoTextura);
 	sprite.setTexture(textura);
+	sprite.setPosition(p);
 	corpo.setTexture(sprite.getTexture());
 	corpo.setOrigin(corpo.getSize() / 2.f);
 	janela = j;
@@ -34,6 +34,22 @@ void Entidade::setPosicao(sf::Vector2f p)
 {
 	posicao = p;
 	corpo.setPosition(posicao);
+}
+
+void Entidade::setVelocidadeX(float x)
+{
+	velocidade.x = x;
+}
+
+void Entidade::setVelocidadeY(float y)
+{
+	velocidade.y = y;
+}
+
+void Entidade::virar()
+{
+	corpo.scale(sf::Vector2f(-1.f, 1.f));
+	velocidade.x = velocidade.x * (-1);
 }
 
 sf::Vector2f Entidade::getPosicao()

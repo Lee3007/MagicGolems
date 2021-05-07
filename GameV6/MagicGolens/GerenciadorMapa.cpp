@@ -14,6 +14,7 @@ GerenciadorMapa::GerenciadorMapa(map <int, Tile*> map, Mapa* pm, sf::RenderWindo
 
 GerenciadorMapa::~GerenciadorMapa()
 {
+	mapaTiles.clear();
 }
 
 void GerenciadorMapa::desenhar()

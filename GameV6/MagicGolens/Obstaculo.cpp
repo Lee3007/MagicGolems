@@ -9,3 +9,7 @@ Obstaculo::Obstaculo(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vec
 Obstaculo::~Obstaculo()
 {
 }
+
+void Obstaculo::atualizar()
+{
+}

@@ -16,7 +16,7 @@ void Orbe::atualizar()
 	corpo.setPosition(posicao);
 }
 
-void Orbe::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro)
+void Orbe::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
 	if (IdOutro != naocolidivel && IdOutro != jogador && IdOutro != porta)
 	{

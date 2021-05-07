@@ -15,6 +15,7 @@
 #include "Ar.h"
 #include "Fogo.h"
 #include "Espinho.h"
+#include "Estalactite.h"
 #include <map>
 using namespace std;
 
@@ -60,4 +61,6 @@ public:
 	GerenciadorMapa* getGerenciadorMapa();
 	void setGerenciadorColisoes(GerenciadorColisoes* pg);
 	bool jogadorMorto();
+	virtual void criarObstaculos() = 0;
+	void deletarTiles();
 };

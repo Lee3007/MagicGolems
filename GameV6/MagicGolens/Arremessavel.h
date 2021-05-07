@@ -13,5 +13,5 @@ public:
 
 	virtual void atualizar() = 0;
 	void desenhar();
-	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro) = 0;
+	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL) = 0;
 };

@@ -14,7 +14,6 @@ protected:
 	sf::RectangleShape corpo;
 	sf::RenderWindow* janela;
 	float* dt;
-	bool viradoDir;
 	bool destruir;
 
 public:
@@ -26,8 +25,11 @@ public:
 	//Funcoes
 	virtual void atualizar() = 0;
 	virtual void desenhar() = 0;
-	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro) = 0;
+	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL) = 0;
 	void setPosicao(sf::Vector2f p);
+	void setVelocidadeX(float x);
+	void setVelocidadeY(float y);
+	void virar();
 	sf::Vector2f getPosicao();
 	sf::Vector2f getDimensoes();
 	const IdsColidiveis getId();

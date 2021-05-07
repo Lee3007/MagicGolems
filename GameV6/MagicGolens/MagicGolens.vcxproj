@@ -166,6 +166,7 @@
     <ClCompile Include="CristalGelo.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinho.cpp" />
+    <ClCompile Include="Estalactite.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="FaseFogo.cpp" />
     <ClCompile Include="FaseGelo.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="CristalGelo.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinho.h" />
+    <ClInclude Include="Estalactite.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="FaseFogo.h" />
     <ClInclude Include="FaseGelo.h" />

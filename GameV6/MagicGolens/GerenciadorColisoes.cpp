@@ -74,6 +74,8 @@ void GerenciadorColisoes::verificarColisoes()
 		for (auto colisao : tilesColidindo)
 		{
 			e1->colidir(colisao.Id, colisao.posicao, colisao.tamanho);
+			colisao.tile->setPosicao(colisao.posicao.x, colisao.posicao.y);
+			colisao.tile->colidir(e1->getId(), e1->getPosicao(), e1->getDimensoes(), e1);
 		}
 
 		auto outroColidivel = colidivel;

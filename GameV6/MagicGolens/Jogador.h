@@ -12,6 +12,7 @@ protected:
 	bool vivo;
 	bool podePular;
 	float alturaPulo;
+	bool viradoDir;
 
 public:
 
@@ -22,8 +23,9 @@ public:
 	//Funcoes
 	virtual void atualizar() = 0;
 	void desenhar();
-	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro);
+	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
 	void morrer();
 	bool estaVivo();
 	void reiniciar();
+	void setPulo(bool b);
 };

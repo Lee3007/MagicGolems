@@ -2,7 +2,6 @@ d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\magicgolens.
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\vc142.pdb
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\vc142.idb
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\stdafx.obj
-d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\golemgelo.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\gerenciadormapa.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\gerenciadorgrafico.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\gerenciadorestado.obj
@@ -13,6 +12,7 @@ d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\fasepedra.ob
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\fasegelo.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\fasefogo.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\fase.obj
+d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\estalactite.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\espinho.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\entidade.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\cristalgelo.obj
@@ -41,8 +41,9 @@ d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\jogador.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\inimigo.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\golempedra.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\golemfogo.obj
-d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\debug\magicgolens.ilk
+d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\golemgelo.obj
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\debug\magicgolens.exe
+d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\debug\magicgolens.ilk
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\debug\magicgolens.pdb
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\magicgolens.tlog\cl.command.1.tlog
 d:\repositorio_magicgolens\tecproggame\gamev6\magicgolens\x64\debug\magicgolens.tlog\cl.read.1.tlog

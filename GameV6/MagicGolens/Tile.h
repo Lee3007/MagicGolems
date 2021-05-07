@@ -14,6 +14,6 @@ public:
 	void setRectTextura(int x, int y);
 	sf::Sprite getTileSprite();
 	void desenhar();
-	void atualizar();
-	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro) = 0;
+	virtual void atualizar();
+	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL) = 0;
 };

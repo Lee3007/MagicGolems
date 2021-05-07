@@ -85,6 +85,7 @@ void Fase::inicializarFase(Jogador* j1, Jogador* j2)
 	}
 
 	GColisoes->setListaEntidades(LEntidades);
+	criarObstaculos();
 	criarInimigos();
 	setPosicaoJogadores();
 }
@@ -153,4 +154,16 @@ bool Fase::jogadorMorto()
 			return true;
 
 	return false;
+}
+
+void Fase::deletarTiles()
+{
+	Tile* pTile = NULL;
+	for (auto iterador = mapaTiles.begin(); iterador != mapaTiles.end(); iterador++)
+	{
+		pTile = (*iterador).second;
+		delete pTile;
+	}
+
+	mapaTiles.clear();
 }
