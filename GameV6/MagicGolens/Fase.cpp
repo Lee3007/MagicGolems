@@ -31,6 +31,14 @@ Fase::~Fase()
 
 void Fase::criarMapa()
 {
+	Tile* pTile = NULL;
+
+	pTile = new Bloco(bloco, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
+	mapaTiles[0] = pTile;
+	pTile = new Ar(naocolidivel, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
+	mapaTiles[3] = pTile;
+	pTile = new Porta(porta, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
+	mapaTiles[2] = pTile;
 	inicializarTiles(caminhoTile);
 
 	pMapa = new Mapa(caminhoMapa);
@@ -95,11 +103,13 @@ void Fase::reiniciarFase()
 	statusConcluida = false;
 	if (!LEntidades->getVaziaStatus())
 	{
+		jogador1->reiniciarTudo();
 		LEntidades->removerEntidade(jogador1);
 		cout << "jogador 1 removido" << endl;
 
 		if (jogador2 != NULL)
 		{
+			jogador2->reiniciarTudo();
 			LEntidades->removerEntidade(jogador2);
 			cout << "jogador 2 removido" << endl;
 		}

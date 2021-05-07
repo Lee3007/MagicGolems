@@ -30,6 +30,7 @@ public:
 	void morrer();
 	bool estaVivo();
 	void reiniciar();
+	void reiniciarTudo();
 	void setPulo(bool b);
 	void congelar();
 	void descongelado(float t);

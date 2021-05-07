@@ -117,12 +117,6 @@ void FasePedra::inicializarTiles(const char* caminhoTile)
 {
 	Tile* pTile = NULL;
 
-	pTile = new Bloco(bloco, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
-	mapaTiles[0] = pTile;
-	pTile = new Ar(naocolidivel, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
-	mapaTiles[3] = pTile;
 	pTile = new Areia(areia, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
 	mapaTiles[1] = pTile;
-	pTile = new Porta(porta, sf::Vector2f(96.f, 96.f), sf::Vector2f(0.f, 0.f), sf::Vector2f(0.f, 0.f), caminhoTile, dt, janela);
-	mapaTiles[2] = pTile;
 }

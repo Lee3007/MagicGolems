@@ -40,6 +40,10 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 		morrer();
 	}
 
+	if (IdOutro == estalactite) {
+		morrer();
+	}
+
 	if (IdOutro == golemPedra)
 	{
 		morrer();
@@ -72,6 +76,13 @@ bool Jogador::estaVivo()
 
 void Jogador::reiniciar()
 {
+	velocidade = sf::Vector2f(0.f, 0.f);
+	vivo = true;
+}
+
+void Jogador::reiniciarTudo()
+{
+	limite = 0.5f;
 	velocidade = sf::Vector2f(0.f, 0.f);
 	vivo = true;
 }
