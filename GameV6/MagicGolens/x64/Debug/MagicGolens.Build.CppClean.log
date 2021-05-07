@@ -2,7 +2,6 @@ c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\magi
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\vc142.pdb
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\vc142.idb
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\stdafx.obj
-c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\golemgelo.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\gerenciadormapa.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\gerenciadorgrafico.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\gerenciadorestado.obj
@@ -13,6 +12,7 @@ c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\fase
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\fasegelo.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\fasefogo.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\fase.obj
+c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\estalactite.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\espinho.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\entidade.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\cristalgelo.obj
@@ -41,10 +41,11 @@ c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\joga
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\inimigo.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\golempedra.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\golemfogo.obj
-c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\estalactite.obj
-c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\debug\magicgolens.ilk
+c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\golemgelo.obj
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\debug\magicgolens.exe
+c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\debug\magicgolens.ilk
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\debug\magicgolens.pdb
+c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\jogador.obj.enc
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\magicgolens.tlog\cl.command.1.tlog
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\magicgolens.tlog\cl.read.1.tlog
 c:\users\felip\desktop\gitprojjogo\tecproggame\gamev6\magicgolens\x64\debug\magicgolens.tlog\cl.write.1.tlog

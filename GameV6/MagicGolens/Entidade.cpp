@@ -9,7 +9,8 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	sprite(),
 	corpo(tam),
 	dimensoes(tam),
-	destruir(false)
+	destruir(false),
+	viradoDir(true)
 {
 	textura.loadFromFile(caminhoTextura);
 	sprite.setTexture(textura);
@@ -23,7 +24,6 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 		dimensoes.x = dimensoes.x - 25.f;
 		dimensoes.y = dimensoes.y - 15.f;
 	}
-
 }
 
 Entidade::~Entidade()
@@ -50,6 +50,10 @@ void Entidade::virar()
 {
 	corpo.scale(sf::Vector2f(-1.f, 1.f));
 	velocidade.x = velocidade.x * (-1);
+	if (viradoDir)
+		viradoDir = false;
+	else
+		viradoDir = true;
 }
 
 sf::Vector2f Entidade::getPosicao()

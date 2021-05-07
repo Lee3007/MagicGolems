@@ -2,8 +2,8 @@
 #include "Bloco.h"
 #include "Jogador.h"
 
-Bloco::Bloco(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j):
-Tile(ID, tam, p, v, caminhoTextura, t, j)
+Bloco::Bloco(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j) :
+	Tile(ID, tam, p, v, caminhoTextura, t, j)
 {
 }
 
@@ -16,7 +16,6 @@ void Bloco::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector
 	sf::Vector2f dist = posicaoOutro - posicao;
 	sf::Vector2f invasao;
 
-
 	invasao.x = fabsf(dist.x) - ((dimensoesOutro.x) / 2 + (dimensoes.x) / 2);
 	invasao.y = fabsf(dist.y) - ((dimensoesOutro.y) / 2 + (dimensoes.y) / 2);
 
@@ -26,13 +25,13 @@ void Bloco::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector
 		{
 			if (fabsf(invasao.x) < fabsf(invasao.y))
 			{
-
 				if (dist.x > 0.f)
 				{
 					posicaoOutro.x = posicaoOutro.x + fabsf(invasao.x);
 					e->setPosicao(posicaoOutro);
 					//cout << "invasao lateral direita" << endl;	//B <- P
 					e->setVelocidadeX(0.f);
+					
 				}
 				else
 				{
@@ -72,7 +71,6 @@ void Bloco::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector
 		{
 			if (fabsf(invasao.x) < fabsf(invasao.y))
 			{
-
 				if (dist.x > 0.f)
 				{
 					posicaoOutro.x = posicaoOutro.x + fabsf(invasao.x);
@@ -107,5 +105,4 @@ void Bloco::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector
 			}
 		}
 	}
-
 }

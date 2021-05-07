@@ -33,12 +33,12 @@ FasePedra::~FasePedra()
 void FasePedra::setPosicaoJogadores()
 {
 	jogador1->reiniciar();
-	jogador1->setPosicao(sf::Vector2f(3.5 * 96.f, 28 * 96.f));
+	jogador1->setPosicao(sf::Vector2f(3.5 * 96.f, 27 * 96.f));
 
 	if (jogador2 != NULL)
 	{
 		jogador2->reiniciar();
-		jogador2->setPosicao(sf::Vector2f(3.5 * 96.f, 28 * 96.f));
+		jogador2->setPosicao(sf::Vector2f(3.5 * 96.f, 27 * 96.f));
 	}
 }
 

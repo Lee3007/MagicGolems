@@ -15,6 +15,7 @@ protected:
 	sf::RenderWindow* janela;
 	float* dt;
 	bool destruir;
+	bool viradoDir;
 
 public:
 

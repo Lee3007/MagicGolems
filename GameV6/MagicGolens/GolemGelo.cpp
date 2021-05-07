@@ -24,7 +24,6 @@ void GolemGelo::atualizar()
 	velocidade.y += 9.81f;
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
-
 }
 
 void GolemGelo::desenhar()
@@ -34,12 +33,43 @@ void GolemGelo::desenhar()
 
 void GolemGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e)
 {
+	if (IdOutro == jogador)
+	{
+		if (nivel <= 5)
+		{
+			limite -= 0.4;
+			nivel++;
+			if (Id != boss)
+				tamanhoCristal += 0.2;
+		}
+	}
+
+	if (IdOutro == orb)
+	{
+		hp -= 100;
+		if (hp <= 0)
+			destruir = true;
+	}
 }
 
 void GolemGelo::arremessarCristal()
 {
 	CristalGelo* pCristal = NULL;
-	pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f)* tamanhoCristal, posicao, sf::Vector2f(300.f, -300.f), "text/cristal.png", dt, janela);
+
+	if (Id != boss) {
+		if (viradoDir)
+			pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(300.f, -300.f), "text/cristal.png", dt, janela);
+		else
+			pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(-300.f, -300.f), "text/cristal.png", dt, janela);
+	}
+	else {
+		float velx;
+		float vely;
+		vely = -300 - static_cast<float>(rand() % 150);
+		velx = -300 - static_cast<float>(rand() % 300);
+		pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(velx, vely), "text/cristal.png", dt, janela);
+	}
+
 	LEntidades->incluirEntidade(pCristal);
 	GColisoes->adicionarEntidade(pCristal);
 }

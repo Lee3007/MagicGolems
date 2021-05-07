@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "Atirador.h"
 
-Atirador::Atirador(float t):
-limite(t),
-podeAtirar(false),
-cooldown(0.f)
+Atirador::Atirador(float t) :
+	limite(t - 0.5f),
+	podeAtirar(false),
+	cooldown(0.f)
 {
 	LEntidades = NULL;
 	GColisoes = NULL;

@@ -39,6 +39,8 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 
 	if (IdOutro == orb)
 	{
-		destruir = true;
+		hp -= 100;
+		if (hp <= 0)
+			destruir = true;
 	}
 }
