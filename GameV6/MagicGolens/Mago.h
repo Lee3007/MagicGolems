@@ -21,5 +21,7 @@ public:
     float getPontuacao();
     int getPenalidadeAtual();
     int getPenalidadeAnte();
+    void salvar();
+    void carregar();
 };
 

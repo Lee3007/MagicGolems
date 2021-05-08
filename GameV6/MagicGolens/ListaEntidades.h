@@ -29,4 +29,5 @@ public:
 	void colidir();
 	bool getVaziaStatus();
 	int getTamanho() const;
+	void salvar();
 };

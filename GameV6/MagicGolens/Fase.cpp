@@ -1,11 +1,12 @@
 #include "stdafx.h"
 #include "Fase.h"
 
-Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j) :
+Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminhoBackground, sf::Vector2f ponto, float* t, sf::RenderWindow* j, int nF) :
 	LEntidades(),
 	statusConcluida(false),
 	pontoFinal(ponto),
-	mapaTiles()
+	mapaTiles(),
+	numFase(nF)
 {
 	dt = t;
 	janela = j;
@@ -176,4 +177,18 @@ void Fase::deletarTiles()
 	}
 
 	mapaTiles.clear();
+}
+
+void Fase::salvar() {
+	ofstream Gravador("salvar/Fase.txt", ios::trunc);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+	Gravador << numFase;
+	Gravador.close();
+
+	LEntidades->salvar();
+
 }

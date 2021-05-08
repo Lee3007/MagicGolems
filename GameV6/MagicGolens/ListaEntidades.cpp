@@ -96,3 +96,16 @@ int ListaEntidades::getTamanho() const
 {
 	return tam;
 }
+
+void ListaEntidades::salvar()
+{
+	Entidade* e = lista.voltarInicio();
+	e->limparSalvamento();
+
+	while (e != NULL)
+	{
+		e->salvar();
+		e = lista.irProximo();
+	}
+}
+

@@ -75,3 +75,22 @@ bool Entidade::destruirEntidade() const
 {
 	return destruir;
 }
+
+bool Entidade::getViradoDir()
+{
+	return viradoDir;
+}
+
+void Entidade::limparSalvamento()	//Limpa os arquivos que servem para guardar informacoes dos objetos, para que novas informaçoes sejam colocadas.
+{
+	ofstream Gravador;
+	string caminhos[9] = {"salvar/Fase.txt", "salvar/Mago.txt", "salvar/Anjo.txt", "salvar/GolemPedra.txt", "salvar/GolemFogo.txt", "salvar/GolemGelo.txt", "salvar/Orbe.txt", "salvar/CristalGelo.txt", "salvar/Estalactite.txt"};
+
+	for (int i = 0; i < 9; i++) {
+		Gravador.open(caminhos[i], ios::trunc);
+		if (!Gravador)
+			exit(12344);
+		Gravador << "";
+		Gravador.close();
+	}
+}

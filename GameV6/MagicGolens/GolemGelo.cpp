@@ -75,3 +75,18 @@ void GolemGelo::arremessarCristal()
 	LEntidades->incluirEntidade(pCristal);
 	GColisoes->adicionarEntidade(pCristal);
 }
+
+void GolemGelo::salvar() {
+	ofstream Gravador("salvar/GolemGelo.txt", ios::app);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
+		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << limite << ' ' << cooldown << ' ' << podeAtirar << endl;
+
+	Gravador.close();
+}
+

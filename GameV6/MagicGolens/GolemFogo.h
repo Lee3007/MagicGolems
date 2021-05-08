@@ -13,4 +13,7 @@ public:
 	void atualizar();
 	void desenhar();
 	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
+	void salvar();
+	void carregar() {};
+	//void carregar();
 };

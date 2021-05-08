@@ -38,11 +38,12 @@ protected:
 	const char* caminhoTile;
 	const char* caminhoMapa;
 	const char* caminhoBackground;
+	const int numFase;
 
 public:
 
 	//Construtora e Destrutora
-	Fase(const char* caminhoTile = "", const char* caminhoMapa = "", const char* caminhoBackground = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f), float* t = NULL, sf::RenderWindow* j = NULL);
+	Fase(const char* caminhoTile = "", const char* caminhoMapa = "", const char* caminhoBackground = "", sf::Vector2f ponto = sf::Vector2f(0.f, 0.f), float* t = NULL, sf::RenderWindow* j = NULL, int nF = 0);
 	~Fase();
 
 	//Funcoes
@@ -63,4 +64,6 @@ public:
 	bool jogadorMorto();
 	virtual void criarObstaculos() = 0;
 	void deletarTiles();
+
+	void salvar();
 };

@@ -41,3 +41,33 @@ void GolemFogo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Ve
 			destruir = true;
 	}
 }
+
+void GolemFogo::salvar() {
+	ofstream Gravador("salvar/GolemFogo.txt", ios::app);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
+		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << aceleracao << endl;
+
+	Gravador.close();
+}
+
+/*
+void GolemFogo::carregar() {
+	ifstream Carregador("salvar/Golens.txt", ios::in);
+
+	if (!Carregador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(67);
+	}
+
+	Carregador >> setid >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> dimensoes.x >>
+		dimensoes.y >> viradoDir >> hp;
+
+	Carregador.close();
+}
+*/

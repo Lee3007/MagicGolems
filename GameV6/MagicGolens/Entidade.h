@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "IdsColidiveis.h"
+#include <fstream>
 
 class Entidade
 {
@@ -35,4 +36,9 @@ public:
 	sf::Vector2f getDimensoes();
 	const IdsColidiveis getId();
 	bool destruirEntidade() const;
+	bool getViradoDir();
+
+	virtual void salvar() = 0;
+	virtual void carregar() = 0;
+	void limparSalvamento();
 };

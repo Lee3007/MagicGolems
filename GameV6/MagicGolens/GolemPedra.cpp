@@ -44,3 +44,17 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 			destruir = true;
 	}
 }
+
+void GolemPedra::salvar() {
+	ofstream Gravador("salvar/GolemPedra.txt", ios::app);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
+		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << crescimento << ' ' << cura << endl;
+
+	Gravador.close();
+}

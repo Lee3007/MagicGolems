@@ -1,5 +1,5 @@
 #pragma once
-
+//usar namespace
 enum IdsColidiveis
 {
 	jogador,

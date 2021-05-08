@@ -20,6 +20,14 @@ void Mago::atualizar()
 	descongelado(cooldownGelo);
 
 	if (!congelado) {
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q))
+		{
+			this->salvar();
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::E))
+		{
+			this->carregar();
+		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 		{
 			velocidade.x = 600.f / lentidao;
@@ -82,4 +90,34 @@ int Mago::getPenalidadeAtual()
 int Mago::getPenalidadeAnte()
 {
 	return penalidadeAnte;
+}
+
+void Mago::salvar() {
+	ofstream Gravador("salvar/Mago.txt", ios::trunc);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
+		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << podePular << ' ' << alturaPulo << ' ' << tempoCongelamento << ' ' <<
+		congelado << ' ' << cooldownGelo << ' ' << penalidadeAnte << ' ' << penalidadeAtual << ' ' << pontuacao;
+
+	Gravador.close();
+}
+
+void Mago::carregar() {
+	ifstream Carregador("salvar/Mago.txt", ios::in);
+
+	if (!Carregador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(67);
+	}
+
+	Carregador >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> dimensoes.x >>
+		dimensoes.y >> viradoDir >> hp >> podePular >> alturaPulo >> tempoCongelamento >>
+		congelado >> cooldownGelo >> penalidadeAnte >> penalidadeAtual >> pontuacao;
+
+	Carregador.close();
 }

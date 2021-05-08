@@ -17,6 +17,8 @@ public:
 	~Atirador();
 	void setListaEntidades(ListaEntidades* lista);
 	void setGerenciadorColisoes(GerenciadorColisoes* Gc);
+	virtual void salvar() = 0;
+	virtual void carregar() = 0;
 	void possoAtirar(float t);
 };
 

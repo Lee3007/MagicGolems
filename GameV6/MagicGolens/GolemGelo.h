@@ -17,4 +17,6 @@ public:
 	void desenhar();
 	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
 	void arremessarCristal();
+	void salvar();
+	void carregar() {};
 };

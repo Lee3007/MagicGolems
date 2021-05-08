@@ -34,4 +34,5 @@ public:
 	void setPulo(bool b);
 	void congelar();
 	void descongelado(float t);
+	virtual void salvar() = 0;
 };
