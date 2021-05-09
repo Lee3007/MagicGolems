@@ -22,4 +22,5 @@ public:
 	virtual void moverCima() = 0;
 	virtual void moverBaixo() = 0;
 	virtual void executarEnter() = 0;
+	virtual void atualizar(sf::Event evento);
 };

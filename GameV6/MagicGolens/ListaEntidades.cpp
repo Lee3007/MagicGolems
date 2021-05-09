@@ -108,4 +108,3 @@ void ListaEntidades::salvar()
 		e = lista.irProximo();
 	}
 }
-

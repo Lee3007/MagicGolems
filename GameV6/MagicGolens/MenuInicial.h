@@ -5,6 +5,7 @@
 #include "MenuFases.h"
 #include "MenuPause.h"
 #include "MenuJogadores.h"
+#include "Leaderboard.h"
 
 class MenuInicial :
 	public Menu
@@ -14,6 +15,7 @@ private:
 	MenuFases MFases;
 	MenuPause MPause;
 	MenuJogadores MJogadores;
+	Leaderboard MLeaderboard;
 
 public:
 	MenuInicial(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
@@ -26,4 +28,5 @@ public:
 	Menu* getMenuPause();
 	Menu* getMenuFases();
 	Menu* getMenuJogadores();
+	Leaderboard* getLeaderboard();
 };

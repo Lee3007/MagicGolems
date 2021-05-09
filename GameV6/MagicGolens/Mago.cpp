@@ -55,4 +55,5 @@ void Mago::atualizar()
 
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
+
 }

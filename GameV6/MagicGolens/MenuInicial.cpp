@@ -6,12 +6,14 @@ MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string c
 	opcoes(),
 	MFases(Ge, Gg, caminhoBackground, j),
 	MPause(Ge, Gg, caminhoBackground, j),
-	MJogadores(Ge, Gg, caminhoBackground, j)
+	MJogadores(Ge, Gg, caminhoBackground, j),
+	MLeaderboard(Ge, Gg, caminhoBackground, j)
 {
 	inicializarMenu();
 	MFases.setMenuInicial(this);
 	MPause.setMenuInicial(this);
 	MJogadores.setMenuInicial(this);
+	MLeaderboard.setMenuInicial(this);
 }
 
 MenuInicial::~MenuInicial()
@@ -49,11 +51,13 @@ void MenuInicial::inicializarMenu()
 	opcoes[3].setString("Sair");
 	opcoes[3].setOrigin(opcoes[3].getLocalBounds().width / 2, opcoes[3].getLocalBounds().height / 2);
 	opcoes[3].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 6));
+
 }
 
 void MenuInicial::desenhar()
 {
 	janela->draw(background);
+
 
 	for (int i = 0; i < 4; i++)
 	{
@@ -73,6 +77,7 @@ void MenuInicial::moverCima()
 
 void MenuInicial::moverBaixo()
 {
+
 	if (itemSelecionado + 1 <= 3)
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
@@ -90,6 +95,7 @@ void MenuInicial::executarEnter()
 		break;
 
 	case 1:
+		GGrafico->fecharJanela();
 		break;
 
 	case 3:
@@ -117,4 +123,9 @@ Menu* MenuInicial::getMenuFases()
 Menu* MenuInicial::getMenuJogadores()
 {
 	return &MJogadores;
+}
+
+Leaderboard* MenuInicial::getLeaderboard()
+{
+	return &MLeaderboard;
 }

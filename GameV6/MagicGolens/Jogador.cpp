@@ -12,9 +12,9 @@ Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2
 	tempoCongelamento(1.5),
 	congelado(0),
 	cooldownGelo(4),
+	pontuacao(10000.f),
 	penalidadeAnte(1),
-	penalidadeAtual(1),
-	pontuacao(10000)
+	penalidadeAtual(1)
 {
 	if (!texturaCongelado.loadFromFile(caminhoCongelado))
 		exit(9999);
@@ -39,34 +39,28 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	if (IdOutro == fogo) {
 		limite += 0.3;
 		morrer();
-		aumentaPenalidade();
 	}
 	if (IdOutro == espinho) {
 		morrer();
-		aumentaPenalidade();
 	}
 
 	if (IdOutro == estalactite) {
 		morrer();
-		aumentaPenalidade();
 	}
 
 	if (IdOutro == golemPedra)
 	{
 		morrer();
-		aumentaPenalidade();
 	}
 	if (IdOutro == golemFogo)
 	{
 		morrer();
 		limite += 0.3;
-		aumentaPenalidade();
 	}
 	if (IdOutro == golemGelo)
 	{
 		cooldownGelo = 3.f;
 		morrer();
-		aumentaPenalidade();
 	}
 	if (IdOutro == cristal) {
 		cooldownGelo = 0.f;
@@ -77,6 +71,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 void Jogador::morrer()
 {
 	vivo = false;
+	aumentaPenalidade();
 }
 
 bool Jogador::estaVivo()
@@ -154,14 +149,14 @@ void Jogador::carregar(sf::Vector2f posicao, sf::Vector2f velocidade, sf::Vector
 }
 
 
-
 void Jogador::aumentaPenalidade()
 {
 	//A pontuacao do jogador comecara em 10,000 pontos, e irá receber penalidades a cada morte. A penalidade seguirá a sequencia de Fibonacci
 	int aux = penalidadeAtual;
 	penalidadeAtual += penalidadeAnte;
 	penalidadeAnte = aux;
-	pontuacao = pontuacao / penalidadeAtual;
+	pontuacao = pontuacao / static_cast<float>(penalidadeAtual);
+	cout << "Pontuacao : " << pontuacao << endl;
 }
 
 float Jogador::getPontuacao()
@@ -178,3 +173,11 @@ int Jogador::getPenalidadeAnte()
 {
 	return penalidadeAnte;
 }
+
+void Jogador::reiniciarPontuacao()
+{
+	pontuacao = 10000.f;
+	penalidadeAnte = 1;
+	penalidadeAtual = 1;
+}
+

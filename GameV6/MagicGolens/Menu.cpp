@@ -19,3 +19,25 @@ Menu::Menu(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackgrou
 Menu::~Menu()
 {
 }
+
+void Menu::atualizar(sf::Event evento)
+{
+	switch (evento.type)
+	{
+	case sf::Event::KeyReleased:
+		switch (evento.key.code)
+		{
+		case sf::Keyboard::Up:
+			moverCima();
+			break;
+
+		case sf::Keyboard::Down:
+			moverBaixo();
+			break;
+
+		case sf::Keyboard::Return:
+			executarEnter();
+			break;
+		}
+	}
+}

@@ -2,7 +2,7 @@
 #include "GerenciadorEstado.h"
 #include "GerenciadorGrafico.h"
 #include "GerenciadorAtualizacoes.h"
-#include "Menu.h"
+#include "MenuInicial.h"
 
 GerenciadorEstado::GerenciadorEstado() :
 	bFase1(false),
@@ -173,18 +173,24 @@ void GerenciadorEstado::verificaEstado()
 			bFase2 = false;
 			bFase3 = false;
 			bMenu = true;
+			if (coop)
+			{
+				menu->getLeaderboard()->setJogadores(jogador1, jogador2);
+				GGrafico->setMenu(menu->getLeaderboard());
+			}
+			else
+			{
+				menu->getLeaderboard()->setJogadores(jogador1, NULL);
+				GGrafico->setMenu(menu->getLeaderboard());
+			}
+			
 			GColisoes->esvaziar();
-			//fase1->setConcluida(false);
-			//fase2->setConcluida(false);
-			//fase3->setConcluida(false);
 			reiniciarFases();
-			GGrafico->setMenu(menu);
-			//*inicializarLeaderBoard();
 		}
 	}
 }
 
-void GerenciadorEstado::setMenu(Menu* m)
+void GerenciadorEstado::setMenu(MenuInicial* m)
 {
 	if (m != NULL)
 	{
