@@ -117,7 +117,8 @@ void Fase::reiniciarFase()
 		jogador1 = NULL;
 		jogador2 = NULL;
 
-		LEntidades->destruirEntidades();
+		if(!LEntidades->getVaziaStatus())
+			LEntidades->destruirEntidades();
 	}
 }
 

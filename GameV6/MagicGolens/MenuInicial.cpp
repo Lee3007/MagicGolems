@@ -76,7 +76,7 @@ void MenuInicial::executarEnter()
 	switch (itemSelecionado)
 	{
 	case 0:
-		GGrafico->setMenu(&MFases);
+		GGrafico->setMenu(&MJogadores);
 		break;
 
 	case 1:
