@@ -95,24 +95,7 @@ void GerenciadorGrafico::setEvento()
 
 		if (GEstado->menuAtivo())
 		{
-			switch (evento.type)
-			{
-			case sf::Event::KeyReleased:
-				switch (evento.key.code)
-				{
-				case sf::Keyboard::Up:
-					menu->moverCima();
-					break;
-
-				case sf::Keyboard::Down:
-					menu->moverBaixo();
-					break;
-
-				case sf::Keyboard::Return:
-					menu->executarEnter();
-					break;
-				}
-			}
+			menu->atualizar(evento);
 		}
 		else
 		{

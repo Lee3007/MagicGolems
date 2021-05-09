@@ -22,5 +22,6 @@ public:
 	void moverBaixo();
 	void desenhar();
 	void executarEnter();
+	void atualizar(sf::Event evento);
 	void setMenuInicial(MenuInicial* m);
 };

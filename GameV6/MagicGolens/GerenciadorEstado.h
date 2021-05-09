@@ -6,7 +6,7 @@
 
 class GerenciadorAtualizacoes;
 class GerenciadorGrafico;
-class Menu;
+class MenuInicial;
 
 class GerenciadorEstado
 {
@@ -16,7 +16,7 @@ private:
 	Fase* fase1;
 	Fase* fase2;
 	Fase* fase3;
-	Menu* menu;
+	MenuInicial* menu;
 	GerenciadorGrafico* GGrafico;
 	GerenciadorAtualizacoes* GAtualizacoes;
 	GerenciadorColisoes* GColisoes;
@@ -39,7 +39,7 @@ public:
 	void setGerenciadores(GerenciadorGrafico* Gg, GerenciadorAtualizacoes* Ga, GerenciadorColisoes* Gc);
 	void setJogadores(Jogador* j1, Jogador* j2 = NULL);
 	void verificaEstado();
-	void setMenu(Menu* m);
+	void setMenu(MenuInicial* m);
 	bool menuAtivo() const;
 	void setMenuStatus(bool b);
 	void setCoop(bool b);

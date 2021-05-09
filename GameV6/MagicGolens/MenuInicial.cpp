@@ -6,12 +6,14 @@ MenuInicial::MenuInicial(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string c
 	opcoes(),
 	MFases(Ge, Gg, caminhoBackground, j),
 	MPause(Ge, Gg, caminhoBackground, j),
-	MJogadores(Ge, Gg, caminhoBackground, j)
+	MJogadores(Ge, Gg, caminhoBackground, j),
+	MLeaderboard(Ge, Gg, caminhoBackground, j)
 {
 	inicializarMenu();
 	MFases.setMenuInicial(this);
 	MPause.setMenuInicial(this);
 	MJogadores.setMenuInicial(this);
+	MLeaderboard.setMenuInicial(this);
 }
 
 MenuInicial::~MenuInicial()
@@ -34,22 +36,16 @@ void MenuInicial::inicializarMenu()
 
 	opcoes[1].setFont(fonte);
 	opcoes[1].setFillColor(sf::Color::White);
-	opcoes[1].setString("Leaderboard");
+	opcoes[1].setString("Sair");
 	opcoes[1].setOrigin(opcoes[1].getLocalBounds().width / 2, opcoes[1].getLocalBounds().height / 2);
 	opcoes[1].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 4));
-
-	opcoes[2].setFont(fonte);
-	opcoes[2].setFillColor(sf::Color::White);
-	opcoes[2].setString("Sair");
-	opcoes[2].setOrigin(opcoes[2].getLocalBounds().width / 2, opcoes[2].getLocalBounds().height / 2);
-	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 5));
 }
 
 void MenuInicial::desenhar()
 {
 	janela->draw(background);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		janela->draw(opcoes[i]);
 	}
@@ -67,7 +63,7 @@ void MenuInicial::moverCima()
 
 void MenuInicial::moverBaixo()
 {
-	if (itemSelecionado + 1 <= 2)
+	if (itemSelecionado + 1 <= 1)
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado++;
@@ -80,15 +76,16 @@ void MenuInicial::executarEnter()
 	switch (itemSelecionado)
 	{
 	case 0:
-		GGrafico->setMenu(&MJogadores);
+		GGrafico->setMenu(&MFases);
 		break;
 
 	case 1:
+		GGrafico->fecharJanela();
 		break;
 
 	case 2:
-		GGrafico->fecharJanela();
-		break;
+		GGrafico->setMenu(&MPause);
+		GEstado->inicializarFase1();
 	}
 }
 
@@ -105,4 +102,9 @@ Menu* MenuInicial::getMenuFases()
 Menu* MenuInicial::getMenuJogadores()
 {
 	return &MJogadores;
+}
+
+Leaderboard* MenuInicial::getLeaderboard()
+{
+	return &MLeaderboard;
 }

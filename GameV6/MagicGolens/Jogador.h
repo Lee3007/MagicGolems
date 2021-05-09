@@ -16,6 +16,9 @@ protected:
 	bool congelado;
 	float cooldownGelo;
 	sf::Texture texturaCongelado;
+	float pontuacao;
+	int penalidadeAtual;
+	int penalidadeAnte;
 
 public:
 
@@ -34,4 +37,9 @@ public:
 	void setPulo(bool b);
 	void congelar();
 	void descongelado(float t);
+	void aumentaPenalidade();
+	float getPontuacao();
+	int getPenalidadeAtual();
+	int getPenalidadeAnte();
+	void reiniciarPontuacao();
 };
