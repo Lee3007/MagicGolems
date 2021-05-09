@@ -21,7 +21,6 @@ private:
     Jogador* j1;
     Jogador* j2;
     bool nomeCadastrado;
-    bool coop;
 
 public:
     Leaderboard(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);

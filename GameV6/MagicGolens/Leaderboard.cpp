@@ -11,7 +11,6 @@ Leaderboard::Leaderboard(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string c
 	Menu(Ge, Gg, caminhoBackground, j),
 	opcoes(),
 	textbox(30, sf::Color::White, false, j, this),
-	coop(false),
 	ranking(),
 	leader(),
 	posicoes(),
@@ -293,9 +292,6 @@ void Leaderboard::setNomeCadastrado(bool b)
 
 void Leaderboard::setJogadores(Jogador* jog1, Jogador* jog2)
 {
-	if(j2 != NULL)
-		coop = true;
-
 	j1 = jog1;
 	j2 = jog2;
 }
@@ -383,4 +379,7 @@ void Leaderboard::reiniciarPontuacoesJogadores()
 
 	if(j2 != NULL)
 		j2->reiniciarPontuacao();
+
+	j1 = NULL;
+	j2 = NULL;
 }
