@@ -34,5 +34,6 @@ public:
 	void setColor(sf::Color cor);
 	void receberNome(sf::Event e);
 	void limpar();
+	void setNomeEnviado(bool b);
 };
 

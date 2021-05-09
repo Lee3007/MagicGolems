@@ -120,10 +120,11 @@ void Textbox::finalizarRecebimento()
 		novo += t[i];
 	}
 
-	text = "";
 	text = novo;
 
 	textbox.setString(text);
+
+	text = "";
 
 	nomeLido = true;
 }
@@ -140,7 +141,7 @@ bool Textbox::nomeEnviado()
 
 string Textbox::getString()
 {
-	return text;
+	return textbox.getString();
 }
 
 void Textbox::desenhar()
@@ -184,6 +185,11 @@ void Textbox::receberNome(sf::Event e)
 
 void Textbox::limpar()
 {
-	string t = "";
-	textbox.setString(t);
+	textbox.setString("");
+	text = "";
+}
+
+void Textbox::setNomeEnviado(bool b)
+{
+	nomeLido = b;
 }

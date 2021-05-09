@@ -4,7 +4,7 @@
 GolemPedra::GolemPedra(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j) :
 	Inimigo(ID, tam, p, v, caminhoTextura, t, j),
 	crescimento(1.2f),
-	cura(100.f)
+	cura(100)
 {
 }
 
@@ -30,7 +30,7 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 	{
 		if (nivel <= 3)
 		{
-			hp += cura;
+			hp += static_cast<int>(cura);
 			dimensoes *= crescimento;
 			corpo.scale(sf::Vector2f(crescimento, crescimento));
 			nivel++;

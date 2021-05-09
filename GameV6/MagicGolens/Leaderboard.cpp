@@ -222,6 +222,7 @@ void Leaderboard::executarEnter()
 				pontuacaoFinal += j2->getPontuacao();
 
 			adicionarPontuacao(textbox.getString(), pontuacaoFinal);
+			textbox.setSelecionado(false);
 			textbox.limpar();
 			nomeCadastrado = true;
 		}
@@ -230,13 +231,14 @@ void Leaderboard::executarEnter()
 
 	case 1:
 		GGrafico->setMenu(MenuIni);
+		reiniciarEscrita();
 		break;
 	}
 }
 
 void Leaderboard::atualizar(sf::Event evento)
 {
-	if (textbox.estaSelecionado())
+	if (textbox.estaSelecionado() && !nomeCadastrado)
 	{
 		switch(evento.type)
 		{
@@ -367,4 +369,18 @@ void Leaderboard::carregarPontuacao()
 		
 
 	Recuperador.close();
+}
+
+void Leaderboard::reiniciarEscrita()
+{
+	nomeCadastrado = false;
+	textbox.setNomeEnviado(false);
+}
+
+void Leaderboard::reiniciarPontuacoesJogadores()
+{
+	j1->reiniciarPontuacao();
+
+	if(j2 != NULL)
+		j2->reiniciarPontuacao();
 }

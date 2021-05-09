@@ -44,4 +44,6 @@ public:
     void ordenaRanking(vector<pair<string, float>> &vetor);
     void salvarPontuacao();
     void carregarPontuacao();
+    void reiniciarEscrita();
+    void reiniciarPontuacoesJogadores();
 };
