@@ -14,4 +14,6 @@ public:
 	void criarInimigos();
 	void criarObstaculos();
 	void inicializarTiles(const char* caminhoTile);
+	void recuperarEntes();
+
 };

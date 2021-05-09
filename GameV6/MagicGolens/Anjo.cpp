@@ -19,14 +19,6 @@ void Anjo::atualizar()
 	descongelado(cooldownGelo);
 
 	if (!congelado) {
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Z))
-		{
-			salvar();
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::X))
-		{
-			carregar();
-		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
 		{
 			velocidade.x = 600.f / lentidao;
@@ -66,34 +58,4 @@ void Anjo::atualizar()
 
 	posicao += velocidade * (*dt);
 	corpo.setPosition(posicao);
-}
-
-void Anjo::salvar() {
-	ofstream Gravador("salvar/Anjo.txt", ios::trunc);
-
-	if (!Gravador) {
-		cerr << "Arquivo nao foi aberto" << endl;
-		exit(12344);
-	}
-
-	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
-		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << podePular << ' ' << alturaPulo << ' ' << tempoCongelamento << ' ' <<
-		congelado << ' ' << cooldownGelo;
-
-	Gravador.close();
-}
-
-void Anjo::carregar() {
-	ifstream Carregador("salvar/Anjo.txt", ios::in);
-
-	if (!Carregador) {
-		cerr << "Arquivo nao foi aberto" << endl;
-		exit(67);
-	}
-
-	Carregador >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> dimensoes.x >>
-		dimensoes.y >> viradoDir >> hp >> podePular >> alturaPulo >> tempoCongelamento >>
-		congelado >> cooldownGelo;
-
-	Carregador.close();
 }

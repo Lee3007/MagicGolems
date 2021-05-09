@@ -18,7 +18,7 @@ public:
 	void atualizar();
 	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
     void devoCair();
-    void salvar() {};
-    void carregar() {};
+    void salvar();
+    void setCaindo(bool ca);
 };
 

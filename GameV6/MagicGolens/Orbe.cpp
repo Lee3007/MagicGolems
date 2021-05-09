@@ -24,3 +24,17 @@ void Orbe::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2
 	}
 
 }
+
+void Orbe::salvar() {
+	ofstream Gravador("salvar/Orbe.txt", ios::app);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
+		dimensoes.y << ' ' << viradoDir << endl;
+
+	Gravador.close();
+}

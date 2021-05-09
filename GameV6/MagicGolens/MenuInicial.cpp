@@ -40,16 +40,22 @@ void MenuInicial::inicializarMenu()
 
 	opcoes[2].setFont(fonte);
 	opcoes[2].setFillColor(sf::Color::White);
-	opcoes[2].setString("Sair");
+	opcoes[2].setString("Carregar Jogada");
 	opcoes[2].setOrigin(opcoes[2].getLocalBounds().width / 2, opcoes[2].getLocalBounds().height / 2);
 	opcoes[2].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 5));
+
+	opcoes[3].setFont(fonte);
+	opcoes[3].setFillColor(sf::Color::White);
+	opcoes[3].setString("Sair");
+	opcoes[3].setOrigin(opcoes[3].getLocalBounds().width / 2, opcoes[3].getLocalBounds().height / 2);
+	opcoes[3].setPosition(sf::Vector2f(1280 / 2.f, 720 / 8 * 6));
 }
 
 void MenuInicial::desenhar()
 {
 	janela->draw(background);
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		janela->draw(opcoes[i]);
 	}
@@ -67,7 +73,7 @@ void MenuInicial::moverCima()
 
 void MenuInicial::moverBaixo()
 {
-	if (itemSelecionado + 1 <= 2)
+	if (itemSelecionado + 1 <= 3)
 	{
 		opcoes[itemSelecionado].setFillColor(sf::Color::White);
 		itemSelecionado++;
@@ -86,9 +92,15 @@ void MenuInicial::executarEnter()
 	case 1:
 		break;
 
-	case 2:
+	case 3:
 		GGrafico->fecharJanela();
 		break;
+
+	case 2:
+		GGrafico->setMenu(&MPause);
+		GEstado->inicializaFaseSalvada();
+		break;
+
 	}
 }
 

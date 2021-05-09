@@ -58,6 +58,7 @@ public:
 	ListaEntidades* getListaEntidades();
 	sf::Vector2f getPosicaoJogador() const;
 	virtual void setPosicaoJogadores() = 0;
+	void setPosicaoJogadores(sf::Vector2f p1, sf::Vector2f p2);
 	virtual const sf::Vector2f getPontoFinal() const = 0;
 	GerenciadorMapa* getGerenciadorMapa();
 	void setGerenciadorColisoes(GerenciadorColisoes* pg);
@@ -66,4 +67,7 @@ public:
 	void deletarTiles();
 
 	void salvar();
+	void inicializarFaseSalva(Jogador* j1, Jogador* j2);
+	virtual void recuperarEntes() = 0;
+	void recuperarJogadores();
 };

@@ -11,7 +11,7 @@ class MenuPause :
 {
 private:
 
-	sf::Text opcoes[2];
+	sf::Text opcoes[3];
 	MenuInicial* MenuIni;
 
 public:

@@ -37,8 +37,8 @@ public:
 	const IdsColidiveis getId();
 	bool destruirEntidade() const;
 	bool getViradoDir();
+	void setViradoDir(bool v);
 
 	virtual void salvar() = 0;
-	virtual void carregar() = 0;
 	void limparSalvamento();
 };

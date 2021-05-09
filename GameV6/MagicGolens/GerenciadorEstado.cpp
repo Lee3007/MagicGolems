@@ -215,19 +215,77 @@ void GerenciadorEstado::setCoop(bool b)
 
 void GerenciadorEstado::salvarJogada()
 {
-	ofstream GravadorJogada("salvar/jogada.txt", ios::out);
-
-	if (!GravadorJogada) {
-		cerr << "Arquivo nao foi aberto" << endl;
-		exit(010);
-	}
-
-	//GravadorJogada << jogador1->getPosicao().x << ' ' << jogador1->getPosicao().y << ' ' << jogador1.getPontuacao();
-
-
-	GravadorJogada.close();
+	if (bFase1)
+		fase1->salvar();
+	else if (bFase2)
+		fase2->salvar();
+	else if (bFase3)
+		fase3->salvar();
 }
 
-void GerenciadorEstado::recuperarJogada()
+
+void GerenciadorEstado::inicializaFaseSalvada()
 {
+	ifstream Carregador("salvar/Fase.txt", ios::in);
+	int nfase;
+	int nplayers;
+
+	if (!Carregador) {
+		cerr << "nao foi possivel abrir fase.txt" << endl;
+		exit(001);
+	}
+
+	Carregador >> nfase >> nplayers;
+
+	switch (nfase)
+	{
+	case 1:
+		if (nplayers == 2)
+			fase1->inicializarFaseSalva(jogador1, jogador2);
+		else
+			fase1->inicializarFaseSalva(jogador1, NULL);
+
+		GGrafico->setListaEntidades(fase1->getListaEntidades());
+		GGrafico->setGerenciadorMapa(fase1->getGerenciadorMapa());
+		GColisoes->setGerenciadorMapa(fase1->getGerenciadorMapa());
+		GAtualizacoes->setFase(fase1);
+		GAtualizacoes->setListaEntidades(fase1->getListaEntidades());
+
+		bFase1 = true;
+		break;
+	
+	case 2:
+		if (nplayers == 2)
+			fase2->inicializarFaseSalva(jogador1, jogador2);
+		else
+			fase2->inicializarFaseSalva(jogador1, NULL);
+
+		GGrafico->setListaEntidades(fase2->getListaEntidades());
+		GGrafico->setGerenciadorMapa(fase2->getGerenciadorMapa());
+		GColisoes->setGerenciadorMapa(fase2->getGerenciadorMapa());
+		GAtualizacoes->setFase(fase2);
+		GAtualizacoes->setListaEntidades(fase2->getListaEntidades());
+
+		bFase2 = true;
+		break;
+
+	case 3:
+		if (nplayers == 2)
+			fase3->inicializarFaseSalva(jogador1, jogador2);
+		else
+			fase3->inicializarFaseSalva(jogador1, NULL);
+
+		GGrafico->setListaEntidades(fase3->getListaEntidades());
+		GGrafico->setGerenciadorMapa(fase3->getGerenciadorMapa());
+		GColisoes->setGerenciadorMapa(fase3->getGerenciadorMapa());
+		GAtualizacoes->setFase(fase3);
+		GAtualizacoes->setListaEntidades(fase3->getListaEntidades());
+
+		bFase3 = true;
+		break;
+	}
+
+
+	bMenu = false;
+
 }

@@ -15,5 +15,6 @@ public:
 	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
 	void salvar();
 	void carregar() {};
+	void setAceleracao(float a);
 	//void carregar();
 };

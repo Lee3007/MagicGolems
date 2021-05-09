@@ -163,6 +163,7 @@
     <ClCompile Include="Arremessavel.cpp" />
     <ClCompile Include="Atirador.cpp" />
     <ClCompile Include="Bloco.cpp" />
+    <ClCompile Include="Chefao.cpp" />
     <ClCompile Include="CristalGelo.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Espinho.cpp" />
@@ -211,6 +212,7 @@
     <ClInclude Include="Arremessavel.h" />
     <ClInclude Include="Atirador.h" />
     <ClInclude Include="Bloco.h" />
+    <ClInclude Include="Chefao.h" />
     <ClInclude Include="CristalGelo.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Espinho.h" />

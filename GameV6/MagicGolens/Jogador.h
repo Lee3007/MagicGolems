@@ -1,7 +1,6 @@
 #pragma once
 #include "Personagem.h"
 #include "Orbe.h"
-#include <vector>
 #include "Atirador.h"
 
 class Jogador :
@@ -16,6 +15,10 @@ protected:
 	bool congelado;
 	float cooldownGelo;
 	sf::Texture texturaCongelado;
+
+	float pontuacao;
+	int penalidadeAtual;
+	int penalidadeAnte;
 
 public:
 
@@ -34,5 +37,12 @@ public:
 	void setPulo(bool b);
 	void congelar();
 	void descongelado(float t);
-	virtual void salvar() = 0;
+	void salvar();
+
+	void carregar(sf::Vector2f posicao, sf::Vector2f velocidade, sf::Vector2f dimensoes, bool viradoDir, bool podePular, bool congelado, int hp, int penalidadeAnte, int penalidadeAtual, float alturaPulo, float tempoCongelamento, float cooldownGelo, float pontuacao);
+
+	void aumentaPenalidade();
+	float getPontuacao();
+	int getPenalidadeAtual();
+	int getPenalidadeAnte();
 };

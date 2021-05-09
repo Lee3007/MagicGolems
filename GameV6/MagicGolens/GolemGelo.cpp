@@ -6,8 +6,10 @@ GolemGelo::GolemGelo(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vec
 	Atirador(3),
 	tamanhoCristal(tamCristal)
 {
-	if (Id == boss)
-		hp = 1000;
+}
+
+GolemGelo::~GolemGelo()
+{
 }
 
 void GolemGelo::atualizar()
@@ -41,8 +43,6 @@ void GolemGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Ve
 		{
 			limite -= 0.4;
 			nivel++;
-			if (Id != boss)
-				tamanhoCristal += 0.2;
 		}
 	}
 
@@ -58,19 +58,12 @@ void GolemGelo::arremessarCristal()
 {
 	CristalGelo* pCristal = NULL;
 
-	if (Id != boss) {
-		if (viradoDir)
-			pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(300.f, -300.f), "text/cristal.png", dt, janela);
-		else
-			pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(-300.f, -300.f), "text/cristal.png", dt, janela);
-	}
-	else {
-		float velx;
-		float vely;
-		vely = -300 - static_cast<float>(rand() % 150);
-		velx = -300 - static_cast<float>(rand() % 300);
-		pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(velx, vely), "text/cristal.png", dt, janela);
-	}
+
+	if (viradoDir)
+		pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(300.f, -300.f), "text/cristal.png", dt, janela);
+	else
+		pCristal = new CristalGelo(cristal, sf::Vector2f(28.f, 28.f) * tamanhoCristal, posicao, sf::Vector2f(-300.f, -300.f), "text/cristal.png", dt, janela);
+	
 
 	LEntidades->incluirEntidade(pCristal);
 	GColisoes->adicionarEntidade(pCristal);
@@ -84,9 +77,14 @@ void GolemGelo::salvar() {
 		exit(12344);
 	}
 
-	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
-		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << limite << ' ' << cooldown << ' ' << podeAtirar << endl;
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x+25.f << ' ' <<
+		dimensoes.y+15.f << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << limite << ' ' << cooldown << ' ' << podeAtirar << ' ' << tamanhoCristal << endl;
 
 	Gravador.close();
+}
+
+void GolemGelo::setTamanhoCristal(float tamcri)
+{
+	tamanhoCristal = tamcri;
 }
 

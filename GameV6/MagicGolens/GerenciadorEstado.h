@@ -46,5 +46,6 @@ public:
 
 	//new
 	void salvarJogada();
-	void recuperarJogada();
+
+	void inicializaFaseSalvada();
 };

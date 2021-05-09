@@ -10,5 +10,6 @@ public:
     ~Obstaculo();
     virtual void atualizar();
     virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL) = 0;
+    virtual void salvar() {};
 };
 

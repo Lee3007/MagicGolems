@@ -57,10 +57,7 @@ void GerenciadorAtualizacoes::atualizar()
 			fase->setPosicaoJogadores();
 		}
 
-		fase->getPosicaoJogador();
-		fase->getPontoFinal();
-
-		if (calcularDistancia(fase->getPosicaoJogador(), fase->getPontoFinal()) <= 15)
+		if (calcularDistancia(fase->getPosicaoJogador(), fase->getPontoFinal()) <= 96)
 		{
 			fase->setConcluida(true);
 		}

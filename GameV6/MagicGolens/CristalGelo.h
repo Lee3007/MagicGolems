@@ -11,7 +11,7 @@ public:
     ~CristalGelo();
     void atualizar();
     void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
-    void salvar() {};
+    void salvar();
     void carregar() {};
 };
 

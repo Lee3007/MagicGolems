@@ -12,3 +12,8 @@ Personagem::Personagem(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::V
 Personagem::~Personagem()
 {
 }
+
+void Personagem::setHP(int hp)
+{
+	this->hp = hp;
+}

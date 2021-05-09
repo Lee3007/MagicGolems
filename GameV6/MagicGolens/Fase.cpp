@@ -142,12 +142,25 @@ sf::Vector2f Fase::getPosicaoJogador() const
 	return jogador1->getPosicao();
 }
 
+void Fase::setPosicaoJogadores(sf::Vector2f p1, sf::Vector2f p2)
+{
+	jogador1->reiniciar();
+	jogador1->setPosicao(p1);
+
+	if (jogador2 != NULL)
+	{
+		jogador2->reiniciar();
+		jogador2->setPosicao(p2);
+	}
+}
+
 const sf::Vector2f Fase::getPontoFinal() const
 {
 	return pontoFinal;
 }
 
-GerenciadorMapa* Fase::getGerenciadorMapa() {
+GerenciadorMapa* Fase::getGerenciadorMapa() 
+{
 	return pGm;
 }
 
@@ -179,16 +192,84 @@ void Fase::deletarTiles()
 	mapaTiles.clear();
 }
 
-void Fase::salvar() {
+void Fase::salvar() 
+{
 	ofstream Gravador("salvar/Fase.txt", ios::trunc);
 
 	if (!Gravador) {
 		cerr << "Arquivo nao foi aberto" << endl;
 		exit(12344);
 	}
-	Gravador << numFase;
+
+	if (jogador2 == NULL)
+		Gravador << numFase << ' ' << 1;
+	else
+		Gravador << numFase << ' ' << 2;
+
 	Gravador.close();
 
 	LEntidades->salvar();
+}
+
+void Fase::inicializarFaseSalva(Jogador* j1, Jogador* j2)
+{
+	setJogadores(j1, j2);
+	recuperarJogadores();
+
+
+	jogador1->reiniciar();
+	GColisoes->adicionarEntidade(jogador1);
+
+	if (jogador2 != NULL)
+	{
+		j2->reiniciar();
+		GColisoes->adicionarEntidade(j2);
+	}
+
+	GColisoes->setListaEntidades(LEntidades);
+	recuperarEntes();
 
 }
+
+
+void Fase::recuperarJogadores()
+{
+	ifstream Carregador("salvar/Jogador.txt", ios::in);
+
+	if (!Carregador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(67);
+	}
+
+
+	sf::Vector2f posicao, velocidade, dimensoes;
+	bool viradoDir, podePular, congelado;
+	int hp, penalidadeAnte, penalidadeAtual;
+	float alturaPulo, tempoCongelamento, cooldownGelo, pontuacao;
+	int vezesLoop = 2;
+	if (jogador2 == NULL)
+		vezesLoop = 1;
+
+	Carregador >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> dimensoes.x >>
+		dimensoes.y >> viradoDir >> hp >> podePular >> alturaPulo >> tempoCongelamento >>
+		congelado >> cooldownGelo >> penalidadeAnte >> penalidadeAtual >> pontuacao;
+
+	cout << "abc" << endl;
+	if(jogador1 == NULL)
+		cout << "jogador1 nulo!!!" << endl;
+	jogador1->carregar(posicao, velocidade, dimensoes, viradoDir, podePular, congelado, hp, penalidadeAnte, penalidadeAtual, alturaPulo, tempoCongelamento, cooldownGelo, pontuacao);
+	cout << "def" << endl;
+
+	if (jogador2 != NULL) 
+	{
+		Carregador >> posicao.x >> posicao.y >> velocidade.x >> velocidade.y >> dimensoes.x >>
+			dimensoes.y >> viradoDir >> hp >> podePular >> alturaPulo >> tempoCongelamento >>
+			congelado >> cooldownGelo >> penalidadeAnte >> penalidadeAtual >> pontuacao;
+
+		jogador2->carregar(posicao, velocidade, dimensoes, viradoDir, podePular, congelado, hp, penalidadeAnte, penalidadeAtual, alturaPulo, tempoCongelamento, cooldownGelo, pontuacao);
+	}
+
+	Carregador.close();
+
+}
+

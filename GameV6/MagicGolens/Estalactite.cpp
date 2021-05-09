@@ -44,3 +44,22 @@ void Estalactite::devoCair()
 		caindo = true;
 	}
 }
+
+void Estalactite::salvar() {
+	ofstream Gravador("salvar/Estalactite.txt", ios::app);
+
+	if (!Gravador) {
+		cerr << "Arquivo nao foi aberto" << endl;
+		exit(12344);
+	}
+
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
+		dimensoes.y << ' ' << viradoDir << ' ' << caindo << endl;
+
+	Gravador.close();
+}
+
+void Estalactite::setCaindo(bool ca)
+{
+	caindo = ca;
+}

@@ -50,10 +50,15 @@ void GolemFogo::salvar() {
 		exit(12344);
 	}
 
-	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
-		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << aceleracao << endl;
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x+25.f << ' ' <<
+		dimensoes.y+15.f << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << aceleracao << endl;
 
 	Gravador.close();
+}
+
+void GolemFogo::setAceleracao(float a)
+{
+	aceleracao = a;
 }
 
 /*

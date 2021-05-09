@@ -19,7 +19,7 @@ Entidade::Entidade(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vecto
 	corpo.setOrigin(corpo.getSize() / 2.f);
 	janela = j;
 	dt = t;
-	if (Id == jogador || Id == golemPedra || Id == golemFogo || Id == golemGelo)
+	if (Id == jogador || Id == golemPedra || Id == golemFogo || Id == golemGelo || Id == boss)
 	{
 		dimensoes.x = dimensoes.x - 25.f;
 		dimensoes.y = dimensoes.y - 15.f;
@@ -81,12 +81,21 @@ bool Entidade::getViradoDir()
 	return viradoDir;
 }
 
+void Entidade::setViradoDir(bool v)
+{
+	if (!viradoDir && !v)
+		corpo.scale(sf::Vector2f(-1.f, 1.f));
+
+	viradoDir = v;
+
+}
+
 void Entidade::limparSalvamento()	//Limpa os arquivos que servem para guardar informacoes dos objetos, para que novas informaçoes sejam colocadas.
 {
 	ofstream Gravador;
-	string caminhos[9] = {"salvar/Fase.txt", "salvar/Mago.txt", "salvar/Anjo.txt", "salvar/GolemPedra.txt", "salvar/GolemFogo.txt", "salvar/GolemGelo.txt", "salvar/Orbe.txt", "salvar/CristalGelo.txt", "salvar/Estalactite.txt"};
+	string caminhos[7] = {"salvar/Jogador.txt", "salvar/GolemPedra.txt", "salvar/GolemFogo.txt", "salvar/GolemGelo.txt", "salvar/Orbe.txt", "salvar/CristalGelo.txt", "salvar/Estalactite.txt"};
 
-	for (int i = 0; i < 9; i++) {
+	for (int i = 0; i < 7; i++) {
 		Gravador.open(caminhos[i], ios::trunc);
 		if (!Gravador)
 			exit(12344);

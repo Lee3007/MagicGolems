@@ -18,5 +18,5 @@ public:
 	virtual void desenhar() = 0;
 	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL) = 0;
 	virtual void salvar() = 0;
-	virtual void carregar() = 0;
+	void setHP(int hp);
 };

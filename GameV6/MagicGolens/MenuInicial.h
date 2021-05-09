@@ -10,7 +10,7 @@ class MenuInicial :
 	public Menu
 {
 private:
-	sf::Text opcoes[3];
+	sf::Text opcoes[4];
 	MenuFases MFases;
 	MenuPause MPause;
 	MenuJogadores MJogadores;

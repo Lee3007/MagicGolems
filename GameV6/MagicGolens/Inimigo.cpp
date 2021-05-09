@@ -10,3 +10,8 @@ nivel(1)
 Inimigo::~Inimigo()
 {
 }
+
+void Inimigo::setNivel(int ni)
+{
+	nivel = ni;
+}

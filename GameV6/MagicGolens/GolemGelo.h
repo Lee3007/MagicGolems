@@ -7,7 +7,7 @@
 class GolemGelo :
 	public Inimigo, public Atirador
 {
-private:
+protected:
 	float tamanhoCristal;
 
 public:
@@ -15,8 +15,9 @@ public:
 	~GolemGelo();
 	void atualizar();
 	void desenhar();
-	void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
-	void arremessarCristal();
-	void salvar();
+	virtual void colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vector2f dimensoesOutro, Entidade* e = NULL);
+	virtual void arremessarCristal();
+	virtual void salvar();
 	void carregar() {};
+	void setTamanhoCristal(float tamcri);
 };

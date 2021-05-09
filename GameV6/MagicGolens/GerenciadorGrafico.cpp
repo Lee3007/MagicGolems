@@ -124,6 +124,9 @@ void GerenciadorGrafico::setEvento()
 				case sf::Keyboard::Escape:
 					GEstado->setMenuStatus(true);
 					break;
+				//case sf::Keyboard::Q:
+				//	LEntidades->salvar();
+				//	break;
 				}
 			}
 		}

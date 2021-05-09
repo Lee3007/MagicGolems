@@ -53,8 +53,18 @@ void GolemPedra::salvar() {
 		exit(12344);
 	}
 
-	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x << ' ' <<
-		dimensoes.y << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << crescimento << ' ' << cura << endl;
+	Gravador << posicao.x << ' ' << posicao.y << ' ' << velocidade.x << ' ' << velocidade.y << ' ' << dimensoes.x+25.f << ' ' <<
+		dimensoes.y+15.f << ' ' << viradoDir << ' ' << hp << ' ' << nivel << ' ' << crescimento << ' ' << cura << endl;
 
 	Gravador.close();
+}
+
+void GolemPedra::setCrescimento(float cre)
+{
+	crescimento = cre;
+}
+
+void GolemPedra::setCura(float cur)
+{
+	cura = cur;
 }

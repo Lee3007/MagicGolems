@@ -4,10 +4,7 @@ class Mago :
     public Jogador
 {
 private:
-    //new
-    float pontuacao;
-    int penalidadeAtual;
-    int penalidadeAnte;
+
 
 public:
 
@@ -16,12 +13,5 @@ public:
 
     void atualizar();
 
-    //new
-    void aumentaPenalidade();
-    float getPontuacao();
-    int getPenalidadeAtual();
-    int getPenalidadeAnte();
-    void salvar();
-    void carregar();
 };
 

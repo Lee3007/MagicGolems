@@ -1,5 +1,6 @@
 #pragma once
 #include "Fase.h"
+#include "Chefao.h"
 
 class FaseGelo :
 	public Fase
@@ -14,4 +15,5 @@ public:
 	void criarInimigos();
 	void criarObstaculos();
 	void inicializarTiles(const char* caminhoTile);
+	void recuperarEntes();
 };

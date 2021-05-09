@@ -36,3 +36,18 @@ void Atirador::possoAtirar(float t)
 		podeAtirar = true;
 	}
 }
+
+void Atirador::setLimite(float lim)
+{
+	limite = lim;
+}
+
+void Atirador::setCooldown(float cool)
+{
+	cooldown = cool;
+}
+
+void Atirador::setPodeAtir(bool pode)
+{
+	podeAtirar = pode;
+}
