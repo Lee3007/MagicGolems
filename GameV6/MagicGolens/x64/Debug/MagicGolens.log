@@ -1,1 +1,50 @@
-﻿
+﻿  Anjo.cpp
+  Ar.cpp
+  Areia.cpp
+  Arremessavel.cpp
+  Atirador.cpp
+  Bloco.cpp
+  Chefao.cpp
+  CristalGelo.cpp
+  Espinho.cpp
+  Estalactite.cpp
+  Fase.cpp
+  FaseFogo.cpp
+  FaseGelo.cpp
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\FaseGelo.cpp(146,27): warning C4101: 'aceleracao': unreferenced local variable
+  FasePedra.cpp
+  Fogo.cpp
+  GerenciadorAtualizacoes.cpp
+  GerenciadorColisoes.cpp
+  GerenciadorEstado.cpp
+  GerenciadorGrafico.cpp
+  GerenciadorMapa.cpp
+  Generating Code...
+  Compiling...
+  GolemGelo.cpp
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\GolemGelo.cpp(44,17): warning C4305: '-=': truncation from 'double' to 'float'
+  GolemFogo.cpp
+  GolemPedra.cpp
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\GolemPedra.cpp(33,14): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  Inimigo.cpp
+  Jogador.cpp
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\Jogador.cpp(40,16): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\Jogador.cpp(62,16): warning C4305: '+=': truncation from 'double' to 'float'
+  Jogo.cpp
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\Jogo.cpp(34,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  ListaEntidades.cpp
+  MagicGolens.cpp
+  Mago.cpp
+  Mapa.cpp
+  Menu.cpp
+  MenuFases.cpp
+  MenuInicial.cpp
+  MenuJogadores.cpp
+  MenuPause.cpp
+  Obstaculo.cpp
+  Orbe.cpp
+  Personagem.cpp
+  Porta.cpp
+  Tile.cpp
+  Generating Code...
+  MagicGolens.vcxproj -> C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV6\MagicGolens\Debug\MagicGolens.exe
