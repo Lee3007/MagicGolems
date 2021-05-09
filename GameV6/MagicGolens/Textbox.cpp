@@ -10,8 +10,7 @@ Textbox::Textbox():
 	nomeLido(false),
 	limite(15),
 	fonte(),
-	janela(),
-	leaderboard()
+	janela()
 {
 }
 
@@ -23,8 +22,7 @@ Textbox::Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j, Leaderbo
 	nomeLido(false),
 	limite(8),
 	fonte(),
-	janela(j),
-	leaderboard(l)
+	janela(j)
 {
 	fonte.loadFromFile("font/chineseRocks.ttf");
 	textbox.setFont(fonte);

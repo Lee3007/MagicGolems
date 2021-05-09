@@ -2,8 +2,6 @@
 #include "stdafx.h"
 #include <sstream>
 
-class Leaderboard;
-
 class Textbox
 
 {
@@ -16,7 +14,6 @@ private:
 	bool nomeLido;
 	int limite;
 	sf::RenderWindow* janela;
-	Leaderboard* leaderboard;
 
 public:
 	Textbox();
