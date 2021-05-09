@@ -10,7 +10,7 @@ bool cmp(pair<string, float>& a, pair<string, float>& b)
 Leaderboard::Leaderboard(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
 	Menu(Ge, Gg, caminhoBackground, j),
 	opcoes(),
-	textbox(30, sf::Color::White, false, j, this),
+	textbox(30, sf::Color::White, false, j),
 	ranking(),
 	leader(),
 	posicoes(),

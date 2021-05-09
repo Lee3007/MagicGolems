@@ -14,7 +14,7 @@ Textbox::Textbox():
 {
 }
 
-Textbox::Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j, Leaderboard* l):
+Textbox::Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j):
 	textbox(),
 	text(),
 	selecionado(false),

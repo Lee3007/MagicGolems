@@ -17,7 +17,7 @@ private:
 
 public:
 	Textbox();
-	Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j, Leaderboard* l);
+	Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j);
 	~Textbox();
 	void entrada(int tipoChar);
 	void excluirUltimoCaracter();
