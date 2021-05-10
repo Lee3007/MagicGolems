@@ -8,6 +8,7 @@ class GerenciadorGrafico;
 class Menu
 {
 protected:
+
 	sf::Font fonte;
 	sf::Texture textura;
 	sf::Sprite background;
@@ -17,8 +18,12 @@ protected:
 	sf::RenderWindow* janela;
 
 public:
+
+	//Construtora e Destrutora
 	Menu(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
 	~Menu();
+
+	//Funcoes
 	virtual void desenhar() = 0;
 	virtual void moverCima() = 0;
 	virtual void moverBaixo() = 0;

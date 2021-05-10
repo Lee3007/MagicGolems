@@ -11,6 +11,7 @@ class MenuInicial :
 	public Menu
 {
 private:
+
 	sf::Text opcoes[3];
 	MenuFases MFases;
 	MenuPause MPause;
@@ -18,8 +19,11 @@ private:
 	Leaderboard MLeaderboard;
 
 public:
+	//Construtora e Destrutora
 	MenuInicial(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
 	~MenuInicial();
+
+	//Funcoes
 	void inicializarMenu();
 	void desenhar();
 	void moverCima();

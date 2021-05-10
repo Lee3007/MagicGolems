@@ -17,7 +17,19 @@ Fase::Fase(const char* caminhoTile, const char* caminhoMapa, const char* caminho
 	pGm = NULL;
 	pMapa = NULL;
 
-	this->caminhoTile = caminhoTile;
+	try {
+		this->caminhoTile = caminhoTile;
+
+		if (caminhoTile == NULL)
+			throw 32;
+	}
+	catch (int x)
+	{
+		if(x == 32)
+		cout << "CaminhoTile == NULL" << endl;
+		exit(10);
+	}
+
 	this->caminhoMapa = caminhoMapa;
 	this->caminhoBackground = caminhoBackground;
 }
@@ -98,6 +110,7 @@ void Fase::reiniciarFase()
 	statusConcluida = false;
 	if (!LEntidades->getVaziaStatus())
 	{
+
 		jogador1->reiniciarTudo();
 		LEntidades->removerEntidade(jogador1);
 
@@ -109,6 +122,7 @@ void Fase::reiniciarFase()
 
 		jogador1 = NULL;
 		jogador2 = NULL;
+
 
 		if (!LEntidades->getVaziaStatus())
 			LEntidades->destruirEntidades();

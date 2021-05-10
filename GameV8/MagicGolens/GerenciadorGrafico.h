@@ -13,7 +13,6 @@ class GerenciadorGrafico
 {
 private:
 
-	//Atributos
 	GerenciadorEstado* GEstado;
 	GerenciadorMapa* GMapa;
 	sf::RenderWindow janela;

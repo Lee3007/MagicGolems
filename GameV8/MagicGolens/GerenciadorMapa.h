@@ -23,10 +23,11 @@ public:
 		sf::Vector2f tamanho;
 	}DadosTiles;
 
+	//Construtora e Destrutora
 	GerenciadorMapa(map <int, Tile*> map = {}, Mapa* pm = NULL, sf::RenderWindow* j = NULL);
 	~GerenciadorMapa();
 
-	//Métodos
+	//Funcoes
 	void setMapa(Mapa* pm);
 	Mapa* getMapa() const;
 	void setBackground(sf::Sprite* sp);

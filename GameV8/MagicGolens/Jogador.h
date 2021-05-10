@@ -7,6 +7,7 @@ class Jogador :
 	public Personagem, public Atirador
 {
 protected:
+
 	float lentidao;
 	bool vivo;
 	bool podePular;

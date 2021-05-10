@@ -39,7 +39,6 @@ public:
 	bool destruirEntidade() const;
 	bool getViradoDir();
 	void setViradoDir(bool v);
-
 	virtual void salvar() = 0;
 	void limparSalvamento();
 };

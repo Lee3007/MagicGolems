@@ -15,8 +15,12 @@ protected:
 	ListaEntidades* LEntidades;
 
 public:
+
+	//Construtora e Destrutora
 	Atirador(float t = 1);
 	~Atirador();
+
+	//Funcoes
 	void setListaEntidades(ListaEntidades* lista);
 	void setGerenciadorColisoes(GerenciadorColisoes* Gc);
 	void possoAtirar(float t);

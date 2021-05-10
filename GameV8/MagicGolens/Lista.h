@@ -145,7 +145,8 @@ void Lista<TL>::removerInfo(TL* info)
 	if (pAux == pPrim)
 	{
 		pPrim = pAux->getpProx();
-		pPrim->setpAnt(NULL);
+		if(pPrim != NULL)
+			pPrim->setpAnt(NULL);
 	}
 	else if (pAux == pFim)
 	{

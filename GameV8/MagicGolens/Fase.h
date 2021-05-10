@@ -66,7 +66,6 @@ public:
 	bool jogadorMorto();
 	virtual void criarObstaculos() = 0;
 	void deletarTiles();
-
 	void salvar();
 	void inicializarFaseSalva(Jogador* j1, Jogador* j2);
 	virtual void recuperarEntes() = 0;

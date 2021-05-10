@@ -15,8 +15,12 @@ private:
 	MenuInicial* MenuIni;
 
 public:
+
+	//Construtora e Destrutora
 	MenuPause(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground = "", sf::RenderWindow* j = NULL);
 	~MenuPause();
+
+	//Funcoes
 	void inicializarMenu();
 	void moverCima();
 	void moverBaixo();

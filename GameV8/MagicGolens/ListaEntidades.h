@@ -8,8 +8,6 @@ class ListaEntidades
 {
 private:
 
-	//Atributos
-	//vector<Entidade*> lista;
 	Lista<Entidade> lista;
 	int tam;
 

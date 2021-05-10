@@ -12,13 +12,18 @@ class Arremessavel;
 class GerenciadorColisoes
 {
 private:
+
 	set<Entidade*> lista;
 	GerenciadorMapa* GMapa;
 	ListaEntidades* LEntidades;
 
 public:
+
+	//Construtora e Destrutora
 	GerenciadorColisoes();
 	~GerenciadorColisoes();
+
+	//Funcoes
 	void setGerenciadorMapa(GerenciadorMapa* pGm);
 	void setListaEntidades(ListaEntidades* lista);
 	void adicionarEntidade(Entidade* e);
@@ -27,4 +32,6 @@ public:
 	void esvaziar();
 	void verificarColisoes();
 	bool estaoColidindo(Entidade* e1, Entidade* e2);
+	Entidade* operator[](int i);
+	bool operator !();
 };

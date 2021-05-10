@@ -111,3 +111,28 @@ bool GerenciadorColisoes::estaoColidindo(Entidade* e1, Entidade* e2)
 
 	return false;
 }
+
+Entidade* GerenciadorColisoes::operator[](int i)
+{
+	if (i >= 0 && i < lista.size())
+	{
+		set<Entidade*>::iterator it = lista.begin();
+
+		for (int j = 0; j != i; j++, it++)
+		{
+
+		}
+
+		return *it;
+	}
+	else
+	{
+		cout << "ERRO: Acesso indevido de memória na lista do gerenciador de colisoes" << endl;
+		exit(90);
+	}
+}
+
+bool GerenciadorColisoes::operator!()
+{
+	return lista.empty();
+}

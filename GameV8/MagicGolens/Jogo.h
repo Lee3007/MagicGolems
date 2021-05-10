@@ -22,6 +22,7 @@ private:
 	GerenciadorEstado GerenciadorEstado;
 	GerenciadorColisoes GerenciadorColisoes;
 
+	//Menu
 	MenuInicial menu;
 
 	//Entidades

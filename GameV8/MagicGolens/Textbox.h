@@ -6,6 +6,7 @@ class Textbox
 
 {
 private:
+
 	sf::Text textbox;
 	sf::Font fonte;
 	std::string text;
@@ -16,9 +17,13 @@ private:
 	sf::RenderWindow* janela;
 
 public:
+
+	//Construtora e Destrutora
 	Textbox();
 	Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j);
 	~Textbox();
+
+	//Funcoes
 	void entrada(int tipoChar);
 	void excluirUltimoCaracter();
 	void setSelecionado(bool b);

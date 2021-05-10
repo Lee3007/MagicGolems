@@ -12,6 +12,7 @@ class GerenciadorEstado;
 class GerenciadorAtualizacoes
 {
 private:
+
 	GerenciadorEstado* GEstado;
 	ListaEntidades* LEntidades;
 	Fase* fase;
@@ -19,8 +20,12 @@ private:
 	float dt;
 
 public:
+
+	//Construtora e Destrutora
 	GerenciadorAtualizacoes();
 	~GerenciadorAtualizacoes();
+
+	//Funcoes
 	void setGerenciador(GerenciadorEstado* Ge);
 	void setListaEntidades(ListaEntidades* L);
 	void relogioRestart();
@@ -28,9 +33,5 @@ public:
 	void setFase(Fase* f);
 	float* getTempo();
 	float calcularDistancia(sf::Vector2f pj, sf::Vector2f pf);
-
-	//preview das funções de salvamento
-	
-	
 
 };

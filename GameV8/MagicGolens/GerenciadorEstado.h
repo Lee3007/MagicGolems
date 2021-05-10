@@ -12,6 +12,7 @@ class MenuInicial;
 class GerenciadorEstado
 {
 private:
+
 	Jogador* jogador1;
 	Jogador* jogador2;
 	Fase* fase1;
@@ -29,8 +30,11 @@ private:
 
 public:
 
+	//Construtora e Destrutora
 	GerenciadorEstado();
 	~GerenciadorEstado();
+
+	//Funcoes
 	void inicializarFase1();
 	void inicializarFase2();
 	void inicializarFase3();

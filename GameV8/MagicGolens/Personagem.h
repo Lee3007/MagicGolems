@@ -4,7 +4,7 @@ class Personagem :
 	public Entidade
 {
 protected:
-	//Atributos
+	
 	int hp;
 
 public:

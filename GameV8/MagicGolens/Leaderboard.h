@@ -11,6 +11,7 @@ class Leaderboard :
 
 {
 private:
+
     vector<pair<string, float>> ranking;
     sf::Text opcoes[2];
     sf::Text leader[5];
@@ -23,8 +24,12 @@ private:
     bool nomeCadastrado;
 
 public:
+
+    //Construtora e Destrutora
     Leaderboard(GerenciadorEstado* Ge = NULL, GerenciadorGrafico* Gg = NULL, string caminhoBackground = "", sf::RenderWindow* j = NULL);
     ~Leaderboard();
+
+    //Funcoes
     void inicializarLeaderboard();
     void inicializarRanking();
     void inicializarNomes();

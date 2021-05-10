@@ -2,7 +2,9 @@
 #include "Mapa.h"
 #include<fstream>
 
-Mapa::Mapa(const char* caminho)
+Mapa::Mapa(const char* caminho):
+	contador(sf::Vector2i(0,0)),
+	mapa()
 {
 	carregarMapa(caminho);
 }
