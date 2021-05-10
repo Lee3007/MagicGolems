@@ -18,6 +18,7 @@
 #include "Estalactite.h"
 #include <map>
 using namespace std;
+using namespace IdsCol;
 
 class Fase
 {

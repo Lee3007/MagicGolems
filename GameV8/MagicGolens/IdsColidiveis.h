@@ -1,21 +1,25 @@
 #pragma once
 //usar namespace
-enum IdsColidiveis
-{
-	jogador,
-	golemFogo,
-	golemPedra,
-	golemGelo,
-	boss,
-	orb,
-	cristal,
-	espinho,
-	areia,
-	fogo,
-	bloco,
-	ar,
-	porta,
-	estalactite,
-	naocolidivel,
-	standby
-};
+namespace IdsCol {
+
+	enum IdsColidiveis
+	{
+		jogador,
+		golemFogo,
+		golemPedra,
+		golemGelo,
+		boss,
+		orb,
+		cristal,
+		espinho,
+		areia,
+		fogo,
+		bloco,
+		ar,
+		porta,
+		estalactite,
+		naocolidivel,
+		standby
+	};
+
+}

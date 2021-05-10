@@ -5,6 +5,7 @@
 #include "Fase.h"
 #include "Menu.h"
 #include "GerenciadorGrafico.h"
+using namespace IdsCol;
 
 class GerenciadorEstado;
 

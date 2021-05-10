@@ -1,4 +1,5 @@
 #pragma once
+using namespace IdsCol;
 
 template<class TL>
 class Lista

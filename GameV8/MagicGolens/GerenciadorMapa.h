@@ -4,6 +4,7 @@
 #include "IdsColidiveis.h"
 #include "Entidade.h"
 #include <map>
+using namespace IdsCol;
 
 class GerenciadorMapa
 {

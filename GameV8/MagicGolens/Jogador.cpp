@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Jogador.h"
 #include "Mago.h"
+using namespace IdsCol;
 
 Jogador::Jogador(IdsColidiveis ID, sf::Vector2f tam, sf::Vector2f p, sf::Vector2f v, string caminhoTextura, float* t, sf::RenderWindow* j, string caminhoCongelado) :
 	Personagem(ID, tam, p, v, caminhoTextura, t, j),

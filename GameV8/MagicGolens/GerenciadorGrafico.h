@@ -4,6 +4,7 @@
 #include "Menu.h"
 #include "GerenciadorMapa.h"
 #include "Jogador.h"
+using namespace IdsCol;
 
 class Menu;
 class GerenciadorEstado;

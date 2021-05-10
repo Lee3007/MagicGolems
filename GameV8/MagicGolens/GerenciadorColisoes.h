@@ -5,6 +5,7 @@
 #include "GerenciadorMapa.h"
 #include "Entidade.h"
 #include "ListaEntidades.h"
+using namespace IdsCol;
 
 class Arremessavel;
 

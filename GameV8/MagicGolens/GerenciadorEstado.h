@@ -3,6 +3,7 @@
 #include "Fase.h"
 #include "Jogador.h"
 #include <fstream>
+using namespace IdsCol;
 
 class GerenciadorAtualizacoes;
 class GerenciadorGrafico;

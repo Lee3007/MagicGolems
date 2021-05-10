@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Entidade.h"
 #include "Lista.h"
+using namespace IdsCol;
 
 class ListaEntidades
 {

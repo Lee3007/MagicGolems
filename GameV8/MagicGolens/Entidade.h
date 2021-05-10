@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "IdsColidiveis.h"
 #include <fstream>
+using namespace IdsCol;
 
 class Entidade
 {

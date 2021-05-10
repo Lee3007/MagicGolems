@@ -3,6 +3,7 @@
 #include "ListaEntidades.h"
 #include "GerenciadorColisoes.h"
 
+
 class Arremessavel : public Entidade
 {
 protected:

@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "GerenciadorEstado.h"
+using namespace IdsCol;
 
 class GerenciadorGrafico;
 

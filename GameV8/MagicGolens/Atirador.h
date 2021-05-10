@@ -2,6 +2,8 @@
 #include "stdafx.h"
 #include "ListaEntidades.h"
 #include "GerenciadorColisoes.h"
+using namespace IdsCol;
+
 
 class Atirador
 {

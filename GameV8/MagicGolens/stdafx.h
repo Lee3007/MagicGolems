@@ -10,3 +10,6 @@ using namespace std;
 using namespace std;
 
 #include <SFML/Graphics.hpp>
+
+#include "IdsColidiveis.h"
+using namespace IdsCol;
