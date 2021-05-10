@@ -1,0 +1,2 @@
+﻿  stdafx.cpp
+C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\MagicGolens\stdafx.h(12,10): fatal error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
