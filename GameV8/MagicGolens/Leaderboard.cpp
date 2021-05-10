@@ -198,7 +198,6 @@ void Leaderboard::desenhar()
 	}
 
 	textbox.desenhar();
-	cout << ranking[0].first << ranking[0].second << endl;
 }
 
 void Leaderboard::executarEnter()
