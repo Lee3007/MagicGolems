@@ -47,7 +47,7 @@ const sf::Vector2f FasePedra::getPontoFinal() const
 
 void FasePedra::criarInimigos()
 {
-	int qntd = rand() % 4 + 5;
+	int qntd = rand() % 3 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
@@ -77,7 +77,7 @@ void FasePedra::criarObstaculos()
 	int qntd;
 	float px;
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -88,7 +88,7 @@ void FasePedra::criarObstaculos()
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -99,7 +99,7 @@ void FasePedra::criarObstaculos()
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{

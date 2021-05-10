@@ -7,11 +7,10 @@ bool cmp(pair<string, float>& a, pair<string, float>& b)
 	return a.second > b.second;
 }
 
-Leaderboard::Leaderboard(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j):
+Leaderboard::Leaderboard(GerenciadorEstado* Ge, GerenciadorGrafico* Gg, string caminhoBackground, sf::RenderWindow* j) :
 	Menu(Ge, Gg, caminhoBackground, j),
 	opcoes(),
-	textbox(30, sf::Color::White, false, j, this),
-	coop(false),
+	textbox(30, sf::Color::White, false, j),
 	ranking(),
 	leader(),
 	posicoes(),
@@ -58,11 +57,11 @@ void Leaderboard::inicializarRanking()
 {
 	if (ranking.empty())
 	{
-		ranking.push_back(pair<string, float>("XXXX", 0));
-		ranking.push_back(pair<string, float>("XXXX", 0));
-		ranking.push_back(pair<string, float>("XXXX", 0));
-		ranking.push_back(pair<string, float>("XXXX", 0));
-		ranking.push_back(pair<string, float>("XXXX", 0));
+		ranking.push_back(pair<string, float>("XXXX", 0.f));
+		ranking.push_back(pair<string, float>("XXXX", 0.f));
+		ranking.push_back(pair<string, float>("XXXX", 0.f));
+		ranking.push_back(pair<string, float>("XXXX", 0.f));
+		ranking.push_back(pair<string, float>("XXXX", 0.f));
 	}
 	inicializarNomes();
 	inicializarPosicoes();
@@ -199,7 +198,7 @@ void Leaderboard::desenhar()
 	}
 
 	textbox.desenhar();
-	cout << ranking[0].first << ranking[0].second <<endl;
+	cout << ranking[0].first << ranking[0].second << endl;
 }
 
 void Leaderboard::executarEnter()
@@ -210,7 +209,7 @@ void Leaderboard::executarEnter()
 		if (!textbox.estaSelecionado()) {
 			textbox.setColor(sf::Color(0, 144, 150));
 		}
-		if(!textbox.nomeEnviado())
+		if (!textbox.nomeEnviado())
 		{
 			textbox.setSelecionado(true);
 		}
@@ -222,6 +221,7 @@ void Leaderboard::executarEnter()
 				pontuacaoFinal += j2->getPontuacao();
 
 			adicionarPontuacao(textbox.getString(), pontuacaoFinal);
+			textbox.setSelecionado(false);
 			textbox.limpar();
 			nomeCadastrado = true;
 		}
@@ -230,15 +230,17 @@ void Leaderboard::executarEnter()
 
 	case 1:
 		GGrafico->setMenu(MenuIni);
+		reiniciarEscrita();
+		reiniciarPontuacoesJogadores();
 		break;
 	}
 }
 
 void Leaderboard::atualizar(sf::Event evento)
 {
-	if (textbox.estaSelecionado())
+	if (textbox.estaSelecionado() && !nomeCadastrado)
 	{
-		switch(evento.type)
+		switch (evento.type)
 		{
 		case sf::Event::TextEntered:
 			if (textbox.estaSelecionado())
@@ -270,7 +272,7 @@ void Leaderboard::atualizar(sf::Event evento)
 		}
 	}
 
-	
+
 }
 
 void Leaderboard::setMenuInicial(MenuInicial* m)
@@ -291,9 +293,6 @@ void Leaderboard::setNomeCadastrado(bool b)
 
 void Leaderboard::setJogadores(Jogador* jog1, Jogador* jog2)
 {
-	if(j2 != NULL)
-		coop = true;
-
 	j1 = jog1;
 	j2 = jog2;
 }
@@ -308,7 +307,7 @@ void Leaderboard::adicionarPontuacao(string nome1, float pontuacao1)
 void Leaderboard::atualizarRanking()
 {
 	ordenaRanking(ranking);
-	
+
 	for (int i = 0; i < 5; i++)
 	{
 		leader[i].setString(ranking[i].first);
@@ -316,7 +315,7 @@ void Leaderboard::atualizarRanking()
 	}
 }
 
-void Leaderboard::ordenaRanking(vector<pair<string, float>> &vetor)
+void Leaderboard::ordenaRanking(vector<pair<string, float>>& vetor)
 {
 	sort(vetor.begin(), vetor.end(), cmp);
 }
@@ -330,7 +329,7 @@ void Leaderboard::salvarPontuacao()
 		cout << "ERRO: Nao foi possivel abrir o leaderboard.txt" << endl;
 		exit(78);
 	}
-	
+
 	for (int i = 0; i < ranking.size(); i++)
 	{
 		Gravador << ranking[i].first << ' ' << ranking[i].second << endl;
@@ -357,14 +356,31 @@ void Leaderboard::carregarPontuacao()
 
 		Recuperador >> nome >> pontuacao;
 
-		if (nome !=  "")
+		if (nome != "")
 		{
 			pair<string, float> par(nome, pontuacao);
 			ranking.push_back(par);
 		}
 	}
 
-		
+
 
 	Recuperador.close();
+}
+
+void Leaderboard::reiniciarEscrita()
+{
+	nomeCadastrado = false;
+	textbox.setNomeEnviado(false);
+}
+
+void Leaderboard::reiniciarPontuacoesJogadores()
+{
+	j1->reiniciarPontuacao();
+
+	if (j2 != NULL)
+		j2->reiniciarPontuacao();
+
+	j1 = NULL;
+	j2 = NULL;
 }

@@ -1,8 +1,7 @@
 #include "stdafx.h"
 #include "Textbox.h"
-#include "Leaderboard.h"
 
-Textbox::Textbox():
+Textbox::Textbox() :
 	textbox(),
 	text(),
 	selecionado(false),
@@ -10,12 +9,11 @@ Textbox::Textbox():
 	nomeLido(false),
 	limite(15),
 	fonte(),
-	janela(),
-	leaderboard()
+	janela()
 {
 }
 
-Textbox::Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j, Leaderboard* l):
+Textbox::Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j) :
 	textbox(),
 	text(),
 	selecionado(false),
@@ -23,15 +21,14 @@ Textbox::Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j, Leaderbo
 	nomeLido(false),
 	limite(8),
 	fonte(),
-	janela(j),
-	leaderboard(l)
+	janela(j)
 {
 	fonte.loadFromFile("font/chineseRocks.ttf");
 	textbox.setFont(fonte);
 	textbox.setCharacterSize(tam);
 	textbox.setFillColor(cor);
 	textbox.setOrigin(textbox.getLocalBounds().width / 2, textbox.getLocalBounds().height / 2);
-	textbox.setPosition(sf::Vector2f(1280.f/2 + 210.f, 720/3.f));
+	textbox.setPosition(sf::Vector2f(1280.f / 2 + 210.f, 720 / 3.f));
 	selecionado = sel;
 
 	if (selecionado)
@@ -50,7 +47,7 @@ void Textbox::entrada(int tipoChar)
 	{
 		text += static_cast<char>(tipoChar);
 	}
-	else if(tipoChar == 8)
+	else if (tipoChar == 8)
 	{
 		if (text.length() > 0)
 		{
@@ -120,10 +117,11 @@ void Textbox::finalizarRecebimento()
 		novo += t[i];
 	}
 
-	text = "";
 	text = novo;
 
 	textbox.setString(text);
+
+	text = "";
 
 	nomeLido = true;
 }
@@ -140,7 +138,7 @@ bool Textbox::nomeEnviado()
 
 string Textbox::getString()
 {
-	return text;
+	return textbox.getString();
 }
 
 void Textbox::desenhar()
@@ -184,6 +182,11 @@ void Textbox::receberNome(sf::Event e)
 
 void Textbox::limpar()
 {
-	string t = "";
-	textbox.setString(t);
+	textbox.setString("");
+	text = "";
+}
+
+void Textbox::setNomeEnviado(bool b)
+{
+	nomeLido = b;
 }

@@ -48,7 +48,7 @@ const sf::Vector2f FaseGelo::getPontoFinal() const
 
 void FaseGelo::criarInimigos()
 {
-	int qntd = rand() % 2 + 5;
+	int qntd = rand() % 3 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
@@ -62,7 +62,7 @@ void FaseGelo::criarInimigos()
 		pGolemGelo->setGerenciadorColisoes(GColisoes);
 	}
 
-	qntd = rand() % 2 + 5;
+	qntd = rand() % 3 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
@@ -86,7 +86,7 @@ void FaseGelo::criarObstaculos()
 	int qntd;
 	float px;
 
-	qntd = rand() % 2 + 5;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -97,7 +97,7 @@ void FaseGelo::criarObstaculos()
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 2 + 5;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -108,7 +108,7 @@ void FaseGelo::criarObstaculos()
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 2 + 5;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -141,7 +141,7 @@ void FaseGelo::recuperarEntes()
 	sf::Vector2f posicao, velocidade, dimensoes;
 	bool viradoDir, caindo, podeAtirar;
 	int hp, nivel;
-	float crescimento, cura, aceleracao, limite, cooldown, tamanhoCristal;
+	float crescimento, cura, limite, cooldown, tamanhoCristal;
 
 	while (!Carregador.eof())
 	{

@@ -2,8 +2,6 @@
 #include "stdafx.h"
 #include <sstream>
 
-class Leaderboard;
-
 class Textbox
 
 {
@@ -16,11 +14,10 @@ private:
 	bool nomeLido;
 	int limite;
 	sf::RenderWindow* janela;
-	Leaderboard* leaderboard;
 
 public:
 	Textbox();
-	Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j, Leaderboard* l);
+	Textbox(int tam, sf::Color cor, bool sel, sf::RenderWindow* j);
 	~Textbox();
 	void entrada(int tipoChar);
 	void excluirUltimoCaracter();
@@ -34,5 +31,6 @@ public:
 	void setColor(sf::Color cor);
 	void receberNome(sf::Event e);
 	void limpar();
+	void setNomeEnviado(bool b);
 };
 

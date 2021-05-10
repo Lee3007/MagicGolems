@@ -38,7 +38,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 		lentidao = 4;
 	}
 	if (IdOutro == fogo) {
-		limite += 0.2;
+		limite += 0.2f;
 		morrer();
 	}
 	if (IdOutro == espinho) {
@@ -56,7 +56,7 @@ void Jogador::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Vect
 	if (IdOutro == golemFogo)
 	{
 		morrer();
-		limite += 0.2;
+		limite += 0.2f;
 	}
 	if (IdOutro == golemGelo)
 	{
@@ -160,7 +160,7 @@ void Jogador::aumentaPenalidade()
 	int aux = penalidadeAtual;
 	penalidadeAtual += penalidadeAnte;
 	penalidadeAnte = aux;
-	pontuacao = 10000 / penalidadeAtual;
+	pontuacao = 10000.f / penalidadeAtual;
 }
 
 float Jogador::getPontuacao()
@@ -176,4 +176,11 @@ int Jogador::getPenalidadeAtual()
 int Jogador::getPenalidadeAnte()
 {
 	return penalidadeAnte;
+}
+
+void Jogador::reiniciarPontuacao()
+{
+	pontuacao = 10000.f;
+	penalidadeAnte = 1;
+	penalidadeAtual = 1;
 }

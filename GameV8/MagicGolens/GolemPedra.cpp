@@ -30,7 +30,7 @@ void GolemPedra::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::V
 	{
 		if (nivel <= 3)
 		{
-			hp += cura;
+			hp += static_cast<int> (cura);
 			dimensoes *= crescimento;
 			corpo.scale(sf::Vector2f(crescimento, crescimento));
 			nivel++;

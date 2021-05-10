@@ -31,7 +31,7 @@ Jogo::~Jogo()
 
 void Jogo::executarJogo()
 {
-	srand(time(NULL));
+	srand(static_cast<unsigned int>(time(NULL)));
 
 	while (GerenciadorGrafico.janelaExecutando())
 	{

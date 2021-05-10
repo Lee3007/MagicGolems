@@ -41,7 +41,7 @@ void GolemGelo::colidir(IdsColidiveis IdOutro, sf::Vector2f posicaoOutro, sf::Ve
 	{
 		if (nivel <= 5)
 		{
-			limite -= 0.4;
+			limite -= 0.4f;
 			nivel++;
 		}
 	}

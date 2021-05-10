@@ -62,7 +62,7 @@ void FaseFogo::criarInimigos()
 		GColisoes->adicionarEntidade(pGolemFogo);
 	}
 
-	qntd = rand() % 2 + 5;
+	qntd = rand() % 3 + 5;
 
 	for (int i = 0; i < qntd; i++)
 	{
@@ -80,7 +80,7 @@ void FaseFogo::criarObstaculos()
 	int qntd;
 	float px;
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -91,7 +91,7 @@ void FaseFogo::criarObstaculos()
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
@@ -102,7 +102,7 @@ void FaseFogo::criarObstaculos()
 		GColisoes->adicionarEntidade(pEst);
 	}
 
-	qntd = rand() % 5 + 1;
+	qntd = rand() % 5 + 2;
 
 	for (int i = 1; i <= qntd; i++)
 	{
