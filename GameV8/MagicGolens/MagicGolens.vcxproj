@@ -129,12 +129,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>D:\repositorio_magicgolens\TecProgGame\GameV8\SFML-2.5.1%28x64%29\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\SFML-2.5.1(x64)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\repositorio_magicgolens\TecProgGame\GameV8\SFML-2.5.1%28x64%29\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\SFML-2.5.1(x64)\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
