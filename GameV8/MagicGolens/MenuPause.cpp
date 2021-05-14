@@ -117,31 +117,6 @@ void MenuPause::atualizar(sf::Event evento)
 	}
 }
 
-void MenuPause::atualizar(sf::Event evento)
-{
-	switch (evento.type)
-	{
-	case sf::Event::KeyReleased:
-		switch (evento.key.code)
-		{
-		case sf::Keyboard::Up:
-			moverCima();
-			break;
-
-		case sf::Keyboard::Down:
-			moverBaixo();
-			break;
-
-		case sf::Keyboard::Return:
-			executarEnter();
-			break;
-
-		case sf::Keyboard::Escape:
-			GEstado->setMenuStatus(false);
-		}
-	}
-}
-
 void MenuPause::setMenuInicial(MenuInicial* m)
 {
 	if (m != NULL)

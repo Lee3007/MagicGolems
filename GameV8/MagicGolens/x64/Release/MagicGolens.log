@@ -21,8 +21,8 @@
   GerenciadorGrafico.cpp
   Compiling...
   GerenciadorMapa.cpp
-  GolemFogo.cpp
   GolemGelo.cpp
+  GolemFogo.cpp
   GolemPedra.cpp
   Inimigo.cpp
   Jogador.cpp
@@ -37,8 +37,6 @@
   MenuInicial.cpp
   MenuJogadores.cpp
   MenuPause.cpp
-C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\MagicGolens\MenuPause.cpp(121,1): error C2084: function 'void MenuPause::atualizar(sf::Event)' already has a body
-C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\MagicGolens\MenuPause.cpp(95): message : see previous definition of 'atualizar'
   Obstaculo.cpp
   Orbe.cpp
   Personagem.cpp
@@ -46,3 +44,8 @@ C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\MagicGolens\MenuPause.cpp(
   Porta.cpp
   Textbox.cpp
   Tile.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 965 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  MagicGolens.vcxproj -> C:\Users\felip\Desktop\GitProjJogo\TecProgGame\GameV8\MagicGolens\Release\MagicGolens.exe

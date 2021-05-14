@@ -13,7 +13,6 @@ Atirador::Atirador(float t) :
 Atirador::~Atirador()
 {
 	LEntidades = NULL;
-	GColisoes = NULL;
 }
 
 void Atirador::setListaEntidades(ListaEntidades* lista)

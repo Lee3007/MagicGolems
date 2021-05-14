@@ -207,8 +207,6 @@ void Lista<TL>::esvaziar()
 		pAux = pPrim;
 	}
 
-	cout << "Esvaziei a lista da fase" << endl;
-
 	pPrim = NULL;
 	pFim = NULL;
 	pAtual = NULL;
